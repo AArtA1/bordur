@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="robots" content="index, follow" />
+<meta name="keywords" content="Keywords" />
+<meta name="description" content="Сайт gonami" />
+<link href="/bitrix/components/bitrix/main.map/templates/.default/style.css?1766053403165" type="text/css"  rel="stylesheet" />
+<link href="/local/templates/gonami/fonts/fonts.css?17635487643021" type="text/css"  data-template-style="true"  rel="stylesheet" />
+<link href="/local/templates/gonami/css/swiper-bundle.min.css?176200204016466" type="text/css"  data-template-style="true"  rel="stylesheet" />
+<link href="/local/templates/gonami/css/reset.css?17620020386564" type="text/css"  data-template-style="true"  rel="stylesheet" />
+<link href="/local/templates/gonami/css/styles.css?1770042804633340" type="text/css"  data-template-style="true"  rel="stylesheet" />
+<link href="/local/templates/gonami/components/bitrix/menu/.default/style.css?1761639938581" type="text/css"  data-template-style="true"  rel="stylesheet" />
+<link href="/local/components/gonami/custom_form/templates/orderProduct/style.css?1762778566104" type="text/css"  data-template-style="true"  rel="stylesheet" />
+<script>if(!window.BX)window.BX={};if(!window.BX.message)window.BX.message=function(mess){if(typeof mess==='object'){for(let i in mess) {BX.message[i]=mess[i];} return true;}};</script>
+<script>(window.BX||top.BX).message({"JS_CORE_LOADING":"Загрузка...","JS_CORE_NO_DATA":"- Нет данных -","JS_CORE_WINDOW_CLOSE":"Закрыть","JS_CORE_WINDOW_EXPAND":"Развернуть","JS_CORE_WINDOW_NARROW":"Свернуть в окно","JS_CORE_WINDOW_SAVE":"Сохранить","JS_CORE_WINDOW_CANCEL":"Отменить","JS_CORE_WINDOW_CONTINUE":"Продолжить","JS_CORE_H":"ч","JS_CORE_M":"м","JS_CORE_S":"с","JSADM_AI_HIDE_EXTRA":"Скрыть лишние","JSADM_AI_ALL_NOTIF":"Показать все","JSADM_AUTH_REQ":"Требуется авторизация!","JS_CORE_WINDOW_AUTH":"Войти","JS_CORE_IMAGE_FULL":"Полный размер"});</script>
+
+<script src="/bitrix/js/main/core/core.js?1766053394498410"></script>
+
+<script>BX.Runtime.registerExtension({"name":"main.core","namespace":"BX","loaded":true});</script>
+<script>BX.setJSList(["\/bitrix\/js\/main\/core\/core_ajax.js","\/bitrix\/js\/main\/core\/core_promise.js","\/bitrix\/js\/main\/polyfill\/promise\/js\/promise.js","\/bitrix\/js\/main\/loadext\/loadext.js","\/bitrix\/js\/main\/loadext\/extension.js","\/bitrix\/js\/main\/polyfill\/promise\/js\/promise.js","\/bitrix\/js\/main\/polyfill\/find\/js\/find.js","\/bitrix\/js\/main\/polyfill\/includes\/js\/includes.js","\/bitrix\/js\/main\/polyfill\/matches\/js\/matches.js","\/bitrix\/js\/ui\/polyfill\/closest\/js\/closest.js","\/bitrix\/js\/main\/polyfill\/fill\/main.polyfill.fill.js","\/bitrix\/js\/main\/polyfill\/find\/js\/find.js","\/bitrix\/js\/main\/polyfill\/matches\/js\/matches.js","\/bitrix\/js\/main\/polyfill\/core\/dist\/polyfill.bundle.js","\/bitrix\/js\/main\/core\/core.js","\/bitrix\/js\/main\/polyfill\/intersectionobserver\/js\/intersectionobserver.js","\/bitrix\/js\/main\/lazyload\/dist\/lazyload.bundle.js","\/bitrix\/js\/main\/polyfill\/core\/dist\/polyfill.bundle.js","\/bitrix\/js\/main\/parambag\/dist\/parambag.bundle.js"]);
+</script>
+<script>BX.Runtime.registerExtension({"name":"fx","namespace":"window","loaded":true});</script>
+<script>(window.BX||top.BX).message({"LANGUAGE_ID":"ru","FORMAT_DATE":"DD.MM.YYYY","FORMAT_DATETIME":"DD.MM.YYYY HH:MI:SS","COOKIE_PREFIX":"BITRIX_SM","SERVER_TZ_OFFSET":"10800","UTF_MODE":"Y","SITE_ID":"s1","SITE_DIR":"\/","USER_ID":"","SERVER_TIME":1770669468,"USER_TZ_OFFSET":0,"USER_TZ_AUTO":"Y","bitrix_sessid":"774f635dfc2464d72a7bc20804ed4a41"});</script>
+
+
+<script src="https://api-maps.yandex.ru/2.1/?apikey=d78c2187-a9c0-446f-8645-91302e41ede5&lang=ru_RU"></script>
+<script src="/bitrix/js/main/core/core_fx.js?176605339416888"></script>
+
+
+<script src="/local/templates/gonami/js/jquery-3.6.0.min.js?176200256889501"></script>
+<script src="/local/templates/gonami/js/gsap.js?1762002568174867"></script>
+<script src="/local/templates/gonami/js/ScrollTrigger.js?1762002570104784"></script>
+<script src="/local/templates/gonami/js/swiper-bundle.min.js?1762002572143070"></script>
+<script src="/local/templates/gonami/js/inputmask.min.js?1762002566126912"></script>
+<script src="/local/templates/gonami/js/main.js?177004280246021"></script>
+<script src="/local/components/gonami/custom_form/templates/order_a_call/script.js?17658859482567"></script>
+<script src="/local/components/gonami/custom_form/templates/request_a_catalog/script.js?17658859782578"></script>
+<script src="/local/components/gonami/custom_form/templates/submit_app/script.js?17658860042560"></script>
+<script src="/local/components/gonami/custom_form/templates/orderProduct/script.js?17658858262902"></script>
+<script>var _ba = _ba || []; _ba.push(["aid", "1daf88fbd50e4a486cacd63aab5b2a21"]); _ba.push(["host", "gonami.ru"]); (function() {var ba = document.createElement("script"); ba.type = "text/javascript"; ba.async = true;ba.src = (document.location.protocol == "https:" ? "https://" : "http://") + "bitrix.info/ba.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ba, s);})();</script>
+
+
+        <title>gonami</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gonami" />
+    <meta property="og:image" content="/local/templates/gonami/images/header_logo.svg" />
+    <meta property="og:description" content="Сайт gonami">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/local/templates/gonami/favicon.svg" />
+
+</head>
+
+<body>
+    <div class="wrapper">
+
+
+
+        <header class="header">
+            <div id="panel">
+                            </div>
+            <div class="header__container container">
+                <div class="header__wrapper">
+                    <a href="/" class="header__logo" aria-label="logo">
+                        <img src="/local/templates/gonami/images/header_logo.svg" alt="logo">
+                    </a>
+                    <div class="header__content">
+                        
+
+	<div class="header__navigation">
+									<div data-link="catalog" class="header__navigation-item">Каталог</div>
+			
+									<div data-link="about" class="header__navigation-item">О нас</div>
+			
+									<div data-link="contacts" class="header__navigation-item">Расчет плитки</div>
+			
+									<div data-link="partners" class="header__navigation-item">Партнерам</div>
+			
+									<div data-link="delivery" class="header__navigation-item">Доставка</div>
+			
+									<div data-link="mapSection" class="header__navigation-item">Контакты</div>
+			
+		
+	</div>
+                        <a href="tel:+74999909797" class="header__phone" aria-label="tel">
+                            + 7 499 990-97-97                        </a>
+                        <div class="header__btn btn-project btn-project--secondary btn-open-popup" data-popup-id="order-call">
+                            <span class="btn-project__text">Заказать звонок</span>
+                        </div>
+                    </div>
+                    <div class="header__mobile">
+                        <div class="header__call btn-icon btn-open-popup" data-popup-id="order-call">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M18.3077 15.275C18.3077 15.575 18.241 15.8834 18.0993 16.1834C17.9577 16.4834 17.7744 16.7667 17.5327 17.0334C17.1244 17.4834 16.6743 17.8084 16.166 18.0167C15.666 18.225 15.1244 18.3334 14.541 18.3334C13.691 18.3334 12.7827 18.1334 11.8243 17.725C10.866 17.3167 9.90768 16.7667 8.95768 16.075C7.99935 15.375 7.09102 14.6 6.22435 13.7417C5.36602 12.875 4.59102 11.9667 3.89935 11.0167C3.21602 10.0667 2.66602 9.11669 2.26602 8.17502C1.86602 7.22502 1.66602 6.31669 1.66602 5.45002C1.66602 4.88335 1.76602 4.34169 1.96602 3.84169C2.16602 3.33335 2.48268 2.86669 2.92435 2.45002C3.45768 1.92502 4.04102 1.66669 4.65768 1.66669C4.89102 1.66669 5.12435 1.71669 5.33268 1.81669C5.54935 1.91669 5.74102 2.06669 5.89102 2.28335L7.82435 5.00835C7.97435 5.21669 8.08268 5.40835 8.15768 5.59169C8.23268 5.76669 8.27435 5.94169 8.27435 6.10002C8.27435 6.30002 8.21602 6.50002 8.09935 6.69169C7.99102 6.88335 7.83268 7.08335 7.63268 7.28335L6.99935 7.94169C6.90768 8.03335 6.86602 8.14169 6.86602 8.27502C6.86602 8.34169 6.87435 8.40002 6.89102 8.46669C6.91602 8.53335 6.94102 8.58335 6.95768 8.63335C7.10768 8.90835 7.36602 9.26669 7.73268 9.70002C8.10768 10.1334 8.50768 10.575 8.94102 11.0167C9.39102 11.4584 9.82435 11.8667 10.266 12.2417C10.6993 12.6084 11.0577 12.8584 11.341 13.0084C11.3827 13.025 11.4327 13.05 11.491 13.075C11.5577 13.1 11.6243 13.1084 11.6993 13.1084C11.841 13.1084 11.9493 13.0584 12.041 12.9667L12.6743 12.3417C12.8827 12.1334 13.0827 11.975 13.2743 11.875C13.466 11.7584 13.6577 11.7 13.866 11.7C14.0243 11.7 14.191 11.7334 14.3743 11.8084C14.5577 11.8834 14.7494 11.9917 14.9577 12.1334L17.716 14.0917C17.9327 14.2417 18.0827 14.4167 18.1743 14.625C18.2577 14.8334 18.3077 15.0417 18.3077 15.275Z"
+                                    stroke="#474F57" stroke-width="1.8" stroke-miterlimit="10" />
+                            </svg>
+                        </div>
+                        <div class="header__burger btn-icon">
+                            <svg class="open" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.5 5.83331H17.5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" />
+                                <path d="M2.5 10H17.5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" />
+                                <path d="M2.5 14.1667H17.5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" />
+                            </svg>
+                            <svg class="close" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.16602 17.3667L17.366 4.16669" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M17.366 17.3667L4.16602 4.16669" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header><table class="map-columns">
+<tr>
+	<td>
+		<ul class="map-level-0">
+
+		
+			
+
+			
+			
+					<li><a href="/#catalog">Каталог</a></li>
+
+			
+
+			
+		
+			
+
+			
+			
+					<li><a href="/#about">О нас</a></li>
+
+			
+
+			
+		
+			
+
+			
+			
+					<li><a href="/#calculation">Расчет плитки</a></li>
+
+			
+
+			
+		
+			
+
+							</ul></td><td><ul class="map-level-0">
+			
+			
+					<li><a href="/#partners">Партнерам</a></li>
+
+			
+
+			
+		
+			
+
+			
+			
+					<li><a href="/#delivery">Доставка</a></li>
+
+			
+
+			
+		
+			
+
+			
+			
+					<li><a href="/#contacts">Контакты</a></li>
+
+			
+
+			
+		
+		
+		</ul>
+	</td>
+</tr>
+</table>
+<footer class="footer">
+    <div class="footer__container container">
+        <div class="footer__wrapper">
+            <div class="footer__info">
+                Gonami (Гонами) © 2026</div>
+            <div class="footer__info">
+                ИНН: 5024185198            </div>
+            <div class="footer__info">
+                ОГРН: 1185053009360            </div>
+            <a href="/privacy-policy/" class="footer__info" aria-label="Политика конфиденциальности">Политика конфиденциальности</a>
+            <div class="footer__info">
+                <a href="https://toimi.pro/ru/web-development/" target="_blank" aria-label="Toimi.pro - Разработка сайтов">
+                    Создание сайта
+                </a>
+                <a href="https://toimi.pro/ru/" target="_blank" aria-label="Toimi.pro">
+                    <svg width="42" height="18" viewBox="0 0 42 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6.14685 6.24932H4.24557V4.06775H1.47672V6.24932H0V8.98103H1.47672V12.3388C1.47672 13.7236 1.80898 14.6721 2.49197 15.2222C3.17495 15.7534 4.39324 15.9241 6.14685 15.7344V13.1545C4.79934 13.2304 4.24557 13.0976 4.24557 12.3388V8.98103H6.14685V6.24932Z"
+                            fill="#0C0C0D" />
+                        <path
+                            d="M15.4348 14.5583C16.3762 13.5908 16.8561 12.3957 16.8561 10.9919C16.8561 9.58808 16.3762 8.41192 15.4348 7.44444C14.4933 6.47696 13.3304 5.98374 11.9645 5.98374C10.5985 5.98374 9.43558 6.47696 8.49417 7.44444C7.55276 8.41192 7.07283 9.58808 7.07283 10.9919C7.07283 12.3957 7.55276 13.5908 8.49417 14.5583C9.43558 15.5257 10.5985 16 11.9645 16C13.3304 16 14.4933 15.5257 15.4348 14.5583ZM10.4508 12.6043C10.0447 12.187 9.84168 11.6558 9.84168 10.9919C9.84168 10.3279 10.0447 9.79675 10.4508 9.3794C10.8569 8.96206 11.3553 8.75339 11.9645 8.75339C12.5736 8.75339 13.072 8.96206 13.4781 9.3794C13.8842 9.79675 14.0872 10.3279 14.0872 10.9919C14.0872 11.6558 13.8842 12.187 13.4781 12.6043C13.072 13.0217 12.5736 13.2304 11.9645 13.2304C11.3553 13.2304 10.8569 13.0217 10.4508 12.6043Z"
+                            fill="#0C0C0D" />
+                        <path
+                            d="M20.9696 4.92141C21.6341 4.23848 21.6341 3.17615 20.9696 2.5122C20.3235 1.82927 19.2898 1.82927 18.6253 2.5122C17.9792 3.17615 17.9792 4.23848 18.6253 4.92141C19.2898 5.58537 20.3235 5.58537 20.9696 4.92141ZM21.1911 15.7344V6.24932H18.4222V15.7344H21.1911Z"
+                            fill="#0C0C0D" />
+                        <path
+                            d="M33.5543 5.98374C32.336 5.98374 31.45 6.40108 30.8777 7.23577C30.3424 6.40108 29.5302 5.98374 28.4596 5.98374C27.3151 5.98374 26.4845 6.36314 25.9861 7.12195V6.24932H23.2172V15.7344H25.9861V10.3848C25.9861 9.26558 26.5214 8.60163 27.4259 8.60163C28.2935 8.60163 28.7549 9.1897 28.7549 10.1572V15.7344H31.5238V10.3848C31.5238 9.26558 32.0591 8.60163 32.9636 8.60163C33.8312 8.60163 34.2926 9.1897 34.2926 10.1572V15.7344H37.0615V9.91057C37.0615 8.71545 36.7477 7.76694 36.1016 7.06504C35.4556 6.34417 34.6064 5.98374 33.5543 5.98374Z"
+                            fill="#0C0C0D" />
+                        <path
+                            d="M41.5016 4.92141C42.1661 4.23848 42.1661 3.17615 41.5016 2.5122C40.8555 1.82927 39.8218 1.82927 39.1573 2.5122C38.5112 3.17615 38.5112 4.23848 39.1573 4.92141C39.8218 5.58537 40.8555 5.58537 41.5016 4.92141ZM41.7231 15.7344V6.24932H38.9543V15.7344H41.7231Z"
+                            fill="#0C0C0D" />
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</footer>
+</div>
+
+<!-- попат заказать звонок  -->
+<div class="popup-project form-popup" id="order-call">
+    <!-- добавив класс active к popup-project попап становится активен -->
+    <div class="popup-project__bg"></div>
+    <div class="popup-project__carousel">
+        <div class="popup-project__viewport">
+            <div class="popup-project__track">
+                <div class="popup-project__slide">
+                    <div class="popup-project__box popup-project__box--medium">
+                        <div class="popup-project__close btn-icon js-close-popup">
+                            <!-- js-close-popup закрывает текущий попап -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 20.84L20.84 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M20.84 20.84L5 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="form-popup__wrapper">
+                            <div class="form-popup__title title-h3">Заказать звонок</div>
+                            
+<form id="orderCallForm" class="form-popup__body form-project" novalidate>
+    <input type="hidden" name="sessid" id="sessid" value="774f635dfc2464d72a7bc20804ed4a41" />    <div class="form-project__row">
+        <div class="form-project__inp">
+            <div class="input-project input-project--white">
+                <!-- на input-project добавить класс input-project--error если в поле ошибка -->
+                <div class="input-project__label">Имя</div>
+                <input type="text" required name="name" class="input-project__input" placeholder="Ваше имя">
+                <div class="input-project__error">Здесь текст ошибки</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-project__row">
+        <div class="form-project__inp">
+            <div class="input-project input-project--white">
+                <!-- на input-project добавить класс input-project--error если в поле ошибка -->
+                <div class="input-project__label">Номер телефона</div>
+                <input type="tel" required name="tel" class="input-project__input phone-mask" placeholder="+7 ___ ___-__-__">
+                <div class="input-project__error">Здесь текст ошибки</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-project__checks">
+        <label class="checkbox-project checkbox-project--white">
+            <input type="checkbox" class="checkbox-project__inp" name="privacy">
+            <div class="checkbox-project__body">
+                <div class="checkbox-project__box">
+                    <svg class="default" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="4" fill="#474F57" />
+                    </svg>
+                    <svg class="active" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="4" fill="#EC253C" stroke="#EC253C" stroke-width="1.8" />
+                        <path d="M7.55469 12.0003L10.888 15.3337L16.4436 8.66699" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="checkbox-project__label">Согласен с <a href="/privacy-policy/">Политикой конфиденциальности</a></div>
+            </div>
+        </label>
+        <label class="checkbox-project checkbox-project--white">
+            <input type="checkbox" name="whatsapp" class="checkbox-project__inp">
+            <div class="checkbox-project__body">
+                <div class="checkbox-project__box">
+                    <svg class="default" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="4" fill="#474F57" />
+                    </svg>
+                    <svg class="active" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="4" fill="#EC253C" stroke="#EC253C" stroke-width="1.8" />
+                        <path d="M7.55469 12.0003L10.888 15.3337L16.4436 8.66699" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="checkbox-project__label">Мне удобнее общаться по WhatsApp, MAX</div>
+            </div>
+        </label>
+    </div>
+    <button class="form-project__btn btn-project btn-project--primary" disabled>
+        <span class="btn-project__text">Перезвоните мне</span>
+    </button>
+</form>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- попап запросить каталог -->
+<div class="popup-project form-popup" id="catalog-request">
+    <!-- добавив класс active к popup-project попап становится активен -->
+    <div class="popup-project__bg"></div>
+    <div class="popup-project__carousel">
+        <div class="popup-project__viewport">
+            <div class="popup-project__track">
+                <div class="popup-project__slide">
+                    <div class="popup-project__box popup-project__box--medium">
+                        <div class="popup-project__close btn-icon js-close-popup">
+                            <!-- js-close-popup закрывает текущий попап -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 20.84L20.84 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M20.84 20.84L5 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="form-popup__wrapper">
+                            <div class="form-popup__title title-h3">Запросить каталог</div>
+                            
+<form id="requestCatalog" class="form-popup__body form-project" novalidate>
+    <input type="hidden" name="sessid" id="sessid_1" value="774f635dfc2464d72a7bc20804ed4a41" />    <div class="form-project__row">
+        <div class="form-project__inp">
+            <div class="input-project input-project--white">
+                <!-- на input-project добавить класс input-project--error если в поле ошибка -->
+                <div class="input-project__label">Имя</div>
+                <input type="text" required name="name" class="input-project__input" placeholder="Ваше имя">
+                <div class="input-project__error">Здесь текст ошибки</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-project__row">
+        <div class="form-project__wrap">
+            <div class="form-project__inp">
+                <div class="input-project input-project--white">
+                    <!-- на input-project добавить класс input-project--error если в поле ошибка -->
+                    <div class="input-project__label">Номер телефона</div>
+                    <input type="tel" required name="tel" class="input-project__input phone-mask" placeholder="+7 ___ ___-__-__">
+                    <div class="input-project__error">Здесь текст ошибки</div>
+                </div>
+            </div>
+            <div class="form-project__inp">
+                <div class="input-project input-project--white">
+                    <div class="input-project__label">E-mail</div>
+                    <input type="email" required name="email" class="input-project__input" placeholder="E-mail">
+                    <div class="input-project__error">Здесь текст ошибки</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-project__checks">
+        <label class="checkbox-project checkbox-project--white">
+            <input type="checkbox" class="checkbox-project__inp" name="privacy">
+            <div class="checkbox-project__body">
+                <div class="checkbox-project__box">
+                    <svg class="default" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="4" fill="#474F57" />
+                    </svg>
+                    <svg class="active" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="4" fill="#EC253C" stroke="#EC253C" stroke-width="1.8" />
+                        <path d="M7.55469 12.0003L10.888 15.3337L16.4436 8.66699" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="checkbox-project__label">Согласен с <a href="/privacy-policy/">Политикой конфиденциальности</a></div>
+            </div>
+        </label>
+        <label class="checkbox-project checkbox-project--white">
+            <input type="checkbox" class="checkbox-project__inp" name="whatsapp">
+            <div class="checkbox-project__body">
+                <div class="checkbox-project__box">
+                    <svg class="default" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="4" fill="#474F57" />
+                    </svg>
+                    <svg class="active" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="4" fill="#EC253C" stroke="#EC253C" stroke-width="1.8" />
+                        <path d="M7.55469 12.0003L10.888 15.3337L16.4436 8.66699" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="checkbox-project__label">Мне удобнее общаться по WhatsApp, MAX</div>
+            </div>
+        </label>
+    </div>
+    <button class="form-project__btn btn-project btn-project--primary" disabled>
+        <span class="btn-project__text">Запросить каталог</span>
+    </button>
+</form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- попап оставить заявку -->
+<div class="popup-project form-popup" id="request">
+    <!-- добавив класс active к popup-project попап становится активен -->
+    <div class="popup-project__bg"></div>
+    <div class="popup-project__carousel">
+        <div class="popup-project__viewport">
+            <div class="popup-project__track">
+                <div class="popup-project__slide">
+                    <div class="popup-project__box popup-project__box--medium">
+                        <div class="popup-project__close btn-icon js-close-popup">
+                            <!-- js-close-popup закрывает текущий попап -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 20.84L20.84 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M20.84 20.84L5 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="form-popup__wrapper">
+                            <div class="form-popup__title title-h3">Оставить заявку</div>
+                            
+<form class="form-popup__body form-project" id="requestForm" novalidate>
+    <input type="hidden" name="sessid" id="sessid_2" value="774f635dfc2464d72a7bc20804ed4a41" />    <div class="form-project__row">
+        <div class="form-project__inp">
+            <div class="input-project input-project--white">
+                <!-- на input-project добавить класс input-project--error если в поле ошибка -->
+                <div class="input-project__label">Имя</div>
+                <input type="text" required name="name" class="input-project__input" placeholder="Ваше имя">
+                <div class="input-project__error">Здесь текст ошибки</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-project__row">
+        <div class="form-project__inp">
+            <div class="input-project input-project--white">
+                <!-- на input-project добавить класс input-project--error если в поле ошибка -->
+                <div class="input-project__label">Номер телефона</div>
+                <input type="tel" required name="tel" class="input-project__input phone-mask" placeholder="+7 ___ ___-__-__">
+                <div class="input-project__error">Здесь текст ошибки</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-project__checks">
+        <label class="checkbox-project checkbox-project--white">
+            <input type="checkbox" class="checkbox-project__inp" name="privacy">
+            <div class="checkbox-project__body">
+                <div class="checkbox-project__box">
+                    <svg class="default" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="4" fill="#474F57" />
+                    </svg>
+                    <svg class="active" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="4" fill="#EC253C" stroke="#EC253C" stroke-width="1.8" />
+                        <path d="M7.55469 12.0003L10.888 15.3337L16.4436 8.66699" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="checkbox-project__label">Согласен с <a href="/privacy-policy/">Политикой конфиденциальности</a></div>
+            </div>
+        </label>
+        <label class="checkbox-project checkbox-project--white">
+            <input type="checkbox" class="checkbox-project__inp" name="whatsapp">
+            <div class="checkbox-project__body">
+                <div class="checkbox-project__box">
+                    <svg class="default" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="4" fill="#474F57" />
+                    </svg>
+                    <svg class="active" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="4" fill="#EC253C" stroke="#EC253C" stroke-width="1.8" />
+                        <path d="M7.55469 12.0003L10.888 15.3337L16.4436 8.66699" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="checkbox-project__label">Мне удобнее общаться по WhatsApp, MAX</div>
+            </div>
+        </label>
+    </div>
+    <button class="form-project__btn btn-project btn-project--primary" disabled>
+        <span class="btn-project__text">Оставить заявку</span>
+    </button>
+</form>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- попап заказать товар -->
+<div class="popup-project order-popup" id="order-product">
+    <!-- добавив класс active к popup-project попап становится активен -->
+    <div class="popup-project__bg"></div>
+    <div class="popup-project__carousel">
+        <div class="popup-project__viewport">
+            <div class="popup-project__track">
+                <div class="popup-project__slide">
+                    <div class="popup-project__box popup-project__box--medium">
+                        <div class="popup-project__close btn-icon js-close-popup">
+                            <!-- js-close-popup закрывает текущий попап -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 20.84L20.84 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M20.84 20.84L5 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+
+                        
+<form class="order-popup__wrapper" id="orderProduct">
+    <input type="hidden" name="sessid" id="sessid_3" value="774f635dfc2464d72a7bc20804ed4a41" />    <div class="order-popup__top">
+        <div class="order-popup__title title-h3">Заказать товар</div>
+        <div class="order-popup__product-name"></div>
+        <input type="hidden" name="product" id="orderPopupNameInput" value="">
+    </div>
+    <div class="order-popup__body form-project">
+        <div class="form-project__row">
+            <div class="form-project__wrap">
+                <div class="form-project__inp">
+                    <div class="input-project input-project--white">
+                        <!-- на input-project добавить класс input-project--error если в поле ошибка -->
+                        <div class="input-project__label">Имя</div>
+                        <input type="text" name="name" required class="input-project__input" placeholder="Ваше имя">
+                        <div class="input-project__error">Здесь текст ошибки</div>
+                    </div>
+                </div>
+                <div class="form-project__inp">
+                    <div class="input-project input-project--white">
+                        <!-- на input-project добавить класс input-project--error если в поле ошибка -->
+                        <div class="input-project__label">Номер телефона</div>
+                        <input type="tel" name="tel" required class="input-project__input phone-mask" placeholder="+7 ___ ___-__-__">
+                        <div class="input-project__error">Здесь текст ошибки</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-project__row">
+            <div class="form-project__inp">
+                <div class="input-project input-project--white">
+                    <div class="input-project__label">Комментарий</div>
+                    <textarea name="comment" rows="4" class="input-project__input" placeholder="Ваш комментарий"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="form-project__checks">
+            <label class="checkbox-project checkbox-project--white">
+                <input type="checkbox" class="checkbox-project__inp" name="privacy">
+                <div class="checkbox-project__body">
+                    <div class="checkbox-project__box">
+                        <svg class="default" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="20" height="20" rx="4" fill="#474F57" />
+                        </svg>
+                        <svg class="active" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="20" height="20" rx="4" fill="#EC253C" stroke="#EC253C" stroke-width="1.8" />
+                            <path d="M7.55469 12.0003L10.888 15.3337L16.4436 8.66699" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="checkbox-project__label">Согласен с <a href="/privacy-policy/">Политикой конфиденциальности</a></div>
+                </div>
+            </label>
+            <label class="checkbox-project checkbox-project--white">
+                <input type="checkbox" class="checkbox-project__inp" name="whatsapp">
+                <div class="checkbox-project__body">
+                    <div class="checkbox-project__box">
+                        <svg class="default" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="20" height="20" rx="4" fill="#474F57" />
+                        </svg>
+                        <svg class="active" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="20" height="20" rx="4" fill="#EC253C" stroke="#EC253C" stroke-width="1.8" />
+                            <path d="M7.55469 12.0003L10.888 15.3337L16.4436 8.66699" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="checkbox-project__label">Мне удобнее общаться по WhatsApp, MAX</div>
+                </div>
+            </label>
+        </div>
+        <button class="form-project__btn btn-project btn-project--primary" disabled>
+            <span class="btn-project__text">Заказать</span>
+        </button>
+    </div>
+</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- попап с видео -->
+<div class="popup-project video-popup" id="video">
+    <!-- добавив класс active к popup-project попап становится активен -->
+    <div class="popup-project__bg"></div>
+    <div class="popup-project__carousel">
+        <div class="popup-project__viewport">
+            <div class="popup-project__track">
+                <div class="popup-project__slide">
+                    <div class="popup-project__box popup-project__box--video">
+                        <div class="popup-project__close btn-icon js-close-popup">
+                            <!-- js-close-popup закрывает текущий попап -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 20.84L20.84 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M20.84 20.84L5 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="video-popup__content">
+                            <video class="video-popup__video" src="" controls loop></video>
+                            <div class="video-popup__wrapper">
+                                <div class="video-popup__btn btn-play">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.33496 28.8901V11.1123C8.33496 9.64637 8.33496 8.91258 8.64345 8.47885C8.91269 8.10029 9.32769 7.85174 9.78841 7.79232C10.3161 7.72426 10.9633 8.06943 12.2559 8.7588L28.9225 17.6477L28.9286 17.6504C30.357 18.4122 31.0716 18.7933 31.3059 19.3012C31.5104 19.7443 31.5104 20.2558 31.3059 20.6989C31.0712 21.2075 30.355 21.5902 28.9225 22.3542L12.2559 31.2431C10.9624 31.9329 10.3163 32.2768 9.78841 32.2087C9.32769 32.1493 8.91269 31.9008 8.64345 31.5222C8.33496 31.0885 8.33496 30.356 8.33496 28.8901Z"
+                                            fill="white" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup-project product-popup" id="product">
+    <!-- добавив класс active к popup-project попап становится активен -->
+    <div class="popup-project__bg"></div>
+    <div class="popup-project__carousel">
+        <div class="popup-project__viewport">
+            <div class="popup-project__track">
+                <div class="popup-project__slide">
+                    <div class="popup-project__box popup-project__box--large">
+                        <div class="popup-project__close btn-icon js-close-popup">
+                            <!-- js-close-popup закрывает текущий попап -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 20.84L20.84 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M20.84 20.84L5 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="popup-project__container container">
+                            <div class="product-popup__wrapper">
+                                <div class="product-popup__left">
+                                    <div class="product-popup__images">
+                                        <div class="product-popup__slider-large swiper">
+                                            <div class="product-popup__tags">
+                                                <div class="product-popup__tags-item tag tag--gradient" id="hitTag">Хит продаж</div>
+                                                <div class="product-popup__tags-item tag tag--black" id="recomTag">Рекомендуем</div>
+                                                <div class="product-popup__tags-item tag tag--pink" id="promotionTag">Акция</div>
+                                            </div>
+                                            <div class="swiper-wrapper">
+                                                <div class="product-popup__slider-large-item swiper-slide">
+                                                    <img src="/local/templates/gonami/images/popup_product_slide_1.png" alt="img">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-popup__preview">
+                                        <div class="product-popup__slider-small-navigation product-popup__slider-small-navigation-prev btn-icon">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M14.9998 19.9201L8.47984 13.4001C7.70984 12.6301 7.70984 11.3701 8.47984 10.6001L14.9998 4.08008" stroke="#474F57" stroke-width="1.8" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <div class="product-popup__slider-small swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="product-popup__slider-small-item swiper-slide active">
+                                                    <img src="/local/templates/gonami/images/popup_product_slide_sm_1.png" alt="img">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="product-popup__slider-small-navigation product-popup__slider-small-navigation-next btn-icon">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8.91016 19.9201L15.4302 13.4001C16.2002 12.6301 16.2002 11.3701 15.4302 10.6001L8.91016 4.08008" stroke="#0C0C0D" stroke-width="1.8" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-popup__content">
+                                    <div class="product-popup__title title-h3"></div>
+                                    <div class="product-popup__desc">
+                                        <span class="product-popup__desc-text"><span class="product-popup__desc-more">Читать еще</span></span>
+                                    </div>
+                                    <div class="product-popup__colors">
+                                        <div class="product-popup__colors-top">
+                                            <div class="product-popup__colors-title">Вариации цветов</div>
+                                            <div class="product-popup__colors-navigation">
+                                                <div class="product-popup__colors-navigation-prev btn-icon">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M14.9998 19.9201L8.47984 13.4001C7.70984 12.6301 7.70984 11.3701 8.47984 10.6001L14.9998 4.08008" stroke="#474F57" stroke-width="1.8" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </div>
+                                                <div class="product-popup__colors-navigation-next btn-icon">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M8.91016 19.9201L15.4302 13.4001C16.2002 12.6301 16.2002 11.3701 15.4302 10.6001L8.91016 4.08008" stroke="#0C0C0D" stroke-width="1.8" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-popup__colors-slider swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="product-popup__colors-item swiper-slide selected">
+                                                    <img src="/local/templates/gonami/images/colors_item_1.png" alt="img">
+                                                </div>
+                                                <div class="product-popup__colors-item swiper-slide">
+                                                    <img src="/local/templates/gonami/images/colors_item_1.png" alt="img">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-popup__wrap">
+                                        <div class="product-popup__price">
+                                            <div class="product-popup__price-current" id="price">
+                                                <span class="product-popup__price_value">000</span>
+                                                <span class="product-popup__price_currency">₽/м²</span>
+                                            </div>
+                                            <div class="product-popup__price-old" id="oldPrice">
+                                                <span class="product-popup__price_value">000</span>
+                                                <span class="product-popup__price_currency">₽/м²</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-popup__btn btn-project btn-project--primary btn-open-popup order-btn" data-popup-id="order-product">
+                                            <span class="btn-project__text">Заказать</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-popup__info">
+                                        <div class="product-popup__info-row" id="data-size">
+                                            <div class="product-popup__info-label">Размер, мм</div>
+                                            <div class="product-popup__info-tags">
+                                                <div class="product-popup__info-tag info-tag">260х160</div>
+                                            </div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueCollection">
+                                            <div class="product-popup__info-label">Коллекция</div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueForm">
+                                            <div class="product-popup__info-label">Форма</div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueThickness">
+                                            <div class="product-popup__info-label">Толщина, мм</div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueHeight">
+                                            <div class="product-popup__info-label">Высота, мм</div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueWeightM2">
+                                            <div class="product-popup__info-label">Вес/1 м², кг </div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueVehiclesm2">
+                                            <div class="product-popup__info-label">Кол-во в а/м 20 тонн, м²</div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueVehiclesPiece">
+                                            <div class="product-popup__info-label">Кол-во в а/м 20 тонн, шт</div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueVehiclesPallet">
+                                            <div class="product-popup__info-label">Кол-во в а/м 20 тонн, поддоны</div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueVehiclesm240">
+                                            <div class="product-popup__info-label">Кол-во в а/м 40 тонн, м²</div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valuePallet">
+                                            <div class="product-popup__info-label">Поддон, кол-во м²</div>
+                                            <div class="product-popup__info-value">13,08</div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueQuantityPallet">
+                                            <div class="product-popup__info-label">Кол-во на поддоне, шт</div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valuePieces">
+                                            <div class="product-popup__info-label">Штук, кол-во в 1 м²</div>
+                                            <div class="product-popup__info-value">36шт (каждого элемента по 12 шт)</div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueWeightPallet">
+                                            <div class="product-popup__info-label">Вес поддона, тонн</div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="data-weight">
+                                            <div class="product-popup__info-label">Вес, кг</div>
+                                            <div class="product-popup__info-tags">
+                                                <div class="product-popup__info-tag info-tag">4.7</div>
+                                                <div class="product-popup__info-tag info-tag">2.8</div>
+                                                <div class="product-popup__info-tag info-tag">1.9</div>
+                                            </div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueGost">
+                                            <div class="product-popup__info-label">ГОСТ</div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueColor">
+                                            <div class="product-popup__info-label">Цвет</div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueSurface">
+                                            <div class="product-popup__info-label">Поверхность</div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueConcrete">
+                                            <div class="product-popup__info-label">Класс бетона по прочности</div>
+                                            <div class="product-popup__info-value">В30</div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueConcreteTensile">
+                                            <div class="product-popup__info-label">Класс бетона на растяжение</div>
+                                            <div class="product-popup__info-value">В30</div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueAbsorption">
+                                            <div class="product-popup__info-label">Морозостойкость</div>
+                                            <div class="product-popup__info-value">F200</div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueWater">
+                                            <div class="product-popup__info-label">Водопоглощение</div>
+                                            <div class="product-popup__info-value">&lt; 6%</div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueAbrasion">
+                                            <div class="product-popup__info-label">Истираемость бетона</div>
+                                            <div class="product-popup__info-value">&lt; 0,7 г/см2</div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueColoring">
+                                            <div class="product-popup__info-label">Окрашивание</div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueAppointment">
+                                            <div class="product-popup__info-label">Назначение</div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+                                        <div class="product-popup__info-row" id="valueTech">
+                                            <div class="product-popup__info-label">Технология </div>
+                                            <div class="product-popup__info-value"></div>
+                                        </div>
+
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- попап успешной отправки формы -->
+<div class="popup-project successful-popup" id="successful-sending">
+    <!-- добавив класс active к popup-project попап становится активен -->
+    <div class="popup-project__bg"></div>
+    <div class="popup-project__carousel">
+        <div class="popup-project__viewport">
+            <div class="popup-project__track">
+                <div class="popup-project__slide">
+                    <div class="popup-project__box popup-project__box--small">
+                        <div class="popup-project__close btn-icon js-close-popup">
+                            <!-- js-close-popup закрывает текущий попап -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 20.84L20.84 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M20.84 20.84L5 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="successful-popup__content">
+                            <div class="successful-popup__icon">
+                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M29.9993 73.3334H49.9994C66.666 73.3334 73.3327 66.6668 73.3327 50.0001V30.0001C73.3327 13.3334 66.666 6.66675 49.9994 6.66675H29.9993C13.3327 6.66675 6.66602 13.3334 6.66602 30.0001V50.0001C6.66602 66.6668 13.3327 73.3334 29.9993 73.3334Z"
+                                        fill="#EC253C" stroke="#EC253C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M25.834 40L35.2673 49.4333L54.1673 30.5667" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="successful-popup__wrap">
+                                <div class="successful-popup__title title-h3">Мы получили вашу заявку</div>
+                                <div class="successful-popup__text">В ближайшее время свяжемся с вами, чтобы обсудить все детали и ответить на ваши вопросы.</div>
+                            </div>
+                            <div class="successful-popup__btn btn-project btn-project--primary js-close-popup">
+                                <span class="btn-project__text">Спасибо, жду</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cookie">
+    <div class="cookie__wrapper">
+        <button class="cookie__close btn-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 20.84L20.84 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M20.84 20.84L5 5" stroke="#474F57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+        <div class="cookie__body">
+            <div class="cookie__title">Cookies</div>
+            <div class="cookie__text">Наш веб-сайт использует файлы cookie. Продолжая использование сайта, вы соглашаетесь с <a href="/privacy-policy/" target="_blank" aria-label="Политикой конфиденциальности">Политикой конфиденциальности</a>.</div>
+        </div>
+        <button class="cookie__accept btn-project btn-project--primary">
+            <span class="btn-project__text">Принять</span>
+        </button>
+    </div>
+</div>
+
+<!-- кнопка наверх -->
+<div class="btn-project-up">
+    <div class="btn-project-up__inner">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.0697 9.57L11.9997 3.5L5.92969 9.57" stroke="#474F57" stroke-width="1.8" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M12 20.5V3.67001" stroke="#474F57" stroke-width="1.8" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </div>
+</div>
+
+
+</body>
+
+</html>

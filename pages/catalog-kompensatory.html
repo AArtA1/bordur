@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Компенсаторы для бордюров — BORDUR</title>
+    <meta name="description" content="Компенсаторы бортового камня — высокое качество по доступной цене. Типы А, Б, Г. Толщина 4 мм. Быстрое производство от 1 до 5 дней. Сертифицированная продукция.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style-v3.css">
+</head>
+<body>
+
+    <!-- Top promo bar -->
+    <div class="promo-bar" id="promoBar">
+        <div class="promo-bar__slider" id="promoSlider">
+            <div class="promo-bar__slide promo-bar__slide--active">Специальное предложение: тротуарная плитка со скидками до <strong>-30%</strong></div>
+            <div class="promo-bar__slide">Товар месяца ФЕВРАЛЬ: до <strong>-25%</strong> на бордюры</div>
+            <div class="promo-bar__slide">Акция «Зимнее хранение»! Приобретайте по зимним ценам и храните до начала сезона!</div>
+        </div>
+        <button class="promo-bar__close" id="promoClose" aria-label="Закрыть">&times;</button>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header__top">
+            <div class="container header__top-inner">
+                <nav class="header__top-nav">
+                    <a href="about.html">О компании</a>
+                    <a href="catalog.html">Каталог</a>
+                    <a href="where-buy.html">Где купить</a>
+                    <a href="../index-v3.html#gallery">Объекты</a>
+                    <a href="contacts.html">Контакты</a>
+                </nav>
+                <div class="header__top-right">
+                    <a href="tel:+74956457120" class="header__phone">+7 495 645-71-20</a>
+                    <a href="#" class="header__region">Москва</a>
+                </div>
+            </div>
+        </div>
+        <div class="header__main">
+            <div class="container header__main-inner">
+                <a href="../index-v3.html" class="header__logo">
+                    <span class="header__logo-text">BORDUR</span>
+                </a>
+                <nav class="header__catalog-nav">
+                    <a href="catalog-plitka.html" class="header__catalog-link">Тротуарная плитка</a>
+                    <a href="catalog-bordyury.html" class="header__catalog-link">Бордюры</a>
+                    <a href="catalog-kompensatory.html" class="header__catalog-link">Компенсаторы</a>
+                </nav>
+                <div class="header__actions">
+                    <button class="header__burger" id="burgerBtn" aria-label="Меню">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container">
+            <ol class="breadcrumbs__list">
+                <li><a href="../index-v3.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><span>Компенсаторы</span></li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero__title">Компенсаторы бортового камня</h1>
+            <p class="page-hero__subtitle">Высокое качество по доступной цене. Быстрое производство от 1 до 5 дней.</p>
+        </div>
+    </section>
+
+    <!-- Catalog Content -->
+    <section class="catalog-content">
+        <div class="container">
+
+            <!-- Filters & Sort -->
+            <div class="catalog-top">
+                <div class="catalog-filters">
+                    <div class="catalog-filters__group">
+                        <span class="catalog-filters__label">Тип:</span>
+                        <button class="catalog-filters__chip catalog-filters__chip--active">Все</button>
+                        <button class="catalog-filters__chip">Тип А</button>
+                        <button class="catalog-filters__chip">Тип Б</button>
+                        <button class="catalog-filters__chip">Тип Г</button>
+                    </div>
+                </div>
+                <div class="catalog-sort">
+                    <select class="catalog-sort__select">
+                        <option>По популярности</option>
+                        <option>По размеру</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid">
+
+                <!-- 1. Компенсатор Тип А -->
+                <div class="product-card" data-anim="up" data-anim-delay="0">
+                    <div class="product-card__badges"><span class="badge badge--hit">Хит продаж</span></div>
+                    <div class="product-card__img" style="background:linear-gradient(160deg,#333,#666 50%,#999)"></div>
+                    <div class="product-card__body">
+                        <h3 class="product-card__name">Компенсатор бортового камня — Тип А</h3>
+                        <div class="product-card__specs">
+                            <span>Высота: 290 / 275 мм</span>
+                            <span>Ширина: 150 / 135 мм</span>
+                            <span>Толщина: 4 мм</span>
+                        </div>
+                        <a href="contacts.html" class="product-card__detail">Запросить цену</a>
+                    </div>
+                </div>
+
+                <!-- 2. Компенсатор Тип Б -->
+                <div class="product-card" data-anim="up" data-anim-delay="80">
+                    <div class="product-card__img" style="background:linear-gradient(160deg,#444,#777 50%,#AAA)"></div>
+                    <div class="product-card__body">
+                        <h3 class="product-card__name">Компенсатор бортового камня — Тип Б</h3>
+                        <div class="product-card__specs">
+                            <span>Высота: 295 / 145 мм</span>
+                            <span>Ширина: 145 / 90 мм</span>
+                            <span>Толщина: 4 мм</span>
+                        </div>
+                        <a href="contacts.html" class="product-card__detail">Запросить цену</a>
+                    </div>
+                </div>
+
+                <!-- 3. Компенсатор Тип Г -->
+                <div class="product-card" data-anim="up" data-anim-delay="160">
+                    <div class="product-card__img" style="background:linear-gradient(160deg,#222,#555 50%,#888)"></div>
+                    <div class="product-card__body">
+                        <h3 class="product-card__name">Компенсатор бортового камня — Тип Г</h3>
+                        <div class="product-card__specs">
+                            <span>Высота: 195 / 185 мм</span>
+                            <span>Ширина: 75 / 65 мм</span>
+                            <span>Толщина: 4 мм</span>
+                        </div>
+                        <a href="contacts.html" class="product-card__detail">Запросить цену</a>
+                    </div>
+                </div>
+
+                <!-- 4. Нестандартные размеры -->
+                <div class="product-card" data-anim="up" data-anim-delay="0">
+                    <div class="product-card__badges"><span class="badge badge--new">Под заказ</span></div>
+                    <div class="product-card__img" style="background:linear-gradient(160deg,#333,#666 50%,#999)"></div>
+                    <div class="product-card__body">
+                        <h3 class="product-card__name">Компенсатор нестандартного размера</h3>
+                        <div class="product-card__specs">
+                            <span>Любые размеры по вашим чертежам</span>
+                            <span>В т.ч. для гранитных бордюров 300×300 мм</span>
+                        </div>
+                        <a href="contacts.html" class="product-card__detail">Запросить цену</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages -->
+    <section class="seo-block">
+        <div class="container">
+            <h2 style="margin-bottom:24px;font-size:1.5rem;font-weight:700;color:#1a1a1a">Почему выбирают наши компенсаторы</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-bottom:32px">
+                <div style="padding:24px;background:#f5f5f5;border-radius:12px">
+                    <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:8px;color:#1a1a1a">Низкие цены</h3>
+                    <p style="color:#666;line-height:1.6">Самая низкая стоимость на рынке. Прямые поставки от производителя без посредников.</p>
+                </div>
+                <div style="padding:24px;background:#f5f5f5;border-radius:12px">
+                    <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:8px;color:#1a1a1a">Быстрое производство</h3>
+                    <p style="color:#666;line-height:1.6">Короткие сроки выполнения — от 1 до 5 дней. Срочные заказы обсуждаются индивидуально.</p>
+                </div>
+                <div style="padding:24px;background:#f5f5f5;border-radius:12px">
+                    <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:8px;color:#1a1a1a">Удобный склад</h3>
+                    <p style="color:#666;line-height:1.6">Москва, Киевское шоссе, рядом с метро Тропарёво. Удобная логистика и самовывоз.</p>
+                </div>
+            </div>
+            <h2 style="margin-bottom:24px;font-size:1.5rem;font-weight:700;color:#1a1a1a">Сертификация</h2>
+            <p style="color:#666;line-height:1.6;margin-bottom:32px">Компенсаторы являются сертифицированными и проверены лабораторными исследованиями. В наличии сертификат соответствия и протокол лабораторных исследований.</p>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="seo-block" style="background:#fff">
+        <div class="container">
+            <h2 style="margin-bottom:24px;font-size:1.5rem;font-weight:700;color:#1a1a1a">Отзывы клиентов</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:32px">
+                <div style="padding:20px;background:#f5f5f5;border-radius:12px;border-left:3px solid #EA7627">
+                    <p style="color:#333;line-height:1.6;font-style:italic;margin-bottom:12px">&laquo;Заказывал компенсаторы для объекта под Калугой. По цене устроило — дешевле, чем везде звонил.&raquo;</p>
+                    <p style="color:#999;font-size:.9rem"><strong style="color:#666">Иван</strong>, частный застройщик, Москва</p>
+                </div>
+                <div style="padding:20px;background:#f5f5f5;border-radius:12px;border-left:3px solid #EA7627">
+                    <p style="color:#333;line-height:1.6;font-style:italic;margin-bottom:12px">&laquo;Работаем не первый год. Ни разу не подводили со сроками — даже при срочном заказе уложились в 3 дня.&raquo;</p>
+                    <p style="color:#999;font-size:.9rem"><strong style="color:#666">ООО &laquo;СтройГрад&raquo;</strong></p>
+                </div>
+                <div style="padding:20px;background:#f5f5f5;border-radius:12px;border-left:3px solid #EA7627">
+                    <p style="color:#333;line-height:1.6;font-style:italic;margin-bottom:12px">&laquo;Срочно нужны были компенсаторы для тендера. Другие просили 2 недели, тут сделали за 5 дней.&raquo;</p>
+                    <p style="color:#999;font-size:.9rem"><strong style="color:#666">Вадим</strong>, подрядчик</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Block -->
+    <section class="seo-block">
+        <div class="container">
+            <p>Компенсаторы бортового камня предназначены для амортизации бортовых камней и бордюров при строительных работах. Мы предлагаем три основных типа компенсаторов: Тип А (высота 290/275 мм, ширина 150/135 мм), Тип Б (высота 295/145 мм, ширина 145/90 мм) и Тип Г (высота 195/185 мм, ширина 75/65 мм). Все компенсаторы имеют толщину 4 мм.</p>
+            <p>Также изготавливаем изделия нестандартных размеров по вашим чертежам, включая варианты для гранитных бордюров 300×300 мм. Продукция сертифицирована и проверена лабораторными исследованиями. Производство занимает от 1 до 5 дней. Склад расположен в Москве на Киевском шоссе, рядом с метро Тропарёво.</p>
+        </div>
+    </section>
+
+    <!-- CTA Block -->
+    <section class="cta-block">
+        <div class="container">
+            <div class="cta-block__inner">
+                <h2 class="cta-block__title">Нужна помощь с выбором?</h2>
+                <p class="cta-block__text">Наши специалисты помогут подобрать нужный тип компенсатора для вашего проекта</p>
+                <a href="contacts.html" class="btn btn--primary">Получить консультацию</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col footer__col--logo">
+                    <a href="../index-v3.html" class="footer__logo">BORDUR</a>
+                    <div class="footer__socials">
+                        <a href="#" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M16.5 1.5L1 8l5 2m10.5-8.5L10 16l-4-6m10.5-8.5L6 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <a href="#" aria-label="VK"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9.5 13c-3.8 0-6-2.6-6.1-7h1.9c.1 3.2 1.5 4.5 2.5 4.8V6h1.8v2.7c1.1-.1 2.3-1.4 2.6-2.7h1.8c-.3 1.6-1.5 3-2.4 3.4.9.4 2.3 1.5 2.9 3.6h-2c-.4-1.4-1.5-2.4-2.9-2.5V13h-.1z" fill="currentColor"/></svg></a>
+                    </div>
+                    <div class="footer__contacts">
+                        <a href="tel:+74956457120">+7 495 645-71-20</a>
+                        <a href="mailto:info@bordur.ru">info@bordur.ru</a>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Каталог</h4>
+                    <ul>
+                        <li><a href="catalog-plitka.html">Тротуарная плитка</a></li>
+                        <li><a href="catalog-bordyury.html">Бордюры</a></li>
+                        <li><a href="catalog-kompensatory.html">Компенсаторы</a></li>
+                        <li><a href="#">Газонная решётка</a></li>
+                        <li><a href="#">Водоотводные лотки</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Покупателю</h4>
+                    <ul>
+                        <li><a href="#">Оплата и доставка</a></li>
+                        <li><a href="#">Вопрос-ответ</a></li>
+                        <li><a href="../index-v3.html#gallery">Фото объектов</a></li>
+                        <li><a href="where-buy.html">Где купить?</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">О компании</h4>
+                    <ul>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="about.html">Производство</a></li>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; BORDUR 2010–2026. Все права защищены.</p>
+                <a href="#">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu__top">
+            <span class="mobile-menu__logo">BORDUR</span>
+            <button class="mobile-menu__close" id="menuClose" aria-label="Закрыть меню">&times;</button>
+        </div>
+        <nav class="mobile-menu__nav">
+            <a href="catalog-plitka.html">Тротуарная плитка</a>
+            <a href="catalog-bordyury.html">Бордюры</a>
+            <a href="catalog-kompensatory.html">Компенсаторы</a>
+            <hr>
+            <a href="about.html">О компании</a>
+            <a href="catalog.html">Каталог</a>
+            <a href="where-buy.html">Где купить</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+        <a href="tel:+74956457120" class="mobile-menu__phone">+7 495 645-71-20</a>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Cookie bar -->
+    <div class="cookie-bar" id="cookieBar">
+        <p>Мы используем файлы cookie для улучшения работы сайта. Продолжая использовать сайт, Вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.</p>
+        <button class="cookie-bar__btn" id="cookieAccept">Принять</button>
+    </div>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Наверх">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16V4M4 10l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <script src="../js/main-v3.js"></script>
+</body>
+</html>

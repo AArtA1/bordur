@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BORDUR — Тротуарная плитка, бордюры, компенсаторы</title>
+    <meta name="description" content="BORDUR — тротуарная плитка, бордюры и компенсаторы для бордюров. Качественная продукция для благоустройства.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style-v3.css">
+</head>
+<body>
+
+    <!-- Top promo bar -->
+    <div class="promo-bar" id="promoBar">
+        <div class="promo-bar__slider" id="promoSlider">
+            <div class="promo-bar__slide promo-bar__slide--active">Специальное предложение: тротуарная плитка со скидками до <strong>-30%</strong></div>
+            <div class="promo-bar__slide">Товар месяца ФЕВРАЛЬ: до <strong>-25%</strong> на бордюры</div>
+            <div class="promo-bar__slide">Акция «Зимнее хранение»! Приобретайте по зимним ценам и храните до начала сезона!</div>
+        </div>
+        <button class="promo-bar__close" id="promoClose" aria-label="Закрыть">&times;</button>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header__top">
+            <div class="container header__top-inner">
+                <nav class="header__top-nav">
+                    <a href="#about">О компании</a>
+                    <a href="#catalog">Каталог</a>
+                    <a href="#callback">Где купить</a>
+                    <a href="#gallery">Объекты</a>
+                    <a href="#callback">Контакты</a>
+                </nav>
+                <div class="header__top-right">
+                    <a href="tel:+74956457120" class="header__phone">+7 495 645-71-20</a>
+                    <a href="#" class="header__region">Москва</a>
+                </div>
+            </div>
+        </div>
+        <div class="header__main">
+            <div class="container header__main-inner">
+                <a href="/" class="header__logo">
+                    <span class="header__logo-text">BORDUR</span>
+                </a>
+                <nav class="header__catalog-nav">
+                    <a href="#hero" class="header__catalog-link" data-hero-tab="0">Тротуарная плитка</a>
+                    <a href="#hero" class="header__catalog-link" data-hero-tab="1">Бордюры</a>
+                    <a href="#hero" class="header__catalog-link" data-hero-tab="2">Компенсаторы</a>
+                </nav>
+                <div class="header__actions">
+                    <button class="header__burger" id="burgerBtn" aria-label="Меню">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero with tabs (braer.ru style) -->
+    <section class="hero hero--intro" id="hero">
+        <div class="hero__top">
+            <div class="container">
+                <h1 class="hero__title">BORDUR — качество<br>для&nbsp;вашего&nbsp;города</h1>
+            </div>
+        </div>
+        <div class="hero__tabs-bar">
+            <div class="container">
+                <div class="hero__tabs">
+                    <button class="hero__tab hero__tab--active" data-tab="0">Тротуарная плитка</button>
+                    <button class="hero__tab" data-tab="1">Бордюры</button>
+                    <button class="hero__tab" data-tab="2">Компенсаторы для бордюров</button>
+                </div>
+            </div>
+        </div>
+        <div class="hero__panels">
+            <!-- Тротуарная плитка -->
+            <div class="hero__panel hero__panel--active" data-panel="0">
+                <div class="container hero__panel-inner">
+                    <div class="hero__panel-body">
+                        <h2 class="hero__panel-title">Тротуарная плитка</h2>
+                        <p class="hero__panel-text">Городская среда включает в себя многочисленные элементы, одним из которых является тротуарная плитка. Разнообразие форм, цветов и способов укладки делают возможности мощения безграничными.</p>
+                        <a href="#products" class="hero__panel-link">Смотреть всю продукцию
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="hero__panel-img hero__panel-img--paving"></div>
+                </div>
+            </div>
+            <!-- Бордюры -->
+            <div class="hero__panel" data-panel="1">
+                <div class="container hero__panel-inner">
+                    <div class="hero__panel-body">
+                        <h2 class="hero__panel-title">Бордюры</h2>
+                        <p class="hero__panel-text">Бордюрный камень — незаменимый элемент благоустройства. Он разделяет пешеходные зоны и проезжую часть, защищает покрытие от разрушения и придаёт завершённость любому проекту мощения.</p>
+                        <a href="#products" class="hero__panel-link">Смотреть всю продукцию
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="hero__panel-img hero__panel-img--curb"></div>
+                </div>
+            </div>
+            <!-- Компенсаторы -->
+            <div class="hero__panel" data-panel="2">
+                <div class="container hero__panel-inner">
+                    <div class="hero__panel-body">
+                        <h2 class="hero__panel-title">Компенсаторы для&nbsp;бордюров</h2>
+                        <p class="hero__panel-text">Компенсаторы обеспечивают гибкое соединение бордюрных камней, компенсируя температурные расширения и неровности грунта. Продлевают срок службы мощения и сохраняют эстетику покрытия.</p>
+                        <a href="#products" class="hero__panel-link">Смотреть всю продукцию
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="hero__panel-img hero__panel-img--comp"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Banner (production) -->
+    <section class="video-banner" id="production">
+        <div class="video-banner__bg">
+            <video class="video-banner__video" autoplay muted loop playsinline>
+                <source src="video/production.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-banner__overlay"></div>
+        <div class="container video-banner__inner">
+            <div class="video-banner__content" data-anim="left">
+                <h2 class="video-banner__title">Роботизированное<br>производство<br>и&nbsp;контроль качества<br>на&nbsp;всех этапах</h2>
+                <a href="#about" class="video-banner__link">Подробнее о компании
+                    <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+            <div class="video-banner__float" data-anim="right">
+                <!-- Replace gradient placeholder with real photo: style="background-image:url(img/factory.jpg)" -->
+                <div class="video-banner__float-img"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats" id="about">
+        <div class="container">
+            <h2 class="stats__heading" data-anim="up">Качественные материалы для благоустройства территорий</h2>
+            <div class="stats__grid">
+                <div class="stats__item" data-anim="up" data-anim-delay="0">
+                    <div class="stats__icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="4" y="18" width="16" height="26" rx="2" stroke="currentColor" stroke-width="2"/><rect x="28" y="6" width="16" height="38" rx="2" stroke="currentColor" stroke-width="2"/><line x1="8" y1="26" x2="16" y2="26" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="30" x2="16" y2="30" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="34" x2="16" y2="34" stroke="currentColor" stroke-width="1.5"/><line x1="32" y1="14" x2="40" y2="14" stroke="currentColor" stroke-width="1.5"/><line x1="32" y1="18" x2="40" y2="18" stroke="currentColor" stroke-width="1.5"/><line x1="32" y1="22" x2="40" y2="22" stroke="currentColor" stroke-width="1.5"/><line x1="32" y1="26" x2="40" y2="26" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </div>
+                    <div class="stats__value">200 <span>+</span></div>
+                    <div class="stats__label">видов продукции</div>
+                </div>
+                <div class="stats__item" data-anim="up" data-anim-delay="100">
+                    <div class="stats__icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="20" r="6" stroke="currentColor" stroke-width="2"/><path d="M12 40c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke="currentColor" stroke-width="2"/></svg>
+                    </div>
+                    <div class="stats__value">150 <span>+</span></div>
+                    <div class="stats__label">точек продаж</div>
+                </div>
+                <div class="stats__item" data-anim="up" data-anim-delay="200">
+                    <div class="stats__icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/><path d="M24 12v12l8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="stats__value">15 <span>лет</span></div>
+                    <div class="stats__label">на рынке</div>
+                </div>
+                <div class="stats__item" data-anim="up" data-anim-delay="300">
+                    <div class="stats__icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M16 32l8-16 8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="14" r="4" stroke="currentColor" stroke-width="2"/><path d="M8 40h32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="stats__value">25 <span>лет</span></div>
+                    <div class="stats__label">срок службы плитки</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Каталог продукции -->
+    <section class="catalog-overview" id="catalog">
+        <div class="container">
+            <h2 class="section-title" data-anim="up">Каталог продукции</h2>
+            <div class="catalog-overview__grid">
+                <a href="#products" class="catalog-overview__item" data-anim="up" data-anim-delay="0">
+                    <span class="catalog-overview__name">Тротуарная плитка</span>
+                    <span class="catalog-overview__count">142</span>
+                </a>
+                <a href="#products" class="catalog-overview__item" data-anim="up" data-anim-delay="60">
+                    <span class="catalog-overview__name">Бордюрный камень</span>
+                    <span class="catalog-overview__count">24</span>
+                </a>
+                <a href="#products" class="catalog-overview__item" data-anim="up" data-anim-delay="120">
+                    <span class="catalog-overview__name">Компенсаторы</span>
+                    <span class="catalog-overview__count">8</span>
+                </a>
+                <a href="#callback" class="catalog-overview__item" data-anim="up" data-anim-delay="180">
+                    <span class="catalog-overview__name">Газонная решётка</span>
+                    <span class="catalog-overview__count">2</span>
+                </a>
+                <a href="#callback" class="catalog-overview__item" data-anim="up" data-anim-delay="240">
+                    <span class="catalog-overview__name">Водоотводные лотки</span>
+                    <span class="catalog-overview__count">5</span>
+                </a>
+                <a href="#callback" class="catalog-overview__item" data-anim="up" data-anim-delay="300">
+                    <span class="catalog-overview__name">Дорожная плита</span>
+                    <span class="catalog-overview__count">5</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Товары -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title" data-anim="up">Популярные товары</h2>
+            <div class="products-grid">
+                <div class="product-card" data-anim="up" data-anim-delay="0">
+                    <div class="product-card__badges"><span class="badge badge--hit">Хит продаж</span></div>
+                    <div class="product-card__img product-card__img--pav1"></div>
+                    <div class="product-card__body">
+                        <h3 class="product-card__name">Старый город Ландхаус, серый</h3>
+                        <div class="product-card__specs"><span>160×160×60 мм</span></div>
+                        <div class="product-card__price">890 <span>₽/м²</span></div>
+                        <a href="#callback" class="product-card__detail">Запросить цену</a>
+                    </div>
+                </div>
+                <div class="product-card" data-anim="up" data-anim-delay="80">
+                    <div class="product-card__badges"><span class="badge badge--hit">Хит продаж</span></div>
+                    <div class="product-card__img product-card__img--pav2"></div>
+                    <div class="product-card__body">
+                        <h3 class="product-card__name">Классико, коричневый</h3>
+                        <div class="product-card__specs"><span>200×100×60 мм</span></div>
+                        <div class="product-card__price">950 <span>₽/м²</span></div>
+                        <a href="#callback" class="product-card__detail">Запросить цену</a>
+                    </div>
+                </div>
+                <div class="product-card" data-anim="up" data-anim-delay="160">
+                    <div class="product-card__badges"><span class="badge badge--new">Новинка</span></div>
+                    <div class="product-card__img product-card__img--curb1"></div>
+                    <div class="product-card__body">
+                        <h3 class="product-card__name">Бордюр дорожный БР 100.30.15</h3>
+                        <div class="product-card__specs"><span>1000×300×150 мм</span></div>
+                        <div class="product-card__price">450 <span>₽/шт</span></div>
+                        <a href="#callback" class="product-card__detail">Запросить цену</a>
+                    </div>
+                </div>
+                <div class="product-card" data-anim="up" data-anim-delay="0">
+                    <div class="product-card__img product-card__img--curb2"></div>
+                    <div class="product-card__body">
+                        <h3 class="product-card__name">Бордюр садовый БР 50.20.8</h3>
+                        <div class="product-card__specs"><span>500×200×80 мм</span></div>
+                        <div class="product-card__price">180 <span>₽/шт</span></div>
+                        <a href="#callback" class="product-card__detail">Запросить цену</a>
+                    </div>
+                </div>
+                <div class="product-card" data-anim="up" data-anim-delay="80">
+                    <div class="product-card__img product-card__img--comp1"></div>
+                    <div class="product-card__body">
+                        <h3 class="product-card__name">Компенсатор резиновый КР-15</h3>
+                        <div class="product-card__specs"><span>150×50×10 мм</span></div>
+                        <div class="product-card__price">85 <span>₽/шт</span></div>
+                        <a href="#callback" class="product-card__detail">Запросить цену</a>
+                    </div>
+                </div>
+                <div class="product-card" data-anim="up" data-anim-delay="160">
+                    <div class="product-card__badges"><span class="badge badge--sale">-15%</span></div>
+                    <div class="product-card__img product-card__img--pav3"></div>
+                    <div class="product-card__body">
+                        <h3 class="product-card__name">Ригель, терракота</h3>
+                        <div class="product-card__specs"><span>300×100×40 мм</span></div>
+                        <div class="product-card__price"><span class="product-card__price-old">1100 ₽</span> 935 <span>₽/м²</span></div>
+                        <a href="#callback" class="product-card__detail">Запросить цену</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Фото объектов -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="gallery__header">
+                <h2 class="section-title" data-anim="up">Фото готовых объектов</h2>
+                <a href="#" class="gallery__more" data-anim="fade">Смотреть все объекты
+                    <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+            <div class="gallery__grid">
+                <a href="#" class="gallery__item gallery__item--large" data-anim="scale" data-anim-delay="0">
+                    <div class="gallery__img gallery__img--1"></div>
+                    <div class="gallery__caption"><h3>Центральная площадь</h3><p>Рыбинск</p></div>
+                </a>
+                <a href="#" class="gallery__item" data-anim="scale" data-anim-delay="80">
+                    <div class="gallery__img gallery__img--2"></div>
+                    <div class="gallery__caption"><h3>Парковая зона</h3><p>Москва</p></div>
+                </a>
+                <a href="#" class="gallery__item" data-anim="scale" data-anim-delay="160">
+                    <div class="gallery__img gallery__img--3"></div>
+                    <div class="gallery__caption"><h3>ЖК Суворовский</h3><p>Тула</p></div>
+                </a>
+                <a href="#" class="gallery__item" data-anim="scale" data-anim-delay="240">
+                    <div class="gallery__img gallery__img--4"></div>
+                    <div class="gallery__caption"><h3>Набережная</h3><p>Казань</p></div>
+                </a>
+                <a href="#" class="gallery__item" data-anim="scale" data-anim-delay="320">
+                    <div class="gallery__img gallery__img--5"></div>
+                    <div class="gallery__caption"><h3>Бизнес-центр</h3><p>Санкт-Петербург</p></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контактная форма -->
+    <section class="callback" id="callback">
+        <div class="container">
+            <div class="callback__inner">
+                <div class="callback__info" data-anim="left">
+                    <h2 class="callback__title">Всегда на связи</h2>
+                    <p class="callback__text">Запросите звонок через форму обратной связи. Мы ответим вам в рабочее время по указанному контакту.</p>
+                    <div class="callback__contacts">
+                        <a href="tel:+74956457120" class="callback__phone">+7 495 645-71-20</a>
+                        <a href="mailto:info@bordur.ru" class="callback__email">info@bordur.ru</a>
+                    </div>
+                </div>
+                <form class="callback__form" id="callbackForm" data-anim="right">
+                    <div class="callback__form-row">
+                        <div class="form-field"><input type="text" placeholder="Ваше имя*" required></div>
+                        <div class="form-field"><input type="tel" placeholder="Номер телефона*" required></div>
+                    </div>
+                    <div class="callback__form-row">
+                        <div class="form-field">
+                            <select required>
+                                <option value="" disabled selected>Категория продукции *</option>
+                                <option>Тротуарная плитка</option>
+                                <option>Бордюры</option>
+                                <option>Компенсаторы</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <select required>
+                                <option value="" disabled selected>Регион *</option>
+                                <option>Москва и МО</option>
+                                <option>Санкт-Петербург и ЛО</option>
+                                <option>Центральный ФО</option>
+                                <option>Другой регион</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="callback__form-checks">
+                        <label class="form-check">
+                            <input type="checkbox" required>
+                            <span>Согласен с <a href="#">Политикой конфиденциальности</a></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--submit">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col footer__col--logo">
+                    <a href="/" class="footer__logo">BORDUR</a>
+                    <div class="footer__socials">
+                        <a href="#" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M16.5 1.5L1 8l5 2m10.5-8.5L10 16l-4-6m10.5-8.5L6 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        <a href="#" aria-label="VK"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9.5 13c-3.8 0-6-2.6-6.1-7h1.9c.1 3.2 1.5 4.5 2.5 4.8V6h1.8v2.7c1.1-.1 2.3-1.4 2.6-2.7h1.8c-.3 1.6-1.5 3-2.4 3.4.9.4 2.3 1.5 2.9 3.6h-2c-.4-1.4-1.5-2.4-2.9-2.5V13h-.1z" fill="currentColor"/></svg></a>
+                    </div>
+                    <div class="footer__contacts">
+                        <a href="tel:+74956457120">+7 495 645-71-20</a>
+                        <a href="mailto:info@bordur.ru">info@bordur.ru</a>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Каталог</h4>
+                    <ul>
+                        <li><a href="#">Тротуарная плитка</a></li>
+                        <li><a href="#">Бордюры</a></li>
+                        <li><a href="#">Компенсаторы</a></li>
+                        <li><a href="#">Газонная решётка</a></li>
+                        <li><a href="#">Водоотводные лотки</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Покупателю</h4>
+                    <ul>
+                        <li><a href="#">Оплата и доставка</a></li>
+                        <li><a href="#">Вопрос-ответ</a></li>
+                        <li><a href="#">Фото объектов</a></li>
+                        <li><a href="#">Где купить?</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">О компании</h4>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Производство</a></li>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; BORDUR 2010–2026. Все права защищены.</p>
+                <a href="#">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu__top">
+            <span class="mobile-menu__logo">BORDUR</span>
+            <button class="mobile-menu__close" id="menuClose" aria-label="Закрыть меню">&times;</button>
+        </div>
+        <nav class="mobile-menu__nav">
+            <a href="#hero" data-hero-tab="0">Тротуарная плитка</a>
+            <a href="#hero" data-hero-tab="1">Бордюры</a>
+            <a href="#hero" data-hero-tab="2">Компенсаторы</a>
+            <hr>
+            <a href="#about">О компании</a>
+            <a href="#catalog">Каталог</a>
+            <a href="#callback">Где купить</a>
+            <a href="#callback">Контакты</a>
+        </nav>
+        <a href="tel:+74956457120" class="mobile-menu__phone">+7 495 645-71-20</a>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Cookie bar -->
+    <div class="cookie-bar" id="cookieBar">
+        <p>Мы используем файлы cookie для улучшения работы сайта. Продолжая использовать сайт, Вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.</p>
+        <button class="cookie-bar__btn" id="cookieAccept">Принять</button>
+    </div>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Наверх">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16V4M4 10l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <script src="js/main-v3.js"></script>
+</body>
+</html>
