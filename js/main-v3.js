@@ -1,30 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ===== PROMO BAR =====
-    const promoBar = document.getElementById('promoBar');
-    const promoClose = document.getElementById('promoClose');
-    const promoSlides = document.querySelectorAll('.promo-bar__slide');
     const header = document.getElementById('header');
     const hero = document.getElementById('hero');
-    let promoIndex = 0;
-
-    if (promoSlides.length > 1) {
-        setInterval(() => {
-            promoSlides[promoIndex].classList.remove('promo-bar__slide--active');
-            promoIndex = (promoIndex + 1) % promoSlides.length;
-            promoSlides[promoIndex].classList.add('promo-bar__slide--active');
-        }, 4000);
-    }
-
-    if (promoClose) {
-        promoClose.addEventListener('click', () => {
-            promoBar.classList.add('promo-bar--hidden');
-            header.classList.add('header--no-promo');
-            if (hero) hero.classList.add('hero--no-promo');
-            const bc = document.querySelector('.breadcrumbs');
-            if (bc) bc.classList.add('breadcrumbs--no-promo');
-        });
-    }
 
     // ===== HEADER SCROLL =====
     window.addEventListener('scroll', () => {
@@ -35,26 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, { passive: true });
 
-    // ===== MOBILE MENU =====
-    const burgerBtn = document.getElementById('burgerBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const menuClose = document.getElementById('menuClose');
-    const overlay = document.getElementById('overlay');
-
-    function openMenu() {
-        mobileMenu.classList.add('mobile-menu--active');
-        overlay.classList.add('overlay--active');
-        document.body.style.overflow = 'hidden';
-    }
-    function closeMenu() {
-        mobileMenu.classList.remove('mobile-menu--active');
-        overlay.classList.remove('overlay--active');
-        document.body.style.overflow = '';
-    }
-
-    if (burgerBtn) burgerBtn.addEventListener('click', openMenu);
-    if (menuClose) menuClose.addEventListener('click', closeMenu);
-    if (overlay) overlay.addEventListener('click', closeMenu);
+    // closeMenu is provided by header.js via window.__closeMenu
+    var closeMenu = window.__closeMenu || function() {};
 
     // ===== HERO TABS (with animation restart) =====
     const heroTabs = document.querySelectorAll('.hero__tab');
@@ -75,15 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         tab.addEventListener('click', () => {
             const idx = parseInt(tab.dataset.tab);
             switchHeroTab(idx);
-        });
-    });
-
-    // Header nav & mobile menu links that switch hero tabs
-    document.querySelectorAll('[data-hero-tab]').forEach(link => {
-        link.addEventListener('click', (e) => {
-            const idx = parseInt(link.dataset.heroTab);
-            switchHeroTab(idx);
-            closeMenu();
         });
     });
 
@@ -189,28 +139,307 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===== COOKIE BAR =====
-    const cookieBar = document.getElementById('cookieBar');
-    const cookieAccept = document.getElementById('cookieAccept');
-    if (cookieAccept) {
-        cookieAccept.addEventListener('click', () => {
-            cookieBar.classList.add('cookie-bar--hidden');
-        });
-    }
+    // ===== CONTACTS MAP (Yandex Maps 2.1, lazy-loaded) =====
+    const contactsMapSection = document.getElementById('contacts');
+    const contactsYMap = document.getElementById('contactsYMap');
 
-    // ===== BACK TO TOP =====
-    const backToTop = document.getElementById('backToTop');
-    if (backToTop) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 600) {
-                backToTop.classList.add('back-to-top--visible');
-            } else {
-                backToTop.classList.remove('back-to-top--visible');
+    if (contactsMapSection && contactsYMap) {
+        // Locations data — координаты [широта, долгота] для Yandex Maps 2.1
+        const LOCATIONS = [
+            {
+                id: 'showroom',
+                name: 'Шоу-Рум',
+                address: 'Московская обл., г.о. Красногорск, д. Гольево, ул. Центральная, 51',
+                coords: [55.8000, 37.3117],
+                schedule: ''
+            },
+            {
+                id: 'production',
+                name: 'Производство',
+                address: 'Московская обл., Волоколамский м.о., д. Золево, Сельский пер., 6с1',
+                coords: [56.0400, 36.3500],
+                schedule: ''
+            },
+            {
+                id: 'warehouse-1',
+                name: 'Склад',
+                address: 'Московская обл., Волоколамский м.о., д. Золево, Сельский пер., 6с1',
+                coords: [56.0410, 36.3520],
+                schedule: ''
+            },
+            {
+                id: 'warehouse-2',
+                name: 'Склад',
+                address: 'Московская обл., г.о. Красногорск, п. Архангельское, 2Бс2',
+                coords: [55.7946, 37.2864],
+                schedule: ''
+            },
+            {
+                id: 'masterstroi',
+                name: 'Мастерстрой',
+                address: 'Одинцовский р-н, с. Ершово, ул. Лермонтова, 10с5',
+                coords: [55.7240, 36.8480],
+                schedule: '8:00–20:00'
+            },
+            {
+                id: 'ag-stroi',
+                name: 'ПК АГ Строй',
+                address: 'Московская обл., Ленинский г.о., п. Петровское, 53/1',
+                coords: [55.5450, 37.7200],
+                schedule: '8:00–20:00'
+            },
+            {
+                id: 'betkon',
+                name: 'ООО БЕТКОН',
+                address: 'г. Москва, ул. Василия Петушкова, д. 8',
+                coords: [55.8530, 37.4430],
+                schedule: '8:00–20:00'
+            },
+            {
+                id: 'stroidizain',
+                name: 'СтройДизайн',
+                address: 'Московская обл., г.о. Клин, тер. Производственный центр, 37',
+                coords: [56.3320, 36.7130],
+                schedule: '8:00–20:00'
+            },
+            {
+                id: 'art-stroi',
+                name: 'ООО Арт-Строй1',
+                address: 'Московская обл., Одинцовский г.о., пгт ВНИИССОК, Липовая ул., 2',
+                coords: [55.6560, 37.2040],
+                schedule: '8:00–20:00'
+            },
+            {
+                id: 'mosplit',
+                name: 'МосПлит',
+                address: 'Московская обл., г.о. Щёлково, д. Долгое Лёдово, Академическая ул., 5',
+                coords: [55.9450, 37.9650],
+                schedule: '8:00–20:00'
+            },
+            {
+                id: 'petrosyan',
+                name: 'ИП Петросян О.Г.',
+                address: 'Московская обл., м.о. Чехов, д. Бавыкино, 71',
+                coords: [55.1380, 37.4680],
+                schedule: '9:00–21:00, без выходных'
+            },
+            {
+                id: 'vlad-stroi',
+                name: 'ООО Влад строй',
+                address: 'Московская обл., Богородский г.о., пгт им. Воровского, Привокзальная ул., 1',
+                coords: [55.8520, 38.5700],
+                schedule: '8:00–20:00'
+            },
+            {
+                id: 'vip-stroi',
+                name: 'VIP-STROI',
+                address: 'Московская обл., м.о. Чехов, с. Шарапово, Северная ул., 21',
+                coords: [55.2000, 37.3980],
+                schedule: '8:00–22:00'
+            },
+            {
+                id: 'mikaelyan',
+                name: 'ИП Микаелян',
+                address: 'Тверская обл., г. Конаково, пл. Калинина, д. 3',
+                coords: [56.7010, 36.7640],
+                schedule: '8:00–20:00'
+            },
+            {
+                id: 'levar',
+                name: 'LEVAR',
+                address: 'Московская обл., г. Можайск, Полевая ул., 98с1',
+                coords: [55.5020, 36.0220],
+                schedule: '8:00–20:00'
             }
-        }, { passive: true });
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        ];
+
+        const PIN_SVG = '<svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+        const CHEVRON_SVG = '<svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>';
+
+        let ymapInstance = null;
+        let placemarks = {};
+        let activeLocationId = null;
+        let mapLoaded = false;
+
+        // Render sidebar list (no API needed)
+        function renderLocationList() {
+            const listEl = document.getElementById('contactsList');
+            if (!listEl) return;
+
+            LOCATIONS.forEach(function(loc, index) {
+                const btn = document.createElement('button');
+                btn.className = 'contacts-map__item' + (index === 0 ? ' contacts-map__item--active' : '');
+                btn.dataset.locationId = loc.id;
+
+                let scheduleHtml = '';
+                if (loc.schedule) {
+                    scheduleHtml = '<span class="contacts-map__item-schedule">' + loc.schedule + '</span>';
+                }
+
+                btn.innerHTML =
+                    '<div class="contacts-map__item-icon">' + PIN_SVG + '</div>' +
+                    '<div class="contacts-map__item-info">' +
+                        '<span class="contacts-map__item-type">' + loc.name + '</span>' +
+                        '<span class="contacts-map__item-address">' + loc.address + '</span>' +
+                        scheduleHtml +
+                    '</div>' +
+                    '<div class="contacts-map__item-arrow">' + CHEVRON_SVG + '</div>';
+
+                btn.addEventListener('click', function() { selectLocation(loc.id); });
+                listEl.appendChild(btn);
+            });
+
+            activeLocationId = LOCATIONS[0].id;
+        }
+
+        // Select location: highlight list + pan map
+        function selectLocation(locId) {
+            var items = document.querySelectorAll('.contacts-map__item');
+            items.forEach(function(item) {
+                if (item.dataset.locationId === locId) {
+                    item.classList.add('contacts-map__item--active');
+                    item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                } else {
+                    item.classList.remove('contacts-map__item--active');
+                }
+            });
+
+            // Update placemark styles
+            if (placemarks[activeLocationId] && placemarks[activeLocationId].overlayEl) {
+                var prevEl = placemarks[activeLocationId].overlayEl;
+                prevEl.classList.remove('bordur-marker--active');
+            }
+            if (placemarks[locId] && placemarks[locId].overlayEl) {
+                var nextEl = placemarks[locId].overlayEl;
+                nextEl.classList.add('bordur-marker--active');
+            }
+
+            activeLocationId = locId;
+
+            var loc = LOCATIONS.find(function(l) { return l.id === locId; });
+            if (loc && ymapInstance) {
+                ymapInstance.setCenter(loc.coords, 13, { duration: 400 });
+            }
+        }
+
+        // Load Yandex Maps API dynamically
+        function loadYandexMapsAPI() {
+            return new Promise(function(resolve, reject) {
+                if (window.ymaps) {
+                    resolve();
+                    return;
+                }
+                var script = document.createElement('script');
+                script.src = 'https://api-maps.yandex.ru/2.1/?apikey=YOUR_API_KEY&lang=ru_RU';
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+
+        // Create custom placemark layout
+        function createMarkerLayout(ymaps) {
+            return ymaps.templateLayoutFactory.createClass(
+                '<div class="bordur-marker">' +
+                    '<div class="bordur-marker__pin"><div class="bordur-marker__pin-inner"></div></div>' +
+                    '<span class="bordur-marker__label">{{ properties.name }}</span>' +
+                '</div>'
+            );
+        }
+
+        // Initialize map
+        function initContactsMap() {
+            if (mapLoaded) return;
+            mapLoaded = true;
+
+            loadYandexMapsAPI().then(function() {
+                ymaps.ready(function() {
+                    var placeholder = contactsYMap.querySelector('.contacts-map__map-placeholder');
+                    if (placeholder) placeholder.remove();
+
+                    // Calculate center from all locations
+                    var lats = LOCATIONS.map(function(l) { return l.coords[0]; });
+                    var lngs = LOCATIONS.map(function(l) { return l.coords[1]; });
+                    var centerLat = (Math.min.apply(null, lats) + Math.max.apply(null, lats)) / 2;
+                    var centerLng = (Math.min.apply(null, lngs) + Math.max.apply(null, lngs)) / 2;
+
+                    ymapInstance = new ymaps.Map(contactsYMap, {
+                        center: [centerLat, centerLng],
+                        zoom: 8,
+                        controls: ['zoomControl', 'geolocationControl']
+                    }, {
+                        suppressMapOpenBlock: true
+                    });
+
+                    var MarkerLayout = createMarkerLayout(ymaps);
+
+                    // Add placemarks
+                    LOCATIONS.forEach(function(loc, index) {
+                        var placemark = new ymaps.Placemark(loc.coords, {
+                            name: loc.name
+                        }, {
+                            iconLayout: MarkerLayout,
+                            iconShape: {
+                                type: 'Rectangle',
+                                coordinates: [[-20, -50], [20, 0]]
+                            }
+                        });
+
+                        placemark.events.add('click', function() {
+                            selectLocation(loc.id);
+                        });
+
+                        ymapInstance.geoObjects.add(placemark);
+
+                        // Store reference and get overlay element after it's added
+                        placemarks[loc.id] = { placemark: placemark, overlayEl: null };
+
+                        placemark.getOverlaySync();
+                        placemark.events.add('overlaychange', function() {
+                            var overlay = placemark.getOverlaySync();
+                            if (overlay) {
+                                overlay.events.add('mapchange', function() {
+                                    var el = overlay.getLayoutSync().getElement();
+                                    if (el) {
+                                        placemarks[loc.id].overlayEl = el.querySelector('.bordur-marker');
+                                        if (index === 0 && placemarks[loc.id].overlayEl) {
+                                            placemarks[loc.id].overlayEl.classList.add('bordur-marker--active');
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    });
+
+                    // Set bounds to fit all markers with padding
+                    ymapInstance.setBounds(ymapInstance.geoObjects.getBounds(), {
+                        checkZoomRange: true,
+                        zoomMargin: 40
+                    });
+                });
+            }).catch(function(err) {
+                console.error('Yandex Maps failed to load:', err);
+                var placeholder = contactsYMap.querySelector('.contacts-map__map-placeholder');
+                if (placeholder) {
+                    placeholder.innerHTML = '<span>Не удалось загрузить карту. <a href="https://yandex.ru/maps/" target="_blank" rel="noopener" style="color:var(--orange)">Открыть Яндекс Карты</a></span>';
+                }
+            });
+        }
+
+        // Render sidebar immediately
+        renderLocationList();
+
+        // Lazy-load map when section enters viewport
+        var mapObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    initContactsMap();
+                    mapObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05, rootMargin: '200px 0px' });
+
+        mapObserver.observe(contactsMapSection);
     }
 
     // ===== SMOOTH SCROLL (with header offset) =====

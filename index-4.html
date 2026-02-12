@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BORDUR — Тротуарная плитка, бордюры, компенсаторы</title>
+    <meta name="description" content="BORDUR — тротуарная плитка, бордюры и компенсаторы для бордюров. Качественная продукция для благоустройства.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style-v3.css">
+    <style>
+    /* ============================
+       V4: VIDEO BANNER + STATS OVERLAY
+       ============================ */
+    .v4-banner{
+        position:relative;
+        min-height:720px;
+        overflow:visible;
+        z-index:1;
+    }
+    .v4-banner__bg{
+        position:absolute;inset:0;z-index:0;
+        overflow:hidden;
+    }
+    .v4-banner__video{
+        width:100%;height:120%;
+        object-fit:cover;
+        position:absolute;top:-10%;left:0;
+        z-index:1;
+    }
+    /* Fallback gradient */
+    .v4-banner__bg::after{
+        content:'';position:absolute;inset:0;
+        background:linear-gradient(135deg,rgba(60,40,20,.9) 0%,rgba(80,60,30,.7) 40%,rgba(50,50,50,.8) 100%);
+        z-index:0;
+    }
+    .v4-banner__overlay{
+        position:absolute;inset:0;z-index:1;
+        background:linear-gradient(to right, rgba(0,0,0,.55) 0%, rgba(0,0,0,.25) 50%, rgba(0,0,0,.15) 100%);
+    }
+    .v4-banner__inner{
+        position:relative;z-index:2;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        align-items:center;
+        gap:48px;
+        padding-top:100px;
+        padding-bottom:140px; /* room for stats overlay */
+        min-height:720px;
+    }
+    .v4-banner__content{
+        color:#fff;
+    }
+    .v4-banner__title{
+        font-size:52px;
+        font-weight:800;
+        line-height:1.15;
+        color:#fff;
+        margin-bottom:32px;
+    }
+    .v4-banner__link{
+        display:inline-flex;align-items:center;gap:10px;
+        font-size:16px;font-weight:600;
+        color:#fff;
+        border-bottom:1px solid rgba(255,255,255,.4);
+        padding-bottom:4px;
+        transition:all .3s ease;
+    }
+    .v4-banner__link:hover{
+        color:var(--orange);
+        border-bottom-color:var(--orange);
+        gap:14px;
+    }
+    .v4-banner__link svg{transition:transform .35s var(--ease-out-quart)}
+    .v4-banner__link:hover svg{transform:translateX(4px)}
+
+    /* Floating image on the right */
+    .v4-banner__float{
+        display:flex;
+        justify-content:flex-end;
+        align-items:center;
+    }
+    .v4-banner__float-img{
+        width:100%;max-width:480px;height:340px;
+        border-radius:16px;
+        box-shadow:0 24px 80px rgba(0,0,0,.35);
+        transform:rotate(1.5deg);
+        transition:transform .6s var(--ease-out-quart);
+        background:url('img-main/завод.jpg') center/cover no-repeat;
+        border:4px solid rgba(255,255,255,.15);
+    }
+    .v4-banner__float-img:hover{
+        transform:rotate(0deg) scale(1.02);
+    }
+
+    /* Stats strip — overlaps bottom of banner */
+    .v4-stats{
+        position:relative;
+        z-index:3;
+        margin-top:-70px;
+    }
+    .v4-stats__inner{
+        background:#fff;
+        border-radius:16px;
+        box-shadow:0 8px 40px rgba(0,0,0,.1);
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        padding:0;
+        overflow:hidden;
+    }
+    .v4-stats__item{
+        padding:32px 28px;
+        position:relative;
+    }
+    .v4-stats__item + .v4-stats__item{
+        border-left:1px solid var(--border);
+    }
+    .v4-stats__value{
+        font-size:44px;
+        font-weight:800;
+        color:var(--dark);
+        line-height:1.1;
+        margin-bottom:8px;
+    }
+    .v4-stats__value span{
+        font-size:24px;
+        font-weight:600;
+        color:var(--text-secondary);
+    }
+    .v4-stats__label{
+        font-size:14px;
+        color:var(--text-secondary);
+        line-height:1.5;
+    }
+
+    /* ============================
+       V4 RESPONSIVE
+       ============================ */
+    @media(max-width:1024px){
+        .v4-banner{min-height:600px}
+        .v4-banner__inner{
+            min-height:600px;
+            padding-top:80px;
+            padding-bottom:120px;
+            gap:32px;
+        }
+        .v4-banner__title{font-size:40px}
+        .v4-banner__float-img{max-width:380px;height:280px}
+        .v4-stats__value{font-size:36px}
+        .v4-stats__value span{font-size:20px}
+        .v4-stats__item{padding:24px 20px}
+    }
+    @media(max-width:768px){
+        .v4-banner{min-height:auto}
+        .v4-banner__inner{
+            grid-template-columns:1fr;
+            min-height:auto;
+            padding-top:80px;
+            padding-bottom:120px;
+            gap:32px;
+        }
+        .v4-banner__title{font-size:32px}
+        .v4-banner__float{justify-content:center}
+        .v4-banner__float-img{max-width:100%;height:240px;transform:none}
+        .v4-stats{margin-top:-50px}
+        .v4-stats__inner{grid-template-columns:repeat(2,1fr)}
+        .v4-stats__item:nth-child(3){border-left:none}
+        .v4-stats__item:nth-child(n+3){border-top:1px solid var(--border)}
+        .v4-stats__value{font-size:32px}
+        .v4-stats__item{padding:20px 16px}
+    }
+    @media(max-width:480px){
+        .v4-banner__title{font-size:26px}
+        .v4-banner__float-img{height:200px}
+        .v4-stats__inner{grid-template-columns:1fr 1fr}
+        .v4-stats__value{font-size:28px}
+        .v4-stats__value span{font-size:16px}
+        .v4-stats__label{font-size:13px}
+        .v4-stats__item{padding:16px 14px}
+    }
+
+    /* ============================
+       FAQ SECTION
+       ============================ */
+    .faq{
+        padding:80px 0;
+        background:var(--bg-gray);
+    }
+    .faq__inner{
+        display:grid;
+        grid-template-columns:1fr 1.2fr;
+        gap:48px;
+        align-items:start;
+    }
+    .faq__left{
+        position:sticky;
+        top:120px;
+    }
+    .faq__title{
+        font-size:32px;
+        font-weight:800;
+        line-height:1.2;
+        color:var(--dark);
+        margin-bottom:20px;
+    }
+    .faq__subtitle{
+        font-size:15px;
+        color:var(--text);
+        margin-bottom:8px;
+    }
+    .faq__desc{
+        font-size:15px;
+        color:var(--text-secondary);
+        line-height:1.6;
+    }
+    .faq__items{
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+    }
+    .faq__item{
+        background:#fff;
+        border-radius:12px;
+        border:1px solid var(--border);
+        overflow:hidden;
+        transition:box-shadow .25s ease;
+    }
+    .faq__item:hover{
+        box-shadow:0 2px 12px rgba(0,0,0,.06);
+    }
+    .faq__trigger{
+        width:100%;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:16px;
+        padding:20px 24px;
+        background:none;
+        border:none;
+        cursor:pointer;
+        font-family:inherit;
+        font-size:16px;
+        font-weight:600;
+        color:var(--dark);
+        text-align:left;
+        line-height:1.4;
+    }
+    .faq__trigger:hover{
+        color:var(--orange);
+    }
+    .faq__icon{
+        flex-shrink:0;
+        width:24px;
+        height:24px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        transition:transform .3s ease;
+    }
+    .faq__icon svg{
+        width:18px;
+        height:18px;
+        stroke:var(--text-secondary);
+        stroke-width:2;
+        fill:none;
+    }
+    .faq__item--open .faq__icon{
+        transform:rotate(180deg);
+    }
+    .faq__answer{
+        max-height:0;
+        overflow:hidden;
+        transition:max-height .35s ease;
+    }
+    .faq__answer-inner{
+        padding:0 24px 20px;
+        font-size:15px;
+        line-height:1.7;
+        color:var(--text-secondary);
+    }
+    @media(max-width:768px){
+        .faq{padding:48px 0}
+        .faq__inner{grid-template-columns:1fr;gap:32px}
+        .faq__left{position:static}
+        .faq__title{font-size:26px}
+    }
+    @media(max-width:480px){
+        .faq{padding:40px 0}
+        .faq__title{font-size:22px}
+        .faq__trigger{padding:16px 18px;font-size:15px}
+        .faq__answer-inner{padding:0 18px 16px;font-size:14px}
+    }
+
+    /* ============================
+       MAGIC BENTO NAVIGATION
+       ============================ */
+    .bento{
+        padding:80px 0;
+        background:var(--bg);
+    }
+    .bento__grid{
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:16px;
+    }
+
+    /* --- Card base --- */
+    .bento__card{
+        position:relative;
+        background:#fff;
+        border-radius:12px;
+        border:1px solid var(--border);
+        overflow:hidden;
+        text-decoration:none;
+        color:inherit;
+        display:flex;
+        flex-direction:column;
+        justify-content:flex-end;
+        min-height:210px;
+        transition:
+            transform .4s var(--ease-out-quart),
+            box-shadow .4s var(--ease-out-quart),
+            border-color .35s ease;
+    }
+    .bento__card:hover{
+        transform:translateY(-4px);
+        box-shadow:var(--shadow-lg);
+        border-color:rgba(234,118,39,.25);
+    }
+
+    /* --- Spotlight: fill glow --- */
+    .bento__card-glow{
+        position:absolute;inset:0;z-index:0;
+        opacity:0;
+        transition:opacity .4s ease;
+        pointer-events:none;
+        border-radius:inherit;
+        background:radial-gradient(
+            600px circle at var(--mouse-x,50%) var(--mouse-y,50%),
+            rgba(234,118,39,.07) 0%,
+            transparent 55%
+        );
+    }
+
+    /* --- Spotlight: border glow --- */
+    .bento__card::before{
+        content:'';
+        position:absolute;inset:0;z-index:0;
+        border-radius:inherit;
+        padding:1px;
+        background:radial-gradient(
+            400px circle at var(--mouse-x,50%) var(--mouse-y,50%),
+            rgba(234,118,39,.45) 0%,
+            transparent 50%
+        );
+        -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite:xor;
+        mask-composite:exclude;
+        opacity:0;
+        transition:opacity .4s ease;
+        pointer-events:none;
+    }
+
+    /* Show glow on hover */
+    .bento__card:hover .bento__card-glow,
+    .bento__card:hover::before{
+        opacity:1;
+    }
+
+    /* --- Card content --- */
+    .bento__card-content{
+        position:relative;z-index:1;
+        padding:28px;
+        display:flex;
+        flex-direction:column;
+        gap:8px;
+        height:100%;
+        justify-content:flex-end;
+    }
+
+    /* --- Icon --- */
+    .bento__card-icon{
+        width:44px;height:44px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background:rgba(234,118,39,.08);
+        border-radius:10px;
+        color:var(--orange);
+        margin-bottom:4px;
+        flex-shrink:0;
+        transition:background .3s ease, transform .3s var(--ease-out-quart);
+    }
+    .bento__card:hover .bento__card-icon{
+        background:rgba(234,118,39,.14);
+        transform:scale(1.08);
+    }
+    .bento__card-icon svg{
+        width:22px;height:22px;
+        stroke:currentColor;
+        stroke-width:1.8;
+        fill:none;
+        stroke-linecap:round;
+        stroke-linejoin:round;
+    }
+
+    /* --- Title --- */
+    .bento__card-title{
+        font-size:18px;
+        font-weight:700;
+        color:var(--dark);
+        line-height:1.3;
+        transition:color .3s ease;
+    }
+    .bento__card:hover .bento__card-title{
+        color:var(--orange);
+    }
+
+    /* --- Description --- */
+    .bento__card-desc{
+        font-size:13px;
+        color:var(--text-secondary);
+        line-height:1.55;
+        margin:0;
+    }
+
+    /* --- Arrow --- */
+    .bento__card-arrow{
+        display:inline-flex;
+        align-items:center;
+        margin-top:8px;
+        color:var(--orange);
+        opacity:0;
+        transform:translateX(-8px);
+        transition:opacity .3s ease, transform .35s var(--ease-out-quart);
+    }
+    .bento__card:hover .bento__card-arrow{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+    /* --- Large card (2col × 2row) --- */
+    .bento__card--lg{
+        grid-column:span 2;
+        grid-row:span 2;
+        min-height:440px;
+    }
+    .bento__card--lg .bento__card-content{
+        padding:36px;
+    }
+    .bento__card--lg .bento__card-icon{
+        width:56px;height:56px;
+        border-radius:14px;
+    }
+    .bento__card--lg .bento__card-icon svg{
+        width:28px;height:28px;
+    }
+    .bento__card--lg .bento__card-title{
+        font-size:26px;
+    }
+    .bento__card--lg .bento__card-desc{
+        font-size:15px;
+        max-width:340px;
+    }
+
+    /* --- Wide card (2col) --- */
+    .bento__card--wide{
+        grid-column:span 2;
+        min-height:120px;
+    }
+    .bento__card--wide .bento__card-content{
+        flex-direction:row;
+        align-items:center;
+        gap:20px;
+        justify-content:flex-start;
+    }
+    .bento__card--wide .bento__card-text{
+        flex:1;
+        display:flex;
+        flex-direction:column;
+        gap:4px;
+    }
+    .bento__card--wide .bento__card-arrow{
+        margin-top:0;
+        margin-left:auto;
+        flex-shrink:0;
+    }
+
+    /* ============================
+       BENTO RESPONSIVE
+       ============================ */
+    @media(max-width:1024px){
+        .bento{padding:60px 0}
+        .bento__grid{gap:12px}
+        .bento__card{min-height:190px}
+        .bento__card--lg{min-height:392px}
+        .bento__card--lg .bento__card-title{font-size:22px}
+        .bento__card--lg .bento__card-content{padding:28px}
+        .bento__card-content{padding:22px}
+        .bento__card-title{font-size:16px}
+    }
+    @media(max-width:768px){
+        .bento{padding:48px 0}
+        .bento__grid{
+            grid-template-columns:repeat(2,1fr);
+            gap:10px;
+        }
+        .bento__card--lg{
+            grid-column:span 2;
+            grid-row:span 1;
+            min-height:180px;
+        }
+        .bento__card--lg .bento__card-title{font-size:20px}
+        .bento__card--lg .bento__card-content{padding:22px}
+        .bento__card--wide{grid-column:span 1}
+        .bento__card--wide .bento__card-content{
+            flex-direction:column;
+            align-items:flex-start;
+            justify-content:flex-end;
+        }
+        .bento__card--wide .bento__card-arrow{
+            margin-left:0;
+            margin-top:8px;
+        }
+        .bento__card{min-height:160px}
+        .bento__card--wide{min-height:140px}
+        .bento__card-content{padding:18px}
+        .bento__card-title{font-size:15px}
+        .bento__card-desc{font-size:12px}
+        .bento__card-arrow{
+            opacity:1;
+            transform:translateX(0);
+        }
+    }
+    @media(max-width:480px){
+        .bento{padding:40px 0}
+        .bento__grid{grid-template-columns:1fr}
+        .bento__card--lg,
+        .bento__card--wide{
+            grid-column:span 1;
+            grid-row:span 1;
+        }
+        .bento__card{min-height:130px}
+        .bento__card--lg{min-height:150px}
+        .bento__card--wide{min-height:120px}
+        .bento__card-content{padding:16px}
+        .bento__card--lg .bento__card-content{padding:20px}
+        .bento__card--lg .bento__card-title{font-size:18px}
+        .bento__card--lg .bento__card-icon{width:44px;height:44px;border-radius:10px}
+        .bento__card--lg .bento__card-icon svg{width:22px;height:22px}
+    }
+    </style>
+    <style>
+    /* =========================================================
+       Liquid Glass Mono
+       Чёрный/графитовый акцент + glassmorphism-эффекты
+       ========================================================= */
+    :root{
+        --orange:#1A1A1A;
+        --orange-hover:#333;
+        --dark:#0A0A0A;
+        --text:#333;
+        --text-secondary:#666;
+        --text-muted:#999;
+        --bg:#FAFAFA;
+        --bg-gray:#F0F0F0;
+        --border:#E0E0E0;
+    }
+
+    /* — Hardcoded rgba overrides — */
+    .btn--primary:hover{box-shadow:0 6px 20px rgba(0,0,0,.2)}
+    .ic__variant--active{background:rgba(0,0,0,.03)}
+    .ic__detail-tag{color:#333;background:rgba(0,0,0,.06)}
+    .product-card__detail{background:rgba(0,0,0,.05)}
+    .product-card__detail:hover{box-shadow:0 4px 16px rgba(0,0,0,.15)}
+    .form-field input:focus,.form-field select:focus{border-color:#1A1A1A;box-shadow:0 0 0 3px rgba(0,0,0,.08)}
+    .back-to-top{box-shadow:0 4px 12px rgba(0,0,0,.25)}
+    .contacts-map__item--active{background:rgba(0,0,0,.03)}
+    .contacts-map__item-icon{background:rgba(0,0,0,.06);color:#333}
+    .bordur-marker__pin{background:#1A1A1A;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+    .bordur-marker--active .bordur-marker__pin{box-shadow:0 4px 16px rgba(0,0,0,.4)}
+    :focus-visible{outline-color:#1A1A1A}
+
+    /* — Liquid Glass: Card Nav — */
+    .card-nav{
+        background:rgba(255,255,255,.45)!important;
+        backdrop-filter:blur(40px) saturate(1.8);
+        -webkit-backdrop-filter:blur(40px) saturate(1.8);
+        border-color:rgba(255,255,255,.5);
+        box-shadow:
+            0 4px 24px rgba(0,0,0,.08),
+            inset 0 1px 0 rgba(255,255,255,.7),
+            inset 0 -1px 0 rgba(255,255,255,.2)!important;
+    }
+    .card-nav--open{
+        box-shadow:
+            0 12px 40px rgba(0,0,0,.12),
+            inset 0 1px 0 rgba(255,255,255,.7),
+            inset 0 -1px 0 rgba(255,255,255,.2)!important;
+    }
+
+    /* — Glassmorphism: Stats — */
+    .v4-stats__inner{
+        background:rgba(255,255,255,.55);
+        backdrop-filter:blur(20px);
+        -webkit-backdrop-filter:blur(20px);
+        border:1px solid rgba(255,255,255,.5);
+        box-shadow:0 8px 48px rgba(0,0,0,.06);
+    }
+
+    /* — Glassmorphism: FAQ — */
+    .faq__item{
+        background:rgba(255,255,255,.5);
+        backdrop-filter:blur(14px);
+        -webkit-backdrop-filter:blur(14px);
+        border-color:rgba(0,0,0,.06);
+    }
+    .faq__item:hover{box-shadow:0 4px 20px rgba(0,0,0,.05)}
+
+    /* — Glassmorphism: Callback form — */
+    .callback__form{
+        background:rgba(255,255,255,.55);
+        backdrop-filter:blur(20px);
+        -webkit-backdrop-filter:blur(20px);
+        border:1px solid rgba(255,255,255,.5);
+    }
+
+    /* — Glassmorphism: Catalog — */
+    .ic__layout{
+        background:rgba(255,255,255,.5);
+        backdrop-filter:blur(14px);
+        -webkit-backdrop-filter:blur(14px);
+        border-color:rgba(0,0,0,.06);
+    }
+    .ic__sidebar{background:rgba(240,240,240,.5)}
+    .ic__cat:hover{background:rgba(255,255,255,.6)}
+    .ic__cat--active{background:rgba(255,255,255,.6)}
+
+    /* — Glassmorphism: Contacts — */
+    .contacts-map__wrapper{
+        background:rgba(255,255,255,.5);
+        backdrop-filter:blur(12px);
+        -webkit-backdrop-filter:blur(12px);
+        box-shadow:0 12px 48px rgba(0,0,0,.06);
+    }
+
+    /* — Glassmorphism: Cookie bar — */
+    .cookie-bar{
+        background:rgba(255,255,255,.7);
+        backdrop-filter:blur(20px);
+        -webkit-backdrop-filter:blur(20px);
+        box-shadow:0 -1px 20px rgba(0,0,0,.05);
+    }
+
+    /* — Section backgrounds — */
+    .hero__top{background:var(--bg-gray)}
+    .hero__tabs-bar{background:var(--bg-gray);border-bottom-color:var(--border)}
+    .hero__panel{background:var(--bg)}
+    .faq{background:var(--bg-gray)}
+    .callback{background:var(--bg-gray)}
+    .footer{background:#1A1A1A}
+    .mobile-menu{box-shadow:-4px 0 24px rgba(0,0,0,.1)}
+
+    /* — Forms — */
+    .form-field input,.form-field select{background:rgba(255,255,255,.65);border-color:var(--border)}
+
+    /* — Variant checkmark: white on black — */
+    .ic__variant--active::after{
+        background:#1A1A1A;
+        background-image:url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5l3.5 3.5L11 1' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat:no-repeat;background-position:center;background-size:12px;
+    }
+    </style>
+</head>
+<body>
+
+    <!-- Hero with tabs (braer.ru style) -->
+    <section class="hero hero--intro" id="hero">
+        <div class="hero__top">
+            <div class="container">
+                <h1 class="hero__title">Качество<br>для&nbsp;вашего&nbsp;города</h1>
+            </div>
+        </div>
+        <div class="hero__tabs-bar">
+            <div class="container">
+                <div class="hero__tabs">
+                    <button class="hero__tab hero__tab--active" data-tab="0">Тротуарная плитка</button>
+                    <button class="hero__tab" data-tab="1">Бордюры</button>
+                    <button class="hero__tab" data-tab="2">Компенсаторы для бордюров</button>
+                </div>
+            </div>
+        </div>
+        <div class="hero__panels">
+            <!-- Тротуарная плитка -->
+            <div class="hero__panel hero__panel--active" data-panel="0">
+                <div class="container hero__panel-inner">
+                    <div class="hero__panel-body">
+                        <h2 class="hero__panel-title">Тротуарная плитка</h2>
+                        <p class="hero__panel-text">Городская среда включает в себя многочисленные элементы, одним из которых является тротуарная плитка. Разнообразие форм, цветов и способов укладки делают возможности мощения безграничными.</p>
+                        <a href="pages/catalog-plitka.html" class="hero__panel-link">Смотреть всю продукцию
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="hero__panel-img hero__panel-img--paving"></div>
+                </div>
+            </div>
+            <!-- Бордюры -->
+            <div class="hero__panel" data-panel="1">
+                <div class="container hero__panel-inner">
+                    <div class="hero__panel-body">
+                        <h2 class="hero__panel-title">Бордюры</h2>
+                        <p class="hero__panel-text">Бордюрный камень — незаменимый элемент благоустройства. Он разделяет пешеходные зоны и проезжую часть, защищает покрытие от разрушения и придаёт завершённость любому проекту мощения.</p>
+                        <a href="pages/catalog-bordyury.html" class="hero__panel-link">Смотреть всю продукцию
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="hero__panel-img hero__panel-img--curb"></div>
+                </div>
+            </div>
+            <!-- Компенсаторы -->
+            <div class="hero__panel" data-panel="2">
+                <div class="container hero__panel-inner">
+                    <div class="hero__panel-body">
+                        <h2 class="hero__panel-title">Компенсаторы для&nbsp;бордюров</h2>
+                        <p class="hero__panel-text">Компенсаторы обеспечивают гибкое соединение бордюрных камней, компенсируя температурные расширения и неровности грунта. Продлевают срок службы мощения и сохраняют эстетику покрытия.</p>
+                        <a href="pages/catalog-kompensatory.html" class="hero__panel-link">Смотреть всю продукцию
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="hero__panel-img hero__panel-img--comp"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- V4: Video Banner with integrated stats -->
+    <section class="v4-banner" id="production">
+        <div class="v4-banner__bg">
+            <video class="v4-banner__video" autoplay muted loop playsinline>
+                <source src="video/production.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="v4-banner__overlay"></div>
+        <div class="container v4-banner__inner">
+            <div class="v4-banner__content" data-anim="left">
+                <h2 class="v4-banner__title">Роботизированное<br>производство<br>и&nbsp;контроль качества<br>на&nbsp;всех этапах</h2>
+                <a href="pages/about.html" class="v4-banner__link">Подробнее о компании
+                    <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+            <div class="v4-banner__float" data-anim="right">
+                <div class="v4-banner__float-img"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- V4: Stats strip overlapping the banner bottom -->
+    <div class="v4-stats">
+        <div class="container">
+            <div class="v4-stats__inner">
+                <div class="v4-stats__item">
+                    <div class="v4-stats__value">2 000</div>
+                    <div class="v4-stats__label">основан первый завод по производству тротуарной плитки</div>
+                </div>
+                <div class="v4-stats__item">
+                    <div class="v4-stats__value">3 800 <span>м²</span></div>
+                    <div class="v4-stats__label">вибропрессованной плитки в сутки</div>
+                </div>
+                <div class="v4-stats__item">
+                    <div class="v4-stats__value">2</div>
+                    <div class="v4-stats__label">склада готовой продукции</div>
+                </div>
+                <div class="v4-stats__item">
+                    <div class="v4-stats__value">28</div>
+                    <div class="v4-stats__label">единиц собственной техники: длинномеры, манипуляторы</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Magic Bento Navigation -->
+    <section class="bento" id="bento-nav">
+        <div class="container">
+            <h2 class="section-title" data-anim="up">Быстрая навигация</h2>
+            <div class="bento__grid">
+
+                <!-- 1: Тротуарная плитка (LARGE — 2col × 2row) -->
+                <a href="pages/catalog-plitka.html" class="bento__card bento__card--lg" data-bento-spotlight data-anim="up" data-anim-delay="0">
+                    <div class="bento__card-glow"></div>
+                    <div class="bento__card-content">
+                        <div class="bento__card-icon">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                        </div>
+                        <h3 class="bento__card-title">Тротуарная плитка</h3>
+                        <p class="bento__card-desc">31&nbsp;вид плитки двойного вибропрессования. Прочность, разнообразие форм и&nbsp;цветов. Срок службы более&nbsp;25&nbsp;лет</p>
+                        <span class="bento__card-arrow">
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- 2: Бордюры -->
+                <a href="pages/catalog-bordyury.html" class="bento__card" data-bento-spotlight data-anim="up" data-anim-delay="60">
+                    <div class="bento__card-glow"></div>
+                    <div class="bento__card-content">
+                        <div class="bento__card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <h3 class="bento__card-title">Бордюры</h3>
+                        <p class="bento__card-desc">Бордюрный камень по&nbsp;ГОСТ. 8&nbsp;вариантов цвета для&nbsp;любого проекта мощения</p>
+                        <span class="bento__card-arrow">
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- 3: Компенсаторы -->
+                <a href="pages/catalog-kompensatory.html" class="bento__card" data-bento-spotlight data-anim="up" data-anim-delay="120">
+                    <div class="bento__card-glow"></div>
+                    <div class="bento__card-content">
+                        <div class="bento__card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+                        </div>
+                        <h3 class="bento__card-title">Компенсаторы</h3>
+                        <p class="bento__card-desc">Гибкое соединение бордюрных камней. 4&nbsp;типа профиля для&nbsp;разных задач</p>
+                        <span class="bento__card-arrow">
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- 4: Каталог продукции -->
+                <a href="pages/catalog.html" class="bento__card" data-bento-spotlight data-anim="up" data-anim-delay="100">
+                    <div class="bento__card-glow"></div>
+                    <div class="bento__card-content">
+                        <div class="bento__card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                        </div>
+                        <h3 class="bento__card-title">Каталог продукции</h3>
+                        <p class="bento__card-desc">Полный каталог плитки, бордюров и&nbsp;компенсаторов с&nbsp;ценами</p>
+                        <span class="bento__card-arrow">
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- 5: Контакты -->
+                <a href="#contacts" class="bento__card" data-bento-spotlight data-anim="up" data-anim-delay="160">
+                    <div class="bento__card-glow"></div>
+                    <div class="bento__card-content">
+                        <div class="bento__card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <h3 class="bento__card-title">Контакты</h3>
+                        <p class="bento__card-desc">Шоу-рум, склады и&nbsp;дилеры на&nbsp;карте. Адреса и&nbsp;часы работы</p>
+                        <span class="bento__card-arrow">
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- 6: Оплата и доставка (WIDE — 2col) -->
+                <a href="#callback" class="bento__card bento__card--wide" data-bento-spotlight data-anim="up" data-anim-delay="180">
+                    <div class="bento__card-glow"></div>
+                    <div class="bento__card-content">
+                        <div class="bento__card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        </div>
+                        <div class="bento__card-text">
+                            <h3 class="bento__card-title">Оплата и&nbsp;доставка</h3>
+                            <p class="bento__card-desc">Доставка за&nbsp;2-3&nbsp;дня собственным автопарком. Хранение и&nbsp;резерв продукции</p>
+                        </div>
+                        <span class="bento__card-arrow">
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- 7: Вопрос-ответ (WIDE — 2col) -->
+                <a href="#faq" class="bento__card bento__card--wide" data-bento-spotlight data-anim="up" data-anim-delay="220">
+                    <div class="bento__card-glow"></div>
+                    <div class="bento__card-content">
+                        <div class="bento__card-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        </div>
+                        <div class="bento__card-text">
+                            <h3 class="bento__card-title">Вопрос-ответ</h3>
+                            <p class="bento__card-desc">Ответы на&nbsp;популярные вопросы о&nbsp;плитке, ценах и&nbsp;условиях доставки</p>
+                        </div>
+                        <span class="bento__card-arrow">
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento spotlight — mouse tracking -->
+    <script>
+    (function(){
+        var cards = document.querySelectorAll('[data-bento-spotlight]');
+        if (!cards.length) return;
+        if (!window.matchMedia('(hover: hover)').matches) return;
+        cards.forEach(function(card){
+            card.addEventListener('mousemove', function(e){
+                var rect = card.getBoundingClientRect();
+                card.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+                card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+            });
+        });
+    })();
+    </script>
+
+    <!-- Интерактивный каталог продукции -->
+    <section class="ic" id="catalog">
+        <div class="container">
+            <h2 class="section-title" data-anim="up">Каталог продукции</h2>
+            <div class="ic__layout" data-anim="up" data-anim-delay="80">
+                <!-- Левая панель: категории -->
+                <div class="ic__sidebar">
+                    <button class="ic__cat ic__cat--active" data-cat="plitka" type="button">
+                        <img class="ic__cat-thumb" src="img-main/плитка.jpg" alt="Плитка" loading="lazy">
+                        <span class="ic__cat-name">Тротуарная<br>плитка</span>
+                    </button>
+                    <button class="ic__cat" data-cat="bordyury" type="button">
+                        <img class="ic__cat-thumb" src="img-main/бордюр.jpg" alt="Бордюры" loading="lazy">
+                        <span class="ic__cat-name">Бордюры</span>
+                    </button>
+                    <button class="ic__cat" data-cat="kompensatory" type="button">
+                        <img class="ic__cat-thumb" src="img-main/компенсатор1.jpg" alt="Компенсаторы" loading="lazy">
+                        <span class="ic__cat-name">Компенсаторы</span>
+                    </button>
+                </div>
+                <!-- Средняя панель: миниатюры вариантов -->
+                <div class="ic__variants">
+                    <div class="ic__variants-grid" id="icVariantsGrid"></div>
+                    <a class="ic__variants-more" id="icVariantsMore" href="pages/catalog-plitka.html">
+                        Все варианты
+                        <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+                <!-- Правая панель: детали товара -->
+                <div class="ic__detail">
+                    <div class="ic__detail-top">
+                        <span class="ic__detail-tag" id="icDetailTag"></span>
+                        <h3 class="ic__detail-title" id="icDetailTitle"></h3>
+                        <p class="ic__detail-desc" id="icDetailDesc"></p>
+                    </div>
+                    <div class="ic__carousel">
+                        <div class="ic__carousel-viewport" id="icCarouselViewport"></div>
+                        <div class="ic__carousel-dots" id="icCarouselDots"></div>
+                    </div>
+                    <div class="ic__detail-bottom">
+                        <h4 class="ic__detail-name" id="icDetailName"></h4>
+                        <a class="ic__detail-link" id="icDetailLink" href="pages/catalog-plitka.html">
+                            Перейти к товару
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Скрипт интерактивного каталога -->
+    <script>
+    (function(){
+        var IC_DATA = {
+            plitka: {
+                tag: 'Двойное вибропрессование',
+                title: 'Тротуарная плитка',
+                desc: 'Самая современная технология изготовления тротуарной плитки. Обеспечивает высокую прочность изделий, при правильной укладке и уходе срок службы тротуарной плитки более 25 лет!',
+                catalogUrl: 'pages/catalog-plitka.html',
+                variants: [
+                    { name: 'Новый город Дым',    img: 'img/plitka/novyj-gorod-dym.webp' },
+                    { name: 'Новый город Дюна',   img: 'img/plitka/novyj-gorod-dyuna.webp' },
+                    { name: 'Новый город Магма',   img: 'img/plitka/novyj-gorod-magma.webp' },
+                    { name: 'Новый город Брауни', img: 'img/plitka/novyj-gorod-brauni.webp' },
+                    { name: 'Плита Сумрак',        img: 'img/plitka/plita-sumrak.webp' },
+                    { name: 'Плита Дюна',          img: 'img/plitka/plita-dyuna.webp' },
+                    { name: 'Квадрат Магма',       img: 'img/plitka/kvadrat-magma.webp' }
+                ]
+            },
+            bordyury: {
+                tag: 'ГОСТ 6665-91',
+                title: 'Бордюрный камень',
+                desc: 'Бордюрный камень разделяет пешеходные зоны и проезжую часть, защищает покрытие от разрушения и придаёт завершённость любому проекту мощения.',
+                catalogUrl: 'pages/catalog-bordyury.html',
+                variants: [
+                    { name: 'Садовый Пепел',   img: 'img/bordyury/sadovyj-pepel.webp' },
+                    { name: 'Садовый Осень',   img: 'img/bordyury/sadovyj-osen.webp' },
+                    { name: 'Садовый Магма',   img: 'img/bordyury/sadovyj-magma.webp' },
+                    { name: 'Садовый Дюна',    img: 'img/bordyury/sadovyj-dyuna.webp' },
+                    { name: 'Садовый Черный',  img: 'img/bordyury/sadovyj-chernyj.webp' },
+                    { name: 'Садовый Серый',   img: 'img/bordyury/sadovyj-seryj.webp' },
+                    { name: 'Садовый Красный', img: 'img/bordyury/sadovyj-krasnyj.webp' }
+                ]
+            },
+            kompensatory: {
+                tag: 'Быстрое производство',
+                title: 'Компенсаторы бортового камня',
+                desc: 'Компенсаторы обеспечивают гибкое соединение бордюрных камней, компенсируя температурные расширения и неровности грунта. Продлевают срок службы мощения.',
+                catalogUrl: 'pages/catalog-kompensatory.html',
+                variants: [
+                    { name: 'Тип А',  img: 'img/kompensatory/tip-a.png' },
+                    { name: 'Тип Б',  img: 'img/kompensatory/tip-b.png' },
+                    { name: 'Тип Г',  img: 'img/kompensatory/tip-g.webp' },
+                    { name: 'Тип А2', img: 'img/kompensatory/tip-a2.webp' }
+                ]
+            }
+        };
+
+        var sidebar = document.querySelectorAll('.ic__cat');
+        var variantsGrid = document.getElementById('icVariantsGrid');
+        var variantsMore = document.getElementById('icVariantsMore');
+        var detailTag = document.getElementById('icDetailTag');
+        var detailTitle = document.getElementById('icDetailTitle');
+        var detailDesc = document.getElementById('icDetailDesc');
+        var detailName = document.getElementById('icDetailName');
+        var detailLink = document.getElementById('icDetailLink');
+        var carouselViewport = document.getElementById('icCarouselViewport');
+        var carouselDots = document.getElementById('icCarouselDots');
+
+        if (!variantsGrid) return;
+
+        var currentCat = 'plitka';
+        var carouselInterval = null;
+
+        function renderVariants(catKey) {
+            var cat = IC_DATA[catKey];
+            variantsGrid.innerHTML = '';
+            cat.variants.forEach(function(variant, index) {
+                var btn = document.createElement('button');
+                btn.className = 'ic__variant' + (index === 0 ? ' ic__variant--active' : '');
+                btn.type = 'button';
+                var isPng = variant.img.endsWith('.png');
+                btn.innerHTML =
+                    '<img class="ic__variant-img" src="' + variant.img + '" alt="' + variant.name + '" loading="lazy"' + (isPng ? ' style="object-fit:contain"' : '') + '>' +
+                    '<span class="ic__variant-label">' + variant.name + '</span>';
+                btn.addEventListener('click', function() {
+                    selectVariant(catKey, index);
+                });
+                variantsGrid.appendChild(btn);
+            });
+        }
+
+        function updateDetail(catKey, variantIndex) {
+            var cat = IC_DATA[catKey];
+            var variant = cat.variants[variantIndex];
+            detailTag.textContent = cat.tag;
+            detailTitle.textContent = cat.title;
+            detailDesc.textContent = cat.desc;
+            detailName.textContent = variant.name;
+            detailLink.href = cat.catalogUrl;
+            variantsMore.href = cat.catalogUrl;
+            updateCarousel(cat.variants, variantIndex);
+        }
+
+        function updateCarousel(variants, activeIndex) {
+            clearInterval(carouselInterval);
+            carouselViewport.innerHTML = '';
+            carouselDots.innerHTML = '';
+            var images = [];
+            var dots = [];
+            variants.forEach(function(v, i) {
+                var img = document.createElement('img');
+                img.src = v.img;
+                img.alt = v.name;
+                img.loading = 'lazy';
+                if (i === activeIndex) img.classList.add('ic__carousel-img--active');
+                carouselViewport.appendChild(img);
+                images.push(img);
+
+                var dot = document.createElement('button');
+                dot.className = 'ic__carousel-dot' + (i === activeIndex ? ' ic__carousel-dot--active' : '');
+                dot.type = 'button';
+                dot.setAttribute('aria-label', v.name);
+                dot.addEventListener('click', function() {
+                    setCarouselSlide(images, dots, i);
+                    selectVariantVisual(i);
+                });
+                carouselDots.appendChild(dot);
+                dots.push(dot);
+            });
+
+            var current = activeIndex;
+            carouselInterval = setInterval(function() {
+                current = (current + 1) % images.length;
+                setCarouselSlide(images, dots, current);
+            }, 4000);
+        }
+
+        function setCarouselSlide(images, dots, index) {
+            images.forEach(function(img, i) {
+                img.classList.toggle('ic__carousel-img--active', i === index);
+            });
+            dots.forEach(function(dot, i) {
+                dot.classList.toggle('ic__carousel-dot--active', i === index);
+            });
+            var cat = IC_DATA[currentCat];
+            if (cat && cat.variants[index]) {
+                detailName.textContent = cat.variants[index].name;
+            }
+        }
+
+        function selectVariantVisual(index) {
+            var items = variantsGrid.querySelectorAll('.ic__variant');
+            items.forEach(function(item, i) {
+                item.classList.toggle('ic__variant--active', i === index);
+            });
+        }
+
+        function selectVariant(catKey, index) {
+            var items = variantsGrid.querySelectorAll('.ic__variant');
+            items.forEach(function(item, i) {
+                item.classList.toggle('ic__variant--active', i === index);
+            });
+            updateDetail(catKey, index);
+        }
+
+        function switchCategory(catKey) {
+            currentCat = catKey;
+            sidebar.forEach(function(btn) {
+                btn.classList.toggle('ic__cat--active', btn.dataset.cat === catKey);
+            });
+            renderVariants(catKey);
+            updateDetail(catKey, 0);
+        }
+
+        sidebar.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                switchCategory(btn.dataset.cat);
+            });
+        });
+
+        switchCategory('plitka');
+    })();
+    </script>
+
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="faq__inner">
+                <div class="faq__left" data-anim="left">
+                    <h2 class="faq__title">Ваши вопросы —<br>наши честные ответы</h2>
+                    <p class="faq__subtitle">Не нашли ответа на свой вопрос?</p>
+                    <p class="faq__desc">Напишите нам или позвоните — мы поможем разобраться и подскажем лучшее решение по вашу запросу.</p>
+                </div>
+                <div class="faq__items" data-anim="right">
+                    <div class="faq__item">
+                        <button class="faq__trigger" aria-expanded="false">
+                            <span>Где можно посмотреть плитку вживую?</span>
+                            <span class="faq__icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="faq__answer">
+                            <div class="faq__answer-inner">Рекомендуем посетить наш большой шоу-рум образцов тротуарной плитки, выложенных под открытым небом, где при естественном освещении Вам будет легче сделать правильный выбор.</div>
+                        </div>
+                    </div>
+                    <div class="faq__item">
+                        <button class="faq__trigger" aria-expanded="false">
+                            <span>Сколько служит плитка и есть ли гарантия?</span>
+                            <span class="faq__icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="faq__answer">
+                            <div class="faq__answer-inner">Согласно ГОСТ 2017 года гарантия на тротуарную плитку составляет 3 года, а по факту из нашей большой практики — качественная продукция прослужит Вам свыше 30 лет.</div>
+                        </div>
+                    </div>
+                    <div class="faq__item">
+                        <button class="faq__trigger" aria-expanded="false">
+                            <span>В чем отличие премиальной плитки от обычной?</span>
+                            <span class="faq__icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="faq__answer">
+                            <div class="faq__answer-inner">Премиальная тротуарная плитка обязательно содержит в себе щебень, качественный песок во внутреннем и наружном слое, стойкие пигменты, гранитную крошку. В процессе изготовления плитки на нашем заводе осуществляется строгий контроль всех этапов производства.</div>
+                        </div>
+                    </div>
+                    <div class="faq__item">
+                        <button class="faq__trigger" aria-expanded="false">
+                            <span>Есть ли возможность получить скидку при большом объеме?</span>
+                            <span class="faq__icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="faq__answer">
+                            <div class="faq__answer-inner">Наша политика — скидка клиенту. И конечно же, чем больше объем, тем наиболее лучшие финансовые и логистические условия мы стараемся предоставить.</div>
+                        </div>
+                    </div>
+                    <div class="faq__item">
+                        <button class="faq__trigger" aria-expanded="false">
+                            <span>Как быстро осуществляется доставка?</span>
+                            <span class="faq__icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="faq__answer">
+                            <div class="faq__answer-inner">Доставка осуществляется в самые короткие сроки: за 2-3 рабочих дня. Можем также поставить продукцию в резерв и на хранение.</div>
+                        </div>
+                    </div>
+                    <div class="faq__item">
+                        <button class="faq__trigger" aria-expanded="false">
+                            <span>Возможен ли самовывоз?</span>
+                            <span class="faq__icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="faq__answer">
+                            <div class="faq__answer-inner">Самовывоз возможен по оформленной доверенности.</div>
+                        </div>
+                    </div>
+                    <div class="faq__item">
+                        <button class="faq__trigger" aria-expanded="false">
+                            <span>Есть ли зимнее хранение?</span>
+                            <span class="faq__icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+                        </button>
+                        <div class="faq__answer">
+                            <div class="faq__answer-inner">Зимнее хранение есть и длится с 1 декабря до 1 апреля каждого следующего года.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты: карта -->
+    <section class="contacts-map" id="contacts">
+        <div class="container">
+            <h2 class="section-title" data-anim="up">Контакты</h2>
+            <div class="contacts-map__wrapper">
+                <div class="contacts-map__sidebar" data-anim="left">
+                    <div class="contacts-map__list" id="contactsList">
+                        <!-- Locations rendered by JS -->
+                    </div>
+                    <div class="contacts-map__contact-info">
+                        <a href="tel:+74956457120" class="contacts-map__phone">+7 495 645-71-20</a>
+                        <a href="mailto:info@bordur.ru" class="contacts-map__email">info@bordur.ru</a>
+                        <span class="contacts-map__schedule-info">Ежедневно с 8:00 до 20:00</span>
+                    </div>
+                </div>
+                <div class="contacts-map__map" id="contactsYMap" data-anim="right">
+                    <div class="contacts-map__map-placeholder">
+                        <span>Загрузка карты...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контактная форма -->
+    <section class="callback" id="callback">
+        <div class="container">
+            <div class="callback__inner">
+                <div class="callback__info" data-anim="left">
+                    <h2 class="callback__title">Всегда на связи</h2>
+                    <p class="callback__text">Запросите звонок через форму обратной связи. Мы ответим вам в рабочее время по указанному контакту.</p>
+                    <div class="callback__contacts">
+                        <a href="tel:+74956457120" class="callback__phone">+7 495 645-71-20</a>
+                        <a href="mailto:info@bordur.ru" class="callback__email">info@bordur.ru</a>
+                    </div>
+                </div>
+                <form class="callback__form" id="callbackForm" data-anim="right">
+                    <div class="callback__form-row">
+                        <div class="form-field"><input type="text" placeholder="Ваше имя*" required></div>
+                        <div class="form-field"><input type="tel" placeholder="Номер телефона*" required></div>
+                    </div>
+                    <div class="callback__form-row">
+                        <div class="form-field">
+                            <select required>
+                                <option value="" disabled selected>Категория продукции *</option>
+                                <option>Тротуарная плитка</option>
+                                <option>Бордюры</option>
+                                <option>Компенсаторы</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <select required>
+                                <option value="" disabled selected>Регион *</option>
+                                <option>Москва и МО</option>
+                                <option>Санкт-Петербург и ЛО</option>
+                                <option>Центральный ФО</option>
+                                <option>Другой регион</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="callback__form-checks">
+                        <label class="form-check">
+                            <input type="checkbox" required>
+                            <span>Согласен с <a href="#">Политикой конфиденциальности</a></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--submit">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main-v3.js"></script>
+    <script src="js/lead-form.js"></script>
+    <script>
+    /* FAQ Accordion */
+    document.querySelectorAll('.faq__trigger').forEach(function(btn){
+        btn.addEventListener('click',function(){
+            var item = this.closest('.faq__item');
+            var answer = item.querySelector('.faq__answer');
+            var isOpen = item.classList.contains('faq__item--open');
+
+            // Close all other items
+            document.querySelectorAll('.faq__item--open').forEach(function(openItem){
+                if(openItem !== item){
+                    openItem.classList.remove('faq__item--open');
+                    openItem.querySelector('.faq__trigger').setAttribute('aria-expanded','false');
+                    openItem.querySelector('.faq__answer').style.maxHeight = null;
+                }
+            });
+
+            // Toggle current
+            if(isOpen){
+                item.classList.remove('faq__item--open');
+                this.setAttribute('aria-expanded','false');
+                answer.style.maxHeight = null;
+            } else {
+                item.classList.add('faq__item--open');
+                this.setAttribute('aria-expanded','true');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
+    </script>
+</body>
+</html>
