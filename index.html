@@ -82,7 +82,7 @@
         align-items:center;
     }
     .v4-banner__float-img{
-        width:100%;max-width:480px;height:340px;
+        width:100%;max-width:560px;height:400px;
         border-radius:16px;
         box-shadow:0 24px 80px rgba(0,0,0,.35);
         transform:rotate(1.5deg);
@@ -450,9 +450,11 @@
         grid-column:span 2;
         grid-row:span 2;
         min-height:440px;
+        background:#f5f5f5 url('img/plitka/novyj-gorod-dyuna.webp') center 30%/cover no-repeat;
     }
     .bento__card--lg .bento__card-content{
         padding:36px;
+        background:linear-gradient(to top, #fff 40%, rgba(255,255,255,.85) 60%, rgba(255,255,255,0) 100%);
     }
     .bento__card--lg .bento__card-icon{
         width:56px;height:56px;
@@ -641,9 +643,9 @@
         -webkit-backdrop-filter:blur(14px);
         border-color:rgba(0,0,0,.06);
     }
-    .ic__sidebar{background:rgba(240,240,240,.5)}
-    .ic__cat:hover{background:rgba(255,255,255,.6)}
-    .ic__cat--active{background:rgba(255,255,255,.6)}
+    .ic__sidebar{background:#2a2a2a}
+    .ic__cat:hover{background:rgba(255,255,255,.06)}
+    .ic__cat--active{background:#fff}
 
     /* — Glassmorphism: Contacts — */
     .contacts-map__wrapper{
@@ -877,7 +879,7 @@
                         </div>
                         <div class="bento__card-text">
                             <h3 class="bento__card-title">Оплата и&nbsp;доставка</h3>
-                            <p class="bento__card-desc">Доставка за&nbsp;2-3&nbsp;дня собственным автопарком. Хранение и&nbsp;резерв продукции</p>
+                            <p class="bento__card-desc">Доставка собственным автопарком. Любая форма оплаты.</p>
                         </div>
                         <span class="bento__card-arrow">
                             <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -930,15 +932,15 @@
                 <!-- Левая панель: категории -->
                 <div class="ic__sidebar">
                     <button class="ic__cat ic__cat--active" data-cat="plitka" type="button">
-                        <img class="ic__cat-thumb" src="img-main/плитка.jpg" alt="Плитка" loading="lazy">
+                        <img class="ic__cat-thumb" src="img-main/plitka.png" alt="Плитка" loading="lazy">
                         <span class="ic__cat-name">Тротуарная<br>плитка</span>
                     </button>
                     <button class="ic__cat" data-cat="bordyury" type="button">
-                        <img class="ic__cat-thumb" src="img-main/borduyr.jpg" alt="Бордюры" loading="lazy">
+                        <img class="ic__cat-thumb" src="img-main/borduyr.png" alt="Бордюры" loading="lazy">
                         <span class="ic__cat-name">Бордюры</span>
                     </button>
                     <button class="ic__cat" data-cat="kompensatory" type="button">
-                        <img class="ic__cat-thumb" src="img-main/kompensator1.jpg" alt="Компенсаторы" loading="lazy">
+                        <img class="ic__cat-thumb" src="img-main/kompensator1.png" alt="Компенсаторы" loading="lazy">
                         <span class="ic__cat-name">Компенсаторы</span>
                     </button>
                 </div>
@@ -1015,8 +1017,8 @@
                 variants: [
                     { name: 'Тип А',  img: 'img/kompensatory/tip-a.png' },
                     { name: 'Тип Б',  img: 'img/kompensatory/tip-b.png' },
-                    { name: 'Тип Г',  img: 'img/kompensatory/tip-g.webp' },
-                    { name: 'Тип А2', img: 'img/kompensatory/tip-a2.webp' }
+                    { name: 'Тип Г',  img: 'img/kompensatory/ChatGPT%20Image%2014%20%D1%84%D0%B5%D0%B2%D1%80.%202026%20%D0%B3.%2C%2019_36_50.png' },
+                    { name: 'Тип А2', img: 'img/kompensatory/6e62f5ac-d3ec-43ae-aad1-ade0a7f8aac4.png' }
                 ]
             }
         };
@@ -1044,9 +1046,9 @@
                 var btn = document.createElement('button');
                 btn.className = 'ic__variant' + (index === 0 ? ' ic__variant--active' : '');
                 btn.type = 'button';
-                var isPng = variant.img.endsWith('.png');
+                var isContain = variant.img.indexOf('kompensatory') !== -1 || variant.img.indexOf('bordyury') !== -1;
                 btn.innerHTML =
-                    '<img class="ic__variant-img" src="' + variant.img + '" alt="' + variant.name + '" loading="lazy"' + (isPng ? ' style="object-fit:contain"' : '') + '>' +
+                    '<img class="ic__variant-img' + (isContain ? ' ic__variant-img--contain' : '') + '" src="' + variant.img + '" alt="' + variant.name + '" loading="lazy">' +
                     '<span class="ic__variant-label">' + variant.name + '</span>';
                 btn.addEventListener('click', function() {
                     selectVariant(catKey, index);
@@ -1237,8 +1239,8 @@
                         <!-- Locations rendered by JS -->
                     </div>
                     <div class="contacts-map__contact-info">
-                        <a href="tel:+74956457120" class="contacts-map__phone">+7 495 645-71-20</a>
-                        <a href="mailto:info@bordur.ru" class="contacts-map__email">info@bordur.ru</a>
+                        <a href="tel:+79998926036" class="contacts-map__phone">+7 999 892-60-36</a>
+                        <a href="mailto:agstroy@list.ru" class="contacts-map__email">agstroy@list.ru</a>
                         <span class="contacts-map__schedule-info">Ежедневно с 8:00 до 20:00</span>
                     </div>
                 </div>
@@ -1259,8 +1261,8 @@
                     <h2 class="callback__title">Всегда на связи</h2>
                     <p class="callback__text">Запросите звонок через форму обратной связи. Мы ответим вам в рабочее время по указанному контакту.</p>
                     <div class="callback__contacts">
-                        <a href="tel:+74956457120" class="callback__phone">+7 495 645-71-20</a>
-                        <a href="mailto:info@bordur.ru" class="callback__email">info@bordur.ru</a>
+                        <a href="tel:+79998926036" class="callback__phone">+7 999 892-60-36</a>
+                        <a href="mailto:agstroy@list.ru" class="callback__email">agstroy@list.ru</a>
                     </div>
                 </div>
                 <form class="callback__form" id="callbackForm" data-anim="right">

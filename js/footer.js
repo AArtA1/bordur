@@ -6,8 +6,8 @@
     // Path detection
     var isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname);
     var P = isSubpage ? '' : 'pages/';
-    var HOME = isSubpage ? '../index-4.html' : '/';
-    var HASH_HOME = isSubpage ? '../index-4.html' : '';
+    var HOME = isSubpage ? '../index.html' : '/';
+    var HASH_HOME = isSubpage ? '../index.html' : '';
 
     // ============================================================
     // FOOTER
@@ -23,8 +23,8 @@
                             '<a href="#" aria-label="VK"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9.5 13c-3.8 0-6-2.6-6.1-7h1.9c.1 3.2 1.5 4.5 2.5 4.8V6h1.8v2.7c1.1-.1 2.3-1.4 2.6-2.7h1.8c-.3 1.6-1.5 3-2.4 3.4.9.4 2.3 1.5 2.9 3.6h-2c-.4-1.4-1.5-2.4-2.9-2.5V13h-.1z" fill="currentColor"/></svg></a>' +
                         '</div>' +
                         '<div class="footer__contacts">' +
-                            '<a href="tel:+74956457120">+7 495 645-71-20</a>' +
-                            '<a href="mailto:info@bordur.ru">info@bordur.ru</a>' +
+                            '<a href="tel:+79998926036">+7 999 892-60-36</a>' +
+                            '<a href="mailto:agstroy@list.ru">agstroy@list.ru</a>' +
                         '</div>' +
                     '</div>' +
                     '<div class="footer__col">' +

@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         html += '<div class="popup-sizes__row" style="align-items:center">';
         html += '<div class="popup-sizes__item">';
         html += '<svg width="' + svgW + '" height="' + svgH + '" viewBox="0 0 ' + svgW + ' ' + svgH + '">';
-        html += '<polygon points="' + points + '" fill="rgba(234,118,39,0.15)" stroke="#EA7627" stroke-width="2"/>';
+        html += '<polygon points="' + points + '" fill="rgba(0,0,0,0.08)" stroke="#1a1a1a" stroke-width="2"/>';
         html += '</svg>';
         html += '</div>';
 
@@ -116,7 +116,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const imgEl = card.querySelector('.product-card__img');
         const bgImg = imgEl ? imgEl.style.backgroundImage : '';
 
-        popupImage.style.backgroundImage = bgImg;
+        var hasRealBg = bgImg && bgImg !== 'none' && bgImg.indexOf('url') !== -1;
+        popupImage.style.position = '';
+        if (hasRealBg) {
+            popupImage.style.backgroundImage = bgImg;
+            popupImage.style.backgroundColor = '#fff';
+            popupImage.innerHTML = '';
+        } else {
+            popupImage.style.backgroundImage = 'none';
+            popupImage.style.backgroundColor = '#fff';
+            popupImage.style.position = 'relative';
+            popupImage.innerHTML = '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:320px;height:300px">' +
+                '<img src="../img/kompensatory/tip-a.png" style="position:absolute;width:100px;height:auto;left:10px;top:50px;transform:rotate(-15deg);filter:drop-shadow(2px 2px 6px rgba(0,0,0,.25))">' +
+                '<img src="../img/kompensatory/tip-b.png" style="position:absolute;width:100px;height:auto;left:70px;top:25px;transform:rotate(-5deg);filter:drop-shadow(2px 2px 6px rgba(0,0,0,.25))">' +
+                '<img src="../img/kompensatory/ChatGPT%20Image%2014%20%D1%84%D0%B5%D0%B2%D1%80.%202026%20%D0%B3.%2C%2019_36_50.png" style="position:absolute;width:100px;height:auto;left:140px;top:25px;transform:rotate(5deg);filter:drop-shadow(2px 2px 6px rgba(0,0,0,.25))">' +
+                '<img src="../img/kompensatory/6e62f5ac-d3ec-43ae-aad1-ade0a7f8aac4.png" style="position:absolute;width:120px;height:auto;left:200px;top:60px;transform:rotate(15deg);filter:drop-shadow(2px 2px 6px rgba(0,0,0,.25))">' +
+                '</div>';
+        }
         popupTitle.textContent = d.name;
         popupPrice.innerHTML = d.price;
         popupDesc.textContent = d.desc;
@@ -125,8 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
         popupSizes.innerHTML = buildProfileBlock(d);
 
         popupSpecs.innerHTML =
-            row('Высота', d.sizeH2 + '/' + d.sizeH1 + ' мм') +
-            row('Ширина', d.sizeW2 + '/' + d.sizeW1 + ' мм') +
+            row('Производитель', 'ПК АГ СТРОЙ') +
+            row('Высота', d.sizeH1 ? d.sizeH2 + '/' + d.sizeH1 + ' мм' : '') +
+            row('Ширина', d.sizeW1 ? d.sizeW2 + '/' + d.sizeW1 + ' мм' : '') +
             row('Толщина', d.thick) +
             row('Материал', d.material) +
             row('Назначение', d.purpose) +
