@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:xn----7sbotdidfgehqkfk0m.xn--p1ai)"
+      "WebFetch(domain:xn----7sbotdidfgehqkfk0m.xn--p1ai)",
+      "Bash(*)"
     ]
   }
 }
