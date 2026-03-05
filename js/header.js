@@ -6,8 +6,8 @@
     // Path detection
     var isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname);
     var P = isSubpage ? '' : 'pages/';
-    var HOME = isSubpage ? '../index-4.html' : '/';
-    var HASH_HOME = isSubpage ? '../index-4.html' : '';
+    var HOME = isSubpage ? '../index.html' : 'index.html';
+    var HASH_HOME = isSubpage ? '../index.html' : 'index.html';
 
     // ============================================================
     // NAV CARDS DATA
@@ -15,7 +15,7 @@
     var cards = [
         {
             label: '\u041F\u0440\u043E\u0434\u0443\u043A\u0446\u0438\u044F',
-            bg: '#EA7627',
+            bg: '#1a1a1a',
             color: '#fff',
             links: [
                 { text: '\u0422\u0440\u043E\u0442\u0443\u0430\u0440\u043D\u0430\u044F \u043F\u043B\u0438\u0442\u043A\u0430', href: P + 'catalog-plitka.html' },

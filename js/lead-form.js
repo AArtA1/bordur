@@ -17,11 +17,11 @@
         '.lead-modal{position:fixed;inset:0;z-index:10001;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}',
         '.lead-modal--active{opacity:1;visibility:visible}',
         '.lead-modal__overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}',
-        '.lead-modal__container{position:relative;width:90%;max-width:440px;background:#fff;border-radius:12px;box-shadow:0 24px 80px rgba(0,0,0,.25);padding:36px 32px;z-index:1;transform:translateY(30px) scale(.97);transition:transform .35s cubic-bezier(.16,1,.3,1);max-height:90vh;overflow-y:auto;overscroll-behavior:contain}',
+        '.lead-modal__container{position:relative;width:90%;max-width:440px;background:rgba(255,255,255,.55);backdrop-filter:blur(40px) saturate(1.8);-webkit-backdrop-filter:blur(40px) saturate(1.8);border:1px solid rgba(255,255,255,.5);border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.7),inset 0 -1px 0 rgba(255,255,255,.2);padding:36px 32px;z-index:1;transform:translateY(30px) scale(.97);transition:transform .35s cubic-bezier(.16,1,.3,1);max-height:90vh;overflow-y:auto;overscroll-behavior:contain}',
         '.lead-modal--active .lead-modal__container{transform:translateY(0) scale(1)}',
 
         /* Close button */
-        '.lead-modal__close{position:absolute;top:12px;right:12px;width:36px;height:36px;font-size:22px;line-height:36px;text-align:center;color:var(--text-secondary);background:var(--bg-gray);border:none;border-radius:50%;cursor:pointer;transition:all .25s ease;z-index:2}',
+        '.lead-modal__close{position:absolute;top:12px;right:12px;width:36px;height:36px;font-size:22px;line-height:36px;text-align:center;color:#555;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.4);border-radius:50%;cursor:pointer;transition:all .25s ease;z-index:2;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}',
         '.lead-modal__close:hover{background:var(--dark);color:#fff}',
 
         /* Header */
@@ -32,9 +32,9 @@
         /* Form fields */
         '.lead-modal__field{margin-bottom:16px}',
         '.lead-modal__label{display:block;font-size:13px;font-weight:600;color:var(--dark);margin-bottom:6px}',
-        '.lead-modal__input{width:100%;padding:14px 16px;font-size:14px;font-family:inherit;border:1px solid var(--border);border-radius:var(--radius);background:#fff;outline:none;transition:border-color .25s ease,box-shadow .25s ease;box-sizing:border-box}',
+        '.lead-modal__input{width:100%;padding:14px 16px;font-size:14px;font-family:inherit;border:1px solid rgba(255,255,255,.5);border-radius:12px;background:rgba(255,255,255,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);outline:none;transition:border-color .25s ease,box-shadow .25s ease;box-sizing:border-box}',
         '.lead-modal__input::placeholder{color:var(--text-muted)}',
-        '.lead-modal__input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(234,118,39,.12)}',
+        '.lead-modal__input:focus{border-color:rgba(0,0,0,.2);box-shadow:0 0 0 3px rgba(0,0,0,.06);background:rgba(255,255,255,.7)}',
         '.lead-modal__input--error{border-color:#E53935;box-shadow:0 0 0 3px rgba(229,57,53,.12)}',
         '.lead-modal__error{display:block;font-size:12px;color:#E53935;margin-top:4px;min-height:0}',
 
@@ -45,8 +45,8 @@
         '.lead-modal__check a:hover{text-decoration:none}',
 
         /* Submit */
-        '.lead-modal__submit{width:100%;padding:14px 36px;font-size:15px;font-weight:600;color:#fff;background:var(--orange);border:none;border-radius:var(--radius);cursor:pointer;transition:all .25s ease}',
-        '.lead-modal__submit:hover{background:var(--orange-hover);box-shadow:0 4px 16px rgba(234,118,39,.3)}',
+        '.lead-modal__submit{width:100%;padding:14px 36px;font-size:15px;font-weight:600;color:#fff;background:rgba(30,30,30,.85);border:none;border-radius:12px;cursor:pointer;transition:all .25s ease;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}',
+        '.lead-modal__submit:hover{background:rgba(0,0,0,.9);box-shadow:0 4px 20px rgba(0,0,0,.2)}',
         '.lead-modal__submit:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}',
 
         /* Success */
