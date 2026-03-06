@@ -52,47 +52,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function buildProfileBlock(d) {
+        // data-size  = "500×500 мм"  → длина × ширина (плоские размеры)
+        // data-thick = "70 мм"       → высота/толщина (вертикальный размер)
         var thickStr = d.thick || '';
-        var sizeStr = d.size || '';
-        var thick = parseInt(thickStr);
-        var widthMatch = sizeStr.match(/(\d+)/);
-        var width = widthMatch ? parseInt(widthMatch[1]) : 0;
-        if (!thick || !width) return '';
+        var sizeStr  = d.size  || '';
+        var thick = parseInt(thickStr);  // высота, мм
+        var nums = sizeStr.match(/\d+/g) || [];
+        var len  = nums[0] ? parseInt(nums[0]) : 0; // первый размер — длина
+        var wid  = nums[1] ? parseInt(nums[1]) : len; // второй размер — ширина
+        if (!thick || !len) return '';
 
-        // Fixed display rectangle — always readable, not proportional
-        var rw = 150, rh = 56;
-        var ox = 10, oy = 10;
-        var svgW = ox + rw + 60;
-        var svgH = oy + rh + 36;
+        // Fixed display: широкий прямоугольник = вид сбоку (длина × высота)
+        var rw = 160, rh = 60;
+        var ox = 10, oy = 24;  // oy=24 — место для подписи сверху
+        var svgW = ox + rw + 70;
+        var svgH = oy + rh + 44;
 
-        var html = '<div class="popup-sizes__label">Профиль сечения</div>';
+        var html = '<div class="popup-sizes__label">Профиль сечения (вид сбоку)</div>';
         html += '<svg width="' + svgW + '" height="' + svgH + '" viewBox="0 0 ' + svgW + ' ' + svgH + '" style="display:block;overflow:visible">';
 
-        // Rectangle body
+        // Подпись оси X сверху
+        html += '<text x="' + (ox + rw / 2) + '" y="14" font-size="10" fill="#888" text-anchor="middle" font-family="Open Sans,sans-serif">Длина / Ширина</text>';
+
+        // Rectangle body (вид сбоку)
         html += '<rect x="' + ox + '" y="' + oy + '" width="' + rw + '" height="' + rh + '" fill="#ede8e3" stroke="#1a1a1a" stroke-width="2"/>';
 
-        // Hatch lines inside (side view texture)
+        // Штриховка
         for (var xi = 16; xi < rw; xi += 14) {
-            html += '<line x1="' + (ox + xi) + '" y1="' + oy + '" x2="' + (ox + xi) + '" y2="' + (oy + rh) + '" stroke="#b0a89a" stroke-width="0.7" opacity="0.5"/>';
+            html += '<line x1="' + (ox+xi) + '" y1="' + oy + '" x2="' + (ox+xi) + '" y2="' + (oy+rh) + '" stroke="#b0a89a" stroke-width="0.7" opacity="0.5"/>';
         }
 
-        // Width dimension line (below)
-        var dy = oy + rh + 10;
-        html += '<line x1="' + ox + '" y1="' + (oy + rh + 3) + '" x2="' + ox + '" y2="' + (dy + 5) + '" stroke="#888" stroke-width="1"/>';
-        html += '<line x1="' + (ox + rw) + '" y1="' + (oy + rh + 3) + '" x2="' + (ox + rw) + '" y2="' + (dy + 5) + '" stroke="#888" stroke-width="1"/>';
-        html += '<line x1="' + (ox + 4) + '" y1="' + dy + '" x2="' + (ox + rw - 4) + '" y2="' + dy + '" stroke="#888" stroke-width="1"/>';
-        html += '<polygon points="' + ox + ',' + dy + ' ' + (ox + 7) + ',' + (dy - 3) + ' ' + (ox + 7) + ',' + (dy + 3) + '" fill="#888"/>';
-        html += '<polygon points="' + (ox + rw) + ',' + dy + ' ' + (ox + rw - 7) + ',' + (dy - 3) + ' ' + (ox + rw - 7) + ',' + (dy + 3) + '" fill="#888"/>';
-        html += '<text x="' + (ox + rw / 2) + '" y="' + (dy + 14) + '" font-size="11" fill="#444" text-anchor="middle" font-family="Open Sans,sans-serif" font-weight="600">' + width + ' мм</text>';
+        // Размерная линия снизу — ДЛИНА
+        var dy = oy + rh + 12;
+        html += '<line x1="' + ox + '" y1="' + (oy+rh+3) + '" x2="' + ox + '" y2="' + (dy+5) + '" stroke="#888" stroke-width="1"/>';
+        html += '<line x1="' + (ox+rw) + '" y1="' + (oy+rh+3) + '" x2="' + (ox+rw) + '" y2="' + (dy+5) + '" stroke="#888" stroke-width="1"/>';
+        html += '<line x1="' + (ox+4) + '" y1="' + dy + '" x2="' + (ox+rw-4) + '" y2="' + dy + '" stroke="#888" stroke-width="1"/>';
+        html += '<polygon points="' + ox + ',' + dy + ' ' + (ox+7) + ',' + (dy-3) + ' ' + (ox+7) + ',' + (dy+3) + '" fill="#888"/>';
+        html += '<polygon points="' + (ox+rw) + ',' + dy + ' ' + (ox+rw-7) + ',' + (dy-3) + ' ' + (ox+rw-7) + ',' + (dy+3) + '" fill="#888"/>';
+        html += '<text x="' + (ox+rw/2) + '" y="' + (dy+13) + '" font-size="11" fill="#333" text-anchor="middle" font-family="Open Sans,sans-serif" font-weight="700">' + len + ' × ' + wid + ' мм</text>';
 
-        // Height dimension line (right)
-        var dx = ox + rw + 12;
-        html += '<line x1="' + (ox + rw + 3) + '" y1="' + oy + '" x2="' + (dx + 5) + '" y2="' + oy + '" stroke="#888" stroke-width="1"/>';
-        html += '<line x1="' + (ox + rw + 3) + '" y1="' + (oy + rh) + '" x2="' + (dx + 5) + '" y2="' + (oy + rh) + '" stroke="#888" stroke-width="1"/>';
-        html += '<line x1="' + dx + '" y1="' + (oy + 4) + '" x2="' + dx + '" y2="' + (oy + rh - 4) + '" stroke="#888" stroke-width="1"/>';
-        html += '<polygon points="' + dx + ',' + oy + ' ' + (dx - 3) + ',' + (oy + 7) + ' ' + (dx + 3) + ',' + (oy + 7) + '" fill="#888"/>';
-        html += '<polygon points="' + dx + ',' + (oy + rh) + ' ' + (dx - 3) + ',' + (oy + rh - 7) + ' ' + (dx + 3) + ',' + (oy + rh - 7) + '" fill="#888"/>';
-        html += '<text x="' + (dx + 10) + '" y="' + (oy + rh / 2 + 4) + '" font-size="11" fill="#444" text-anchor="start" font-family="Open Sans,sans-serif" font-weight="600">' + thick + ' мм</text>';
+        // Размерная линия справа — ВЫСОТА (толщина)
+        var dx = ox + rw + 14;
+        html += '<line x1="' + (ox+rw+3) + '" y1="' + oy + '" x2="' + (dx+5) + '" y2="' + oy + '" stroke="#888" stroke-width="1"/>';
+        html += '<line x1="' + (ox+rw+3) + '" y1="' + (oy+rh) + '" x2="' + (dx+5) + '" y2="' + (oy+rh) + '" stroke="#888" stroke-width="1"/>';
+        html += '<line x1="' + dx + '" y1="' + (oy+4) + '" x2="' + dx + '" y2="' + (oy+rh-4) + '" stroke="#888" stroke-width="1"/>';
+        html += '<polygon points="' + dx + ',' + oy + ' ' + (dx-3) + ',' + (oy+7) + ' ' + (dx+3) + ',' + (oy+7) + '" fill="#888"/>';
+        html += '<polygon points="' + dx + ',' + (oy+rh) + ' ' + (dx-3) + ',' + (oy+rh-7) + ' ' + (dx+3) + ',' + (oy+rh-7) + '" fill="#888"/>';
+        html += '<text x="' + (dx+9) + '" y="' + (oy+rh/2-3) + '" font-size="10" fill="#888" text-anchor="start" font-family="Open Sans,sans-serif">Высота</text>';
+        html += '<text x="' + (dx+9) + '" y="' + (oy+rh/2+10) + '" font-size="11" fill="#333" text-anchor="start" font-family="Open Sans,sans-serif" font-weight="700">' + thick + ' мм</text>';
 
         html += '</svg>';
         return html;
