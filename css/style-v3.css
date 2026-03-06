@@ -73,9 +73,9 @@ input,select,textarea{font-family:inherit;font-size:inherit;color:var(--text)}
 .card-nav--open .nav-card:nth-child(2){transition-delay:.08s}
 .nav-card-label{font-size:20px;font-weight:400;letter-spacing:-.3px;opacity:.7;margin-bottom:4px}
 .nav-card-links{display:flex;flex-direction:column;gap:4px;margin-top:auto}
-.nav-card-link{font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:6px;transition:opacity .2s;color:inherit}
+.nav-card-link{font-size:15px;font-weight:600;display:inline-flex;align-items:center;transition:opacity .2s;color:inherit}
 .nav-card-link:hover{opacity:.75}
-.nav-card-link::after{content:none}
+.nav-card-link::after{display:none}
 
 /* ============================
    HERO (braer.ru style — overlap + premium animations)
