@@ -947,15 +947,10 @@
                 <!-- Средняя панель: миниатюры вариантов -->
                 <div class="ic__variants">
                     <div class="ic__variants-grid" id="icVariantsGrid"></div>
-                    <a class="ic__variants-more" id="icVariantsMore" href="pages/catalog-plitka.html">
-                        Все варианты
-                        <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </a>
                 </div>
                 <!-- Правая панель: детали товара -->
                 <div class="ic__detail">
                     <div class="ic__detail-top">
-                        <span class="ic__detail-tag" id="icDetailTag"></span>
                         <h3 class="ic__detail-title" id="icDetailTitle"></h3>
                         <p class="ic__detail-desc" id="icDetailDesc"></p>
                     </div>
@@ -964,7 +959,10 @@
                         <div class="ic__carousel-dots" id="icCarouselDots"></div>
                     </div>
                     <div class="ic__detail-bottom">
-                        <h4 class="ic__detail-name" id="icDetailName"></h4>
+                        <div class="ic__detail-bottom-left">
+                            <span class="ic__detail-cat" id="icDetailCat"></span>
+                            <h4 class="ic__detail-name" id="icDetailName"></h4>
+                        </div>
                         <a class="ic__detail-link" id="icDetailLink" href="pages/catalog-plitka.html">
                             Перейти к товару
                             <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1025,10 +1023,9 @@
 
         var sidebar = document.querySelectorAll('.ic__cat');
         var variantsGrid = document.getElementById('icVariantsGrid');
-        var variantsMore = document.getElementById('icVariantsMore');
-        var detailTag = document.getElementById('icDetailTag');
         var detailTitle = document.getElementById('icDetailTitle');
         var detailDesc = document.getElementById('icDetailDesc');
+        var detailCat = document.getElementById('icDetailCat');
         var detailName = document.getElementById('icDetailName');
         var detailLink = document.getElementById('icDetailLink');
         var carouselViewport = document.getElementById('icCarouselViewport');
@@ -1055,17 +1052,23 @@
                 });
                 variantsGrid.appendChild(btn);
             });
+            var moreLink = document.createElement('a');
+            moreLink.className = 'ic__variant--more';
+            moreLink.href = cat.catalogUrl;
+            moreLink.innerHTML =
+                '<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+                '<span>Все варианты</span>';
+            variantsGrid.appendChild(moreLink);
         }
 
         function updateDetail(catKey, variantIndex) {
             var cat = IC_DATA[catKey];
             var variant = cat.variants[variantIndex];
-            detailTag.textContent = cat.tag;
             detailTitle.textContent = cat.title;
             detailDesc.textContent = cat.desc;
+            detailCat.textContent = cat.title;
             detailName.textContent = variant.name;
             detailLink.href = cat.catalogUrl;
-            variantsMore.href = cat.catalogUrl;
             updateCarousel(cat.variants, variantIndex);
         }
 
