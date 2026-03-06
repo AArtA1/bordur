@@ -64,7 +64,7 @@
                         '<span class="hamburger-line"></span>' +
                     '</button>' +
                     '<a href="' + HOME + '" class="card-nav-logo">' +
-                        '<span class="card-nav-logo-text">BORDUR</span>' +
+                        '<span class="card-nav-logo-text">АГ СТРОЙ</span>' +
                     '</a>' +
                     '<button class="card-nav-cta" id="leadFormTrigger" type="button">\u041F\u0435\u0440\u0435\u0437\u0432\u043E\u043D\u0438\u0442\u0435 \u043C\u043D\u0435</button>' +
                 '</div>' +

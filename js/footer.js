@@ -17,7 +17,7 @@
             '<div class="container">' +
                 '<div class="footer__grid">' +
                     '<div class="footer__col footer__col--logo">' +
-                        '<a href="' + HOME + '" class="footer__logo">BORDUR</a>' +
+                        '<a href="' + HOME + '" class="footer__logo">АГ СТРОЙ</a>' +
                         '<div class="footer__socials">' +
                             '<a href="#" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M16.5 1.5L1 8l5 2m10.5-8.5L10 16l-4-6m10.5-8.5L6 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>' +
                             '<a href="#" aria-label="VK"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9.5 13c-3.8 0-6-2.6-6.1-7h1.9c.1 3.2 1.5 4.5 2.5 4.8V6h1.8v2.7c1.1-.1 2.3-1.4 2.6-2.7h1.8c-.3 1.6-1.5 3-2.4 3.4.9.4 2.3 1.5 2.9 3.6h-2c-.4-1.4-1.5-2.4-2.9-2.5V13h-.1z" fill="currentColor"/></svg></a>' +
@@ -58,7 +58,7 @@
                     '</div>' +
                 '</div>' +
                 '<div class="footer__bottom">' +
-                    '<p>&copy; BORDUR 2010\u20132026. \u0412\u0441\u0435 \u043F\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u044B.</p>' +
+                    '<p>&copy; АГ СТРОЙ 2010\u20132026. \u0412\u0441\u0435 \u043F\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u044B.</p>' +
                     '<a href="#">\u041F\u043E\u043B\u0438\u0442\u0438\u043A\u0430 \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0438</a>' +
                 '</div>' +
             '</div>' +
