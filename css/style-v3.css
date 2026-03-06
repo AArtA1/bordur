@@ -892,6 +892,10 @@ input,select,textarea{font-family:inherit;font-size:inherit;color:var(--text)}
 .product-popup__readmore{font-size:12px;font-weight:700;color:var(--orange);background:none;border:none;cursor:pointer;padding:0;margin-bottom:20px;display:none;text-align:left;text-transform:uppercase;letter-spacing:.5px}
 .product-popup__readmore:hover{text-decoration:underline}
 .product-popup__readmore--visible{display:inline-block}
+/* Profile block */
+.product-popup__sizes{margin-bottom:20px}
+.popup-sizes__label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:#888;margin-bottom:10px}
+.popup-sizes__row{display:flex;align-items:center;gap:0}
 
 /* Price row — warm accent block */
 .product-popup__price-row{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding:18px 22px;background:#faf6f2;border-radius:12px;border-left:4px solid var(--orange)}

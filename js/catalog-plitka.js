@@ -44,10 +44,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const popupBadge = document.getElementById('popupBadge');
     const popupReadmore = document.getElementById('popupReadmore');
     const popupThumbs = document.getElementById('popupThumbs');
+    const popupSizes = document.getElementById('popupSizes');
 
     function row(label, value) {
         if (!value) return '';
         return '<tr><td>' + label + '</td><td>' + value + '</td></tr>';
+    }
+
+    function buildProfileBlock(d) {
+        var thickStr = d.thick || '';
+        var sizeStr = d.size || '';
+        var thick = parseInt(thickStr);
+        var widthMatch = sizeStr.match(/(\d+)/);
+        var width = widthMatch ? parseInt(widthMatch[1]) : 0;
+        if (!thick || !width) return '';
+
+        var maxDim = Math.max(width, thick);
+        var scale = 110 / maxDim;
+        var sw = Math.round(width * scale);
+        var sh = Math.round(thick * scale);
+        // min visible height
+        if (sh < 12) sh = 12;
+
+        var svgW = sw + 20;
+        var svgH = sh + 20;
+
+        var html = '<div class="popup-sizes__label">Профиль сечения</div>';
+        html += '<div class="popup-sizes__row">';
+        html += '<div class="popup-sizes__item">';
+        html += '<svg width="' + svgW + '" height="' + svgH + '" viewBox="0 0 ' + svgW + ' ' + svgH + '">';
+        html += '<rect x="10" y="10" width="' + sw + '" height="' + sh + '" fill="rgba(0,0,0,0.08)" stroke="#1a1a1a" stroke-width="2" rx="1"/>';
+        html += '</svg>';
+        html += '</div>';
+        html += '<div style="font-size:12px;color:#333;line-height:1.9;margin-left:14px">';
+        html += '<div><strong>Ширина:</strong> ' + width + ' мм</div>';
+        html += '<div><strong>Толщина:</strong> ' + thick + ' мм</div>';
+        html += '</div>';
+        html += '</div>';
+        return html;
     }
 
     function buildGallery(card) {
@@ -112,8 +146,12 @@ document.addEventListener('DOMContentLoaded', () => {
         var hasBadge = card.querySelector('.badge--hit');
         popupBadge.classList.toggle('product-popup__badge--visible', !!hasBadge);
 
+        // Profile block
+        if (popupSizes) popupSizes.innerHTML = buildProfileBlock(d);
+
         // Merged specs + logistics table
         popupSpecs.innerHTML =
+            row('Производитель', 'Gonami') +
             row('Размер', d.size) +
             row('Форма', d.formaName) +
             row('Коллекция', d.collectionName) +
