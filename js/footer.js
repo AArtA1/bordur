@@ -30,11 +30,11 @@
                     '<div class="footer__col">' +
                         '<h4 class="footer__heading">\u041A\u0430\u0442\u0430\u043B\u043E\u0433</h4>' +
                         '<ul>' +
-                            '<li><a href="' + P + 'catalog-plitka.html">\u0422\u0440\u043E\u0442\u0443\u0430\u0440\u043D\u0430\u044F \u043F\u043B\u0438\u0442\u043A\u0430</a></li>' +
-                            '<li><a href="' + P + 'catalog-bordyury.html">\u0411\u043E\u0440\u0434\u044E\u0440\u044B</a></li>' +
-                            '<li><a href="' + P + 'catalog-kompensatory.html">\u041A\u043E\u043C\u043F\u0435\u043D\u0441\u0430\u0442\u043E\u0440\u044B</a></li>' +
-                            '<li><a href="' + P + 'catalog.html">\u0413\u0430\u0437\u043E\u043D\u043D\u0430\u044F \u0440\u0435\u0448\u0451\u0442\u043A\u0430</a></li>' +
-                            '<li><a href="' + P + 'catalog.html">\u0412\u043E\u0434\u043E\u043E\u0442\u0432\u043E\u0434\u043D\u044B\u0435 \u043B\u043E\u0442\u043A\u0438</a></li>' +
+                            '<li><a href="' + P + 'catalog-plitka">\u0422\u0440\u043E\u0442\u0443\u0430\u0440\u043D\u0430\u044F \u043F\u043B\u0438\u0442\u043A\u0430</a></li>' +
+                            '<li><a href="' + P + 'catalog-bordyury">\u0411\u043E\u0440\u0434\u044E\u0440\u044B</a></li>' +
+                            '<li><a href="' + P + 'catalog-kompensatory">\u041A\u043E\u043C\u043F\u0435\u043D\u0441\u0430\u0442\u043E\u0440\u044B</a></li>' +
+                            '<li><a href="' + P + 'catalog">\u0413\u0430\u0437\u043E\u043D\u043D\u0430\u044F \u0440\u0435\u0448\u0451\u0442\u043A\u0430</a></li>' +
+                            '<li><a href="' + P + 'catalog">\u0412\u043E\u0434\u043E\u043E\u0442\u0432\u043E\u0434\u043D\u044B\u0435 \u043B\u043E\u0442\u043A\u0438</a></li>' +
                         '</ul>' +
                     '</div>' +
                     '<div class="footer__col">' +
@@ -50,8 +50,8 @@
                     '<div class="footer__col">' +
                         '<h4 class="footer__heading">\u041E \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438</h4>' +
                         '<ul>' +
-                            '<li><a href="' + P + 'about.html">\u041E \u043D\u0430\u0441</a></li>' +
-                            '<li><a href="' + P + 'about.html#production">\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u043E</a></li>' +
+                            '<li><a href="' + P + 'about">\u041E \u043D\u0430\u0441</a></li>' +
+                            '<li><a href="' + P + 'about#production">\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u043E</a></li>' +
                             '<li><a href="#">\u0421\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u044B</a></li>' +
                             '<li><a href="#">\u041F\u043E\u043B\u0438\u0442\u0438\u043A\u0430 \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0438</a></li>' +
                         '</ul>' +
