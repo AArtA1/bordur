@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BORDUR — Тротуарная плитка, бордюры, компенсаторы</title>
-    <meta name="description" content="BORDUR — тротуарная плитка, бордюры и компенсаторы для бордюров. Качественная продукция для благоустройства.">
+    <title>АГ СТРОЙ — Тротуарная плитка, бордюры, компенсаторы</title>
+    <meta name="description" content="АГ СТРОЙ — тротуарная плитка, бордюры и компенсаторы для бордюров. Качественная продукция для благоустройства.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -947,15 +947,10 @@
                 <!-- Средняя панель: миниатюры вариантов -->
                 <div class="ic__variants">
                     <div class="ic__variants-grid" id="icVariantsGrid"></div>
-                    <a class="ic__variants-more" id="icVariantsMore" href="pages/catalog-plitka.html">
-                        Все варианты
-                        <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </a>
                 </div>
                 <!-- Правая панель: детали товара -->
                 <div class="ic__detail">
                     <div class="ic__detail-top">
-                        <span class="ic__detail-tag" id="icDetailTag"></span>
                         <h3 class="ic__detail-title" id="icDetailTitle"></h3>
                         <p class="ic__detail-desc" id="icDetailDesc"></p>
                     </div>
@@ -964,7 +959,10 @@
                         <div class="ic__carousel-dots" id="icCarouselDots"></div>
                     </div>
                     <div class="ic__detail-bottom">
-                        <h4 class="ic__detail-name" id="icDetailName"></h4>
+                        <div class="ic__detail-bottom-left">
+                            <span class="ic__detail-cat" id="icDetailCat"></span>
+                            <h4 class="ic__detail-name" id="icDetailName"></h4>
+                        </div>
                         <a class="ic__detail-link" id="icDetailLink" href="pages/catalog-plitka.html">
                             Перейти к товару
                             <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -985,13 +983,14 @@
                 desc: 'Самая современная технология изготовления тротуарной плитки. Обеспечивает высокую прочность изделий, при правильной укладке и уходе срок службы тротуарной плитки более 25 лет!',
                 catalogUrl: 'pages/catalog-plitka.html',
                 variants: [
-                    { name: 'Новый город Дым',    img: 'img/plitka/novyj-gorod-dym.webp' },
-                    { name: 'Новый город Дюна',   img: 'img/plitka/novyj-gorod-dyuna.webp' },
-                    { name: 'Новый город Магма',   img: 'img/plitka/novyj-gorod-magma.webp' },
-                    { name: 'Новый город Брауни', img: 'img/plitka/novyj-gorod-brauni.webp' },
-                    { name: 'Плита Сумрак',        img: 'img/plitka/plita-sumrak.webp' },
-                    { name: 'Плита Дюна',          img: 'img/plitka/plita-dyuna.webp' },
-                    { name: 'Квадрат Магма',       img: 'img/plitka/kvadrat-magma.webp' }
+                    { name: 'Новый город Ферзит', img: 'img/gonami/products/trotuarnaya-plitka-novyy-gorod-color-mix-ferzit-60-mm__1.webp' },
+                    { name: 'Новый город Дюна',   img: 'img/gonami/products/trotuarnaya-plitka-novyy-gorod-40-color-mix-dyuna__1.webp' },
+                    { name: 'Новый город Магма',  img: 'img/gonami/products/trotuarnaya-plitka-novyy-gorod-color-mix-magma-60-mm__1.webp' },
+                    { name: 'Новый город Брауни',   img: 'img/gonami/products/trotuarnaya-plitka-novyy-gorod-color-mix-brauni-60-mm__1.webp' },
+                    { name: 'Новый город Бежевый', img: 'img/gonami/products/trotuarnaya-plitka-novyy-gorod-bezhevyy-60-mm__4.webp' },
+                    { name: 'Плита Сумрак',       img: 'img/gonami/products/trotuarnaya-plitka-plita-color-mix-sumrak-80-mm__1.webp' },
+                    { name: 'Плита Дюна',         img: 'img/gonami/products/trotuarnaya-plitka-plita-color-mix-dyuna-80-mm__1.webp' },
+                    { name: 'Квадрат Магма',      img: 'img/gonami/products/trotuarnaya-plitka-kvadrat-500kh500kh70-color-mix-magma__1.webp' }
                 ]
             },
             bordyury: {
@@ -1000,13 +999,13 @@
                 desc: 'Бордюрный камень разделяет пешеходные зоны и проезжую часть, защищает покрытие от разрушения и придаёт завершённость любому проекту мощения.',
                 catalogUrl: 'pages/catalog-bordyury.html',
                 variants: [
-                    { name: 'Садовый Пепел',   img: 'img/bordyury/sadovyj-pepel.webp' },
-                    { name: 'Садовый Осень',   img: 'img/bordyury/sadovyj-osen.webp' },
-                    { name: 'Садовый Магма',   img: 'img/bordyury/sadovyj-magma.webp' },
-                    { name: 'Садовый Дюна',    img: 'img/bordyury/sadovyj-dyuna.webp' },
-                    { name: 'Садовый Черный',  img: 'img/bordyury/sadovyj-chernyj.webp' },
-                    { name: 'Садовый Серый',   img: 'img/bordyury/sadovyj-seryj.webp' },
-                    { name: 'Садовый Красный', img: 'img/bordyury/sadovyj-krasnyj.webp' }
+                    { name: 'Садовый Пепел',   img: 'img/gonami/products/bordyur-sadovyy-1000kh200kh80-mm-color-mix-pepel__1.webp' },
+                    { name: 'Садовый Осень',   img: 'img/gonami/products/bordyur-sadovyy-1000kh200kh80-mm-color-mix-osen__1.webp' },
+                    { name: 'Садовый Магма',   img: 'img/gonami/products/bordyur-sadovyy-1000kh200kh80-mm-color-mix-magma__1.webp' },
+                    { name: 'Садовый Дюна',    img: 'img/gonami/products/bordyur-sadovyy-1000kh200kh80-mm-color-mix-dyuna__1.webp' },
+                    { name: 'Садовый Черный',  img: 'img/gonami/products/bordyur-sadovyy-1000kh200kh80-mm-chernyy__1.webp' },
+                    { name: 'Садовый Серый',   img: 'img/gonami/products/bordyur-sadovyy-1000kh200kh80-mm-seryy__1.webp' },
+                    { name: 'Садовый Красный', img: 'img/gonami/products/bordyur-sadovyy-1000kh200kh80-mm-krasnyy__1.webp' }
                 ]
             },
             kompensatory: {
@@ -1025,10 +1024,9 @@
 
         var sidebar = document.querySelectorAll('.ic__cat');
         var variantsGrid = document.getElementById('icVariantsGrid');
-        var variantsMore = document.getElementById('icVariantsMore');
-        var detailTag = document.getElementById('icDetailTag');
         var detailTitle = document.getElementById('icDetailTitle');
         var detailDesc = document.getElementById('icDetailDesc');
+        var detailCat = document.getElementById('icDetailCat');
         var detailName = document.getElementById('icDetailName');
         var detailLink = document.getElementById('icDetailLink');
         var carouselViewport = document.getElementById('icCarouselViewport');
@@ -1055,17 +1053,23 @@
                 });
                 variantsGrid.appendChild(btn);
             });
+            var moreLink = document.createElement('a');
+            moreLink.className = 'ic__variant--more';
+            moreLink.href = cat.catalogUrl;
+            moreLink.innerHTML =
+                '<svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+                '<span>Все варианты</span>';
+            variantsGrid.appendChild(moreLink);
         }
 
         function updateDetail(catKey, variantIndex) {
             var cat = IC_DATA[catKey];
             var variant = cat.variants[variantIndex];
-            detailTag.textContent = cat.tag;
             detailTitle.textContent = cat.title;
             detailDesc.textContent = cat.desc;
+            detailCat.textContent = cat.title;
             detailName.textContent = variant.name;
             detailLink.href = cat.catalogUrl;
-            variantsMore.href = cat.catalogUrl;
             updateCarousel(cat.variants, variantIndex);
         }
 
