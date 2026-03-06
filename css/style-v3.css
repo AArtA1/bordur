@@ -75,7 +75,7 @@ input,select,textarea{font-family:inherit;font-size:inherit;color:var(--text)}
 .nav-card-links{display:flex;flex-direction:column;gap:4px;margin-top:auto}
 .nav-card-link{font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:6px;transition:opacity .2s;color:inherit}
 .nav-card-link:hover{opacity:.75}
-.nav-card-link::after{content:'\2197';font-size:13px}
+.nav-card-link::after{content:none}
 
 /* ============================
    HERO (braer.ru style — overlap + premium animations)
