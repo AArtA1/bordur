@@ -4,8 +4,8 @@
     if (document.querySelector('.footer')) return;
 
     // Path detection
-    var isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname);
-    var P = isSubpage ? '' : 'pages/';
+    var isSubpage = window.location.pathname !== '/' && window.location.pathname !== '/index.html';
+    var P = isSubpage ? '../' : '';
     var HOME = isSubpage ? '../' : '/';
     var HASH_HOME = isSubpage ? '../' : '';
 
