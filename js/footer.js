@@ -6,8 +6,8 @@
     // Path detection
     var isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname);
     var P = isSubpage ? '' : 'pages/';
-    var HOME = isSubpage ? '../index.html' : '/';
-    var HASH_HOME = isSubpage ? '../index.html' : '';
+    var HOME = isSubpage ? '../' : '/';
+    var HASH_HOME = isSubpage ? '../' : '';
 
     // ============================================================
     // FOOTER
