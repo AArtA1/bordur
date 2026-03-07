@@ -150,6 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
             row('Срок изготовления', d.production) +
             row('Сертификация', d.cert);
 
+        // Order button → Telegram
+        var orderBtn = document.getElementById('popupOrderBtn');
+        if (orderBtn) {
+            var msg = encodeURIComponent('Здравствуйте, хотел бы у вас заказать "' + d.name + '"');
+            orderBtn.href = 'https://t.me/pkagstroy?text=' + msg;
+        }
+
         popup.classList.add('product-popup--active');
         document.body.style.overflow = 'hidden';
     }
@@ -159,12 +166,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
 
-    // Click on "Подробнее" buttons
+    // Click on "Подробнее" button or product image
     grid.addEventListener('click', (e) => {
         const btn = e.target.closest('.product-card__detail');
-        if (btn) {
+        const img = e.target.closest('.product-card__img');
+        const target = btn || img;
+        if (target) {
             e.preventDefault();
-            const card = btn.closest('.product-card');
+            const card = target.closest('.product-card');
             if (card) openPopup(card);
         }
     });

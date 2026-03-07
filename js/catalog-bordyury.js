@@ -123,6 +123,15 @@ document.addEventListener('DOMContentLoaded', () => {
             row('Кол-во на поддоне', d.palletPcs ? d.palletPcs + ' шт' : '') +
             row('А/м 20 тонн', d.truck20);
 
+        // Order button → Telegram
+        var orderBtn = popup.querySelector('.product-popup__order-btn');
+        if (orderBtn) {
+            var msg = encodeURIComponent('Здравствуйте, хотел бы у вас заказать "' + d.name + '"');
+            orderBtn.href = 'https://t.me/pkagstroy?text=' + msg;
+            orderBtn.target = '_blank';
+            orderBtn.rel = 'noopener';
+        }
+
         popup.classList.add('product-popup--active');
         document.body.style.overflow = 'hidden';
     }
