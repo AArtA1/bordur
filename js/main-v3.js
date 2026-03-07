@@ -121,21 +121,79 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ===== CALLBACK FORM =====
+    const TG_TOKEN = '8634364282:AAE0kG_4-IaB666vYpsIXeiX-PhNCfzft0k';
+    const TG_CHAT  = '7334974261';
+
+    function sendToTelegram(text) {
+        return fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: TG_CHAT, text: text, parse_mode: 'HTML' })
+        });
+    }
+
+    // ===== PHONE MASK (+7 (XXX) XXX-XX-XX) =====
+    const cbPhoneInput = document.getElementById('cbPhone');
+    if (cbPhoneInput) {
+        cbPhoneInput.addEventListener('input', function() {
+            let digits = this.value.replace(/\D/g, '');
+            if (digits.startsWith('8')) digits = '7' + digits.slice(1);
+            if (digits.startsWith('7')) digits = digits.slice(1);
+            digits = digits.slice(0, 10);
+            let result = '+7';
+            if (digits.length > 0) result += ' (' + digits.slice(0, 3);
+            if (digits.length >= 3) result += ') ' + digits.slice(3, 6);
+            if (digits.length >= 6) result += '-' + digits.slice(6, 8);
+            if (digits.length >= 8) result += '-' + digits.slice(8, 10);
+            this.value = result;
+        });
+        cbPhoneInput.addEventListener('focus', function() {
+            if (!this.value) this.value = '+7 (';
+        });
+        cbPhoneInput.addEventListener('blur', function() {
+            if (this.value === '+7 (' || this.value === '+7') this.value = '';
+        });
+    }
+
     const callbackForm = document.getElementById('callbackForm');
     if (callbackForm) {
         callbackForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const btn = callbackForm.querySelector('[type="submit"]');
             const orig = btn.textContent;
-            btn.textContent = 'Отправлено!';
-            btn.style.background = '#4CAF50';
+
+            const phoneVal = (document.getElementById('cbPhone').value || '');
+            if (phoneVal.replace(/\D/g, '').length < 11) {
+                document.getElementById('cbPhone').style.borderColor = '#E53935';
+                document.getElementById('cbPhone').focus();
+                return;
+            }
+            document.getElementById('cbPhone').style.borderColor = '';
+
+            btn.textContent = 'Отправка...';
             btn.disabled = true;
-            setTimeout(() => {
-                btn.textContent = orig;
-                btn.style.background = '';
-                btn.disabled = false;
-                callbackForm.reset();
-            }, 3000);
+
+            const name    = (document.getElementById('cbName').value || '').trim();
+            const phone   = phoneVal.trim();
+            const comment = (document.getElementById('cbComment').value || '').trim();
+            const wa      = document.getElementById('cbWhatsapp').checked;
+
+            const text = '📋 <b>Новая заявка — АГ СТРОЙ</b>\n\n'
+                + '👤 Имя: ' + (name || '—') + '\n'
+                + '📞 Телефон: ' + (phone || '—') + '\n'
+                + (comment ? '💬 Комментарий: ' + comment + '\n' : '')
+                + '📱 WhatsApp: ' + (wa ? 'Да' : 'Нет');
+
+            sendToTelegram(text).finally(() => {
+                btn.textContent = 'Отправлено ✓';
+                btn.style.background = '#4CAF50';
+                setTimeout(() => {
+                    btn.textContent = orig;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                    callbackForm.reset();
+                }, 3000);
+            });
         });
     }
 
@@ -150,14 +208,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 id: 'showroom',
                 name: 'Шоу-Рум',
                 address: 'Московская обл., г.о. Красногорск, д. Гольево, ул. Центральная, 51',
-                coords: [55.8000, 37.3117],
+                coords: [55.800301, 37.309082],
                 schedule: ''
             },
             {
                 id: 'production',
                 name: 'Производство',
                 address: 'Московская обл., Волоколамский м.о., д. Золево, Сельский пер., 6с1',
-                coords: [56.0400, 36.3500],
+                coords: [56.059494, 36.217548],
                 schedule: ''
             },
             {
@@ -185,72 +243,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 id: 'ag-stroi',
                 name: 'ПК АГ Строй',
                 address: 'Московская обл., Ленинский г.о., п. Петровское, 53/1',
-                coords: [55.5450, 37.7200],
+                coords: [55.537607, 37.781326],
                 schedule: '8:00–20:00'
             },
-            {
-                id: 'betkon',
-                name: 'ООО БЕТКОН',
-                address: 'г. Москва, ул. Василия Петушкова, д. 8',
-                coords: [55.8530, 37.4430],
-                schedule: '8:00–20:00'
-            },
-            {
-                id: 'stroidizain',
-                name: 'СтройДизайн',
-                address: 'Московская обл., г.о. Клин, тер. Производственный центр, 37',
-                coords: [56.3320, 36.7130],
-                schedule: '8:00–20:00'
-            },
-            {
-                id: 'art-stroi',
-                name: 'ООО Арт-Строй1',
-                address: 'Московская обл., Одинцовский г.о., пгт ВНИИССОК, Липовая ул., 2',
-                coords: [55.6560, 37.2040],
-                schedule: '8:00–20:00'
-            },
-            {
-                id: 'mosplit',
-                name: 'МосПлит',
-                address: 'Московская обл., г.о. Щёлково, д. Долгое Лёдово, Академическая ул., 5',
-                coords: [55.9450, 37.9650],
-                schedule: '8:00–20:00'
-            },
-            {
-                id: 'petrosyan',
-                name: 'ИП Петросян О.Г.',
-                address: 'Московская обл., м.о. Чехов, д. Бавыкино, 71',
-                coords: [55.1380, 37.4680],
-                schedule: '9:00–21:00, без выходных'
-            },
-            {
-                id: 'vlad-stroi',
-                name: 'ООО Влад строй',
-                address: 'Московская обл., Богородский г.о., пгт им. Воровского, Привокзальная ул., 1',
-                coords: [55.8520, 38.5700],
-                schedule: '8:00–20:00'
-            },
-            {
-                id: 'vip-stroi',
-                name: 'VIP-STROI',
-                address: 'Московская обл., м.о. Чехов, с. Шарапово, Северная ул., 21',
-                coords: [55.2000, 37.3980],
-                schedule: '8:00–22:00'
-            },
-            {
-                id: 'mikaelyan',
-                name: 'ИП Микаелян',
-                address: 'Тверская обл., г. Конаково, пл. Калинина, д. 3',
-                coords: [56.7010, 36.7640],
-                schedule: '8:00–20:00'
-            },
-            {
-                id: 'levar',
-                name: 'LEVAR',
-                address: 'Московская обл., г. Можайск, Полевая ул., 98с1',
-                coords: [55.5020, 36.0220],
-                schedule: '8:00–20:00'
-            }
         ];
 
         const PIN_SVG = '<svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>';
@@ -322,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Load Yandex Maps API dynamically
+        // Load Yandex Maps API 2.1 dynamically
         function loadYandexMapsAPI() {
             return new Promise(function(resolve, reject) {
                 if (window.ymaps) {
@@ -330,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
                 var script = document.createElement('script');
-                script.src = 'https://api-maps.yandex.ru/2.1/?apikey=YOUR_API_KEY&lang=ru_RU';
+                script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
                 script.onload = resolve;
                 script.onerror = reject;
                 document.head.appendChild(script);
@@ -347,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
             );
         }
 
-        // Initialize map
+        // Initialize map (Yandex Maps JS API 2.1)
         function initContactsMap() {
             if (mapLoaded) return;
             mapLoaded = true;
@@ -357,7 +352,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     var placeholder = contactsYMap.querySelector('.contacts-map__map-placeholder');
                     if (placeholder) placeholder.remove();
 
-                    // Calculate center from all locations
                     var lats = LOCATIONS.map(function(l) { return l.coords[0]; });
                     var lngs = LOCATIONS.map(function(l) { return l.coords[1]; });
                     var centerLat = (Math.min.apply(null, lats) + Math.max.apply(null, lats)) / 2;
@@ -366,35 +360,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     ymapInstance = new ymaps.Map(contactsYMap, {
                         center: [centerLat, centerLng],
                         zoom: 8,
-                        controls: ['zoomControl', 'geolocationControl']
-                    }, {
-                        suppressMapOpenBlock: true
-                    });
+                        controls: ['zoomControl']
+                    }, { suppressMapOpenBlock: true });
 
                     var MarkerLayout = createMarkerLayout(ymaps);
 
-                    // Add placemarks
                     LOCATIONS.forEach(function(loc, index) {
-                        var placemark = new ymaps.Placemark(loc.coords, {
-                            name: loc.name
-                        }, {
+                        var placemark = new ymaps.Placemark(loc.coords, { name: loc.name }, {
                             iconLayout: MarkerLayout,
-                            iconShape: {
-                                type: 'Rectangle',
-                                coordinates: [[-20, -50], [20, 0]]
-                            }
+                            iconShape: { type: 'Rectangle', coordinates: [[-20, -50], [20, 0]] }
                         });
 
-                        placemark.events.add('click', function() {
-                            selectLocation(loc.id);
-                        });
-
+                        placemark.events.add('click', function() { selectLocation(loc.id); });
                         ymapInstance.geoObjects.add(placemark);
-
-                        // Store reference and get overlay element after it's added
                         placemarks[loc.id] = { placemark: placemark, overlayEl: null };
 
-                        placemark.getOverlaySync();
                         placemark.events.add('overlaychange', function() {
                             var overlay = placemark.getOverlaySync();
                             if (overlay) {
@@ -411,7 +391,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                     });
 
-                    // Set bounds to fit all markers with padding
                     ymapInstance.setBounds(ymapInstance.geoObjects.getBounds(), {
                         checkZoomRange: true,
                         zoomMargin: 40
@@ -443,19 +422,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ===== SMOOTH SCROLL (with header offset) =====
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', (e) => {
-            const id = a.getAttribute('href');
-            if (id === '#') return;
-            const target = document.querySelector(id);
-            if (target) {
-                e.preventDefault();
-                closeMenu();
-                const headerHeight = header.offsetHeight;
-                const targetPos = target.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
-                window.scrollTo({ top: targetPos, behavior: 'smooth' });
-            }
-        });
+    document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+        const id = a.getAttribute('href');
+        if (id === '#') return;
+        const target = document.querySelector(id);
+        if (target) {
+            e.preventDefault();
+            closeMenu();
+            const headerHeight = header.offsetHeight;
+            const targetPos = target.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
+            window.scrollTo({ top: targetPos, behavior: 'smooth' });
+        }
     });
 
     // ===== CATALOG FILTER CHIPS =====

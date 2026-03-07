@@ -299,23 +299,24 @@
         submitBtn.textContent = 'Отправка...';
         submitBtn.disabled = true;
 
-        // Simulate sending (replace with fetch() for backend integration)
-        setTimeout(function() {
-            console.log('[Lead Form]', {
-                name: nameInput.value,
-                phone: phoneInput.value,
-                email: emailInput.value,
-                telegram: document.getElementById('leadTelegram').value
-            });
+        var tgText = '📋 <b>Новая заявка — АГ СТРОЙ</b>\n\n'
+            + '👤 Имя: ' + (nameInput.value.trim() || '—') + '\n'
+            + '📞 Телефон: ' + (phoneInput.value.trim() || '—') + '\n'
+            + (emailInput.value.trim() ? '📧 Email: ' + emailInput.value.trim() + '\n' : '')
+            + (document.getElementById('leadTelegram').value.trim() ? '✈️ Telegram: ' + document.getElementById('leadTelegram').value.trim() + '\n' : '')
+            + '\n🔔 Форма: «Перезвоните мне»';
 
+        fetch('https://api.telegram.org/bot8634364282:AAE0kG_4-IaB666vYpsIXeiX-PhNCfzft0k/sendMessage', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: '7334974261', text: tgText, parse_mode: 'HTML' })
+        }).finally(function() {
             form.style.display = 'none';
             successDiv.style.display = '';
-
             submitBtn.textContent = origText;
             submitBtn.disabled = false;
-
             setTimeout(closeModal, 3000);
-        }, 800);
+        });
     });
 
     // ============================================================

@@ -29,7 +29,7 @@
             color: '#fff',
             links: [
                 { text: '\u041E \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438', href: P + 'about.html' },
-                { text: '\u0421\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u044B', href: '#' },
+                { text: '\u0421\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u044B', href: P + 'about.html#certs' },
                 { text: '\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B', href: HASH_HOME + '#callback' }
             ]
         }
