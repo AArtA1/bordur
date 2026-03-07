@@ -259,3 +259,4 @@ Product data is stored in `data-*` attributes on `.product-card` divs. Catalog J
 - Yandex Maps API key is a placeholder (`YOUR_API_KEY`) in `main-v3.js` — needs a real key for production.
 - When updating links to the homepage, also update `HOME` / `HASH_HOME` in `js/header.js` and `js/footer.js`.
 - `scripts/generate_gonami_catalog.py` — re-run this (not the HTML directly) when Gonami product data changes. It reads `scripts/gonami_all_products.json` and appends cards to the catalog pages idempotently.
+
