@@ -421,6 +421,20 @@ document.addEventListener('DOMContentLoaded', () => {
         mapObserver.observe(contactsMapSection);
     }
 
+    // ===== SCROLL TO SECTION FROM sessionStorage (cross-page navigation) =====
+    const scrollTarget = sessionStorage.getItem('scrollTo');
+    if (scrollTarget) {
+        sessionStorage.removeItem('scrollTo');
+        setTimeout(() => {
+            const target = document.getElementById(scrollTarget);
+            if (target) {
+                const headerHeight = header ? header.offsetHeight : 0;
+                const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+        }, 300);
+    }
+
     // ===== SMOOTH SCROLL (with header offset) =====
     document.addEventListener('click', (e) => {
         const a = e.target.closest('a[href^="#"]');

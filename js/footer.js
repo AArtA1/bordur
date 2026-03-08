@@ -92,6 +92,35 @@
     }
 
     // ============================================================
+    // ANCHOR LINK SCROLL (no hash in URL)
+    // ============================================================
+    var footerLinks = document.querySelectorAll('.footer a[href*="#"]');
+    footerLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            var href = link.getAttribute('href');
+            var parts = href.split('#');
+            var pagePath = parts[0] || '/';
+            var section = parts[1];
+            var currentPath = window.location.pathname.replace(/\/?$/, '/');
+            var targetPath = pagePath.replace(/\/?$/, '/');
+            if (currentPath === targetPath) {
+                e.preventDefault();
+                var target = document.getElementById(section);
+                if (target) {
+                    var headerH = document.querySelector('.card-nav') ? document.querySelector('.card-nav').offsetHeight : 0;
+                    var top = target.getBoundingClientRect().top + window.scrollY - headerH - 20;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                    history.replaceState(null, '', pagePath);
+                }
+            } else {
+                e.preventDefault();
+                sessionStorage.setItem('scrollTo', section);
+                window.location.href = pagePath;
+            }
+        });
+    });
+
+    // ============================================================
     // COOKIE BAR LOGIC
     // ============================================================
     var cookieAccept = document.getElementById('cookieAccept');
