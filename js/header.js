@@ -3,11 +3,8 @@
 
     if (document.getElementById('cardNav')) return;
 
-    // Path detection
-    var isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname);
-    var P = isSubpage ? '' : 'pages/';
-    var HOME = isSubpage ? '../index.html' : 'index.html';
-    var HASH_HOME = isSubpage ? '../index.html' : 'index.html';
+    var HOME = '/';
+    var HASH_HOME = '/';
 
     // ============================================================
     // NAV CARDS DATA
@@ -18,9 +15,9 @@
             bg: '#1a1a1a',
             color: '#fff',
             links: [
-                { text: '\u0422\u0440\u043E\u0442\u0443\u0430\u0440\u043D\u0430\u044F \u043F\u043B\u0438\u0442\u043A\u0430', href: P + 'catalog-plitka.html' },
-                { text: '\u0411\u043E\u0440\u0434\u044E\u0440\u044B', href: P + 'catalog-bordyury.html' },
-                { text: '\u041A\u043E\u043C\u043F\u0435\u043D\u0441\u0430\u0442\u043E\u0440\u044B', href: P + 'catalog-kompensatory.html' }
+                { text: '\u0422\u0440\u043E\u0442\u0443\u0430\u0440\u043D\u0430\u044F \u043F\u043B\u0438\u0442\u043A\u0430', href: '/catalog-plitka/' },
+                { text: '\u0411\u043E\u0440\u0434\u044E\u0440\u044B', href: '/catalog-bordyury/' },
+                { text: '\u041A\u043E\u043C\u043F\u0435\u043D\u0441\u0430\u0442\u043E\u0440\u044B', href: '/catalog-kompensatory/' }
             ]
         },
         {
@@ -28,9 +25,9 @@
             bg: '#1a1a1a',
             color: '#fff',
             links: [
-                { text: '\u041E \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438', href: P + 'about.html' },
-                { text: '\u0421\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u044B', href: P + 'about.html#certs' },
-                { text: '\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B', href: HASH_HOME + '#callback' }
+                { text: '\u041E \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438', href: '/about/' },
+                { text: '\u0421\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u044B', href: '/about/#certs' },
+                { text: '\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B', href: '/#callback' }
             ]
         }
     ];
