@@ -3,3 +3,5 @@ screenshots/
 .claude/
 .playwright-mcp/
 .DS_Store
+
+.vscode/

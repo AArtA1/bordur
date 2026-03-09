@@ -807,7 +807,7 @@ input,select,textarea{font-family:inherit;font-size:inherit;color:var(--text)}
 .catalog-card:hover .catalog-card__img{transform:scale(1.04)}
 .catalog-card__img--plitka{background-image:url('../img-main/plitka.jpg');background-color:#e8e8e8}
 .catalog-card__img--bordyury{background-image:url('../img-main/borduyr.jpg');background-color:#e8e8e8}
-.catalog-card__img--kompensatory{background-color:#fff;background-image:url('../img/kompensatory/tip-b.png');background-size:70%;background-position:center;background-repeat:no-repeat}
+.catalog-card__img--kompensatory{background-color:#fff;background-image:url('../img/kompensatory/tip-a.webp');background-size:contain;background-position:center;background-repeat:no-repeat}
 .catalog-card--float{background:transparent;box-shadow:none;overflow:visible}
 .catalog-card--float:hover{box-shadow:none}
 .catalog-card--float .catalog-card__body{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow)}
