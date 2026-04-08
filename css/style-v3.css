@@ -781,6 +781,9 @@ input,select,textarea{font-family:inherit;font-size:inherit;color:var(--text)}
 .certs-section__header .section-title{margin-bottom:0}
 .certs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .certs-grid--2col{grid-template-columns:repeat(2,1fr);max-width:600px}
+.certs-grid--4col{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1024px){.certs-grid--4col{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.certs-grid--4col{grid-template-columns:1fr}}
 .cert-card{display:block;background:#fff;border-radius:var(--radius);overflow:hidden;transition:transform .4s var(--ease-out-quart),box-shadow .4s var(--ease-out-quart)}
 .cert-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 .cert-card__img{width:100%;aspect-ratio:3/4;background:linear-gradient(180deg,#e8e8e8 0%,#d0d0d0 100%)}
