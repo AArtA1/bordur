@@ -1,0 +1,13 @@
+[Unit]
+Description=Запуск проверки сайта БОРДЮР каждые 2 минуты
+
+[Timer]
+# Первая проверка через 2 минуты после загрузки — чтобы не ловить сеть,
+# которая ещё не поднялась.
+OnBootSec=2min
+OnUnitActiveSec=2min
+AccuracySec=15s
+Unit=bordur-watch.service
+
+[Install]
+WantedBy=timers.target

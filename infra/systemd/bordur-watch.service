@@ -1,0 +1,11 @@
+[Unit]
+Description=Проверка доступности сайта БОРДЮР с уведомлением в ntfy
+Documentation=file:/root/bordur/infra/site-watch.sh
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/bordur-site-watch
+# Скрипт всегда возвращает 0; таймаут — страховка от зависшего curl
+TimeoutStartSec=90
