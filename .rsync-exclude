@@ -19,6 +19,7 @@ vercel.json
 data/
 scripts/
 screenshots/
+infra/
 
 # Создаётся certbot на сервере — не трогать при синхронизации
 .well-known/

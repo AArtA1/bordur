@@ -197,15 +197,15 @@ input,select,textarea{font-family:inherit;font-size:inherit;color:var(--text)}
     will-change:transform,opacity;
 }
 .hero__panel-img--paving{
-    background-image:url('../img-main/plitka.png');
+    background-image:url('../img-main/plitka.webp');
     background-color:transparent;
 }
 .hero__panel-img--curb{
-    background-image:url('../img-main/borduyr.png');
+    background-image:url('../img-main/borduyr.webp');
     background-color:transparent;
 }
 .hero__panel-img--comp{
-    background-image:url('../img-main/kompensator1.png');
+    background-image:url('../img-main/kompensator1.webp');
     background-color:transparent;
 }
 

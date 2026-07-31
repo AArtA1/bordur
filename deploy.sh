@@ -30,6 +30,18 @@ echo "==> Настраиваем nginx"
 cp "$SRC/nginx.conf" /etc/nginx/sites-available/bordur
 ln -sf /etc/nginx/sites-available/bordur /etc/nginx/sites-enabled/bordur
 rm -f /etc/nginx/sites-enabled/default
+
+# Сжатие и кеширование — отдельным файлом, чтобы правки пережили certbot
+cp "$SRC/infra/nginx-perf.conf" /etc/nginx/conf.d/bordur-perf.conf
+
+# HTTP/2. В nginx 1.18 включается только через listen, а строку с 443 добавляет
+# certbot — поэтому шаг идемпотентный: сработает при повторном запуске скрипта
+# уже после выпуска сертификата.
+if grep -q 'listen 443 ssl;' /etc/nginx/sites-available/bordur 2>/dev/null; then
+    sed -i 's/listen 443 ssl;/listen 443 ssl http2;/' /etc/nginx/sites-available/bordur
+    echo "    HTTP/2 включён"
+fi
+
 nginx -t
 systemctl enable nginx
 systemctl restart nginx

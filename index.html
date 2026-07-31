@@ -752,9 +752,8 @@
     <!-- V4: Video Banner with integrated stats -->
     <section class="v4-banner" id="production">
         <div class="v4-banner__bg">
-            <video class="v4-banner__video" autoplay muted loop playsinline>
-                <source src="video/production.mp4" type="video/mp4">
-            </video>
+            <video class="v4-banner__video" muted loop playsinline preload="none"
+                   poster="video/production-poster.webp" data-src="video/production.mp4"></video>
         </div>
         <div class="v4-banner__overlay"></div>
         <div class="container v4-banner__inner">
@@ -769,6 +768,44 @@
             </div>
         </div>
     </section>
+
+    <script>
+    // Видео баннера весит 10 МБ. Баннер попадает в первый экран, поэтому просто
+    // отложить до прокрутки нельзя — вместо этого ждём двух условий сразу:
+    // секция видна И страница догрузилась. Так видео не отбирает канал у вёрстки
+    // и картинок. Пока оно не началось, на его месте стоит poster (43 КБ).
+    (function () {
+        var v = document.querySelector('.v4-banner__video');
+        if (!v || !v.dataset.src) return;
+
+        var visible = false, loaded = document.readyState === 'complete';
+
+        var start = function () {
+            if (!visible || !loaded || v.src) return;
+            v.src = v.dataset.src;
+            var p = v.play();
+            if (p) p.catch(function () {});
+        };
+
+        if (!loaded) {
+            window.addEventListener('load', function () { loaded = true; start(); }, { once: true });
+        }
+
+        if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (entries) {
+                if (entries.some(function (e) { return e.isIntersecting; })) {
+                    io.disconnect();
+                    visible = true;
+                    start();
+                }
+            }, { rootMargin: '100px 0px' });
+            io.observe(v);
+        } else {
+            visible = true;
+            start();
+        }
+    })();
+    </script>
 
     <!-- V4: Stats strip overlapping the banner bottom -->
     <div class="v4-stats">
@@ -937,15 +974,15 @@
                 <!-- Левая панель: категории -->
                 <div class="ic__sidebar">
                     <button class="ic__cat ic__cat--active" data-cat="plitka" type="button">
-                        <img class="ic__cat-thumb" src="img-main/plitka.png" alt="Плитка" loading="lazy">
+                        <img class="ic__cat-thumb" src="img-main/plitka.webp" alt="Плитка" loading="lazy">
                         <span class="ic__cat-name">Тротуарная<br>плитка</span>
                     </button>
                     <button class="ic__cat" data-cat="bordyury" type="button">
-                        <img class="ic__cat-thumb" src="img-main/borduyr.png" alt="Бордюры" loading="lazy">
+                        <img class="ic__cat-thumb" src="img-main/borduyr.webp" alt="Бордюры" loading="lazy">
                         <span class="ic__cat-name">Бордюры</span>
                     </button>
                     <button class="ic__cat" data-cat="kompensatory" type="button">
-                        <img class="ic__cat-thumb" src="img-main/kompensator1.png" alt="Компенсаторы" loading="lazy">
+                        <img class="ic__cat-thumb" src="img-main/kompensator1.webp" alt="Компенсаторы" loading="lazy">
                         <span class="ic__cat-name">Компенсаторы</span>
                     </button>
                 </div>
@@ -1244,23 +1281,23 @@
         <div class="container">
             <h2 class="section-title" data-anim="up">Фото готовых объектов</h2>
             <div class="gallery__grid" data-anim="up" data-anim-delay="80">
-                <a class="gallery__card" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_152615_af2084db-e38b-45a1-a3a7-218bb856d7e3.png" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_152615_af2084db-e38b-45a1-a3a7-218bb856d7e3.png')">
+                <a class="gallery__card" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_152615_af2084db-e38b-45a1-a3a7-218bb856d7e3.webp" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_152615_af2084db-e38b-45a1-a3a7-218bb856d7e3-thumb.webp')">
                     <div class="gallery__card-overlay"></div>
                     <span class="gallery__card-zoom"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
                 </a>
-                <a class="gallery__card" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_153624_1dcb12a6-6594-49d2-afd2-4baadfe8925f.png" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_153624_1dcb12a6-6594-49d2-afd2-4baadfe8925f.png')">
+                <a class="gallery__card" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_153624_1dcb12a6-6594-49d2-afd2-4baadfe8925f.webp" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_153624_1dcb12a6-6594-49d2-afd2-4baadfe8925f-thumb.webp')">
                     <div class="gallery__card-overlay"></div>
                     <span class="gallery__card-zoom"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
                 </a>
-                <a class="gallery__card" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_153809_d6778ab2-16f6-48d2-87a4-7de37b072d64.png" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_153809_d6778ab2-16f6-48d2-87a4-7de37b072d64.png')">
+                <a class="gallery__card" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_153809_d6778ab2-16f6-48d2-87a4-7de37b072d64.webp" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_153809_d6778ab2-16f6-48d2-87a4-7de37b072d64-thumb.webp')">
                     <div class="gallery__card-overlay"></div>
                     <span class="gallery__card-zoom"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
                 </a>
-                <a class="gallery__card" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_154015_f5a413ce-12e0-4d80-be9d-0a3fc88e3382.png" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_154015_f5a413ce-12e0-4d80-be9d-0a3fc88e3382.png')">
+                <a class="gallery__card" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_154015_f5a413ce-12e0-4d80-be9d-0a3fc88e3382.webp" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_154015_f5a413ce-12e0-4d80-be9d-0a3fc88e3382-thumb.webp')">
                     <div class="gallery__card-overlay"></div>
                     <span class="gallery__card-zoom"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
                 </a>
-                <a class="gallery__card" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_154221_40042a7d-9354-4940-b4a5-cb318eb44fbe.jpeg" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_154221_40042a7d-9354-4940-b4a5-cb318eb44fbe.jpeg')">
+                <a class="gallery__card" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_154221_40042a7d-9354-4940-b4a5-cb318eb44fbe.webp" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_154221_40042a7d-9354-4940-b4a5-cb318eb44fbe-thumb.webp')">
                     <div class="gallery__card-overlay"></div>
                     <span class="gallery__card-zoom"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
                 </a>
@@ -1268,23 +1305,23 @@
                     <span class="gallery__cta-text">Смотреть<br>ещё объекты</span>
                     <span class="gallery__cta-arrow">→</span>
                 </button>
-                <a class="gallery__card gallery__card--hidden" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_154504_9f93256f-6b8f-4b9a-983b-c6318fd58201.png" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_154504_9f93256f-6b8f-4b9a-983b-c6318fd58201.png')">
+                <a class="gallery__card gallery__card--hidden" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_154504_9f93256f-6b8f-4b9a-983b-c6318fd58201.webp" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_154504_9f93256f-6b8f-4b9a-983b-c6318fd58201-thumb.webp')">
                     <div class="gallery__card-overlay"></div>
                     <span class="gallery__card-zoom"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
                 </a>
-                <a class="gallery__card gallery__card--hidden" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_161747_13044aff-3426-49f7-8678-f3f16aaae2a1.png" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_161747_13044aff-3426-49f7-8678-f3f16aaae2a1.png')">
+                <a class="gallery__card gallery__card--hidden" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_161747_13044aff-3426-49f7-8678-f3f16aaae2a1.webp" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_161747_13044aff-3426-49f7-8678-f3f16aaae2a1-thumb.webp')">
                     <div class="gallery__card-overlay"></div>
                     <span class="gallery__card-zoom"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
                 </a>
-                <a class="gallery__card gallery__card--hidden" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_161952_6a259726-57ba-4592-ab31-f543e2ba3b20.png" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_161952_6a259726-57ba-4592-ab31-f543e2ba3b20.png')">
+                <a class="gallery__card gallery__card--hidden" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_161952_6a259726-57ba-4592-ab31-f543e2ba3b20.webp" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_161952_6a259726-57ba-4592-ab31-f543e2ba3b20-thumb.webp')">
                     <div class="gallery__card-overlay"></div>
                     <span class="gallery__card-zoom"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
                 </a>
-                <a class="gallery__card gallery__card--hidden" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_162122_076106b2-bce4-440f-823b-7db9280992c4.png" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_162122_076106b2-bce4-440f-823b-7db9280992c4.png')">
+                <a class="gallery__card gallery__card--hidden" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_162122_076106b2-bce4-440f-823b-7db9280992c4.webp" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_162122_076106b2-bce4-440f-823b-7db9280992c4-thumb.webp')">
                     <div class="gallery__card-overlay"></div>
                     <span class="gallery__card-zoom"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
                 </a>
-                <a class="gallery__card gallery__card--hidden" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_162436_e7677d10-6d0d-4592-bb1d-4773c51916c1.png" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_162436_e7677d10-6d0d-4592-bb1d-4773c51916c1.png')">
+                <a class="gallery__card gallery__card--hidden" data-src="img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_162436_e7677d10-6d0d-4592-bb1d-4773c51916c1.webp" style="background-image:url('img/%D1%84%D0%BE%D1%82%D0%BE%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%BE%D1%8E%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2/hf_20260307_162436_e7677d10-6d0d-4592-bb1d-4773c51916c1-thumb.webp')">
                     <div class="gallery__card-overlay"></div>
                     <span class="gallery__card-zoom"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
                 </a>
