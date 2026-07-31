@@ -1,0 +1,24 @@
+# Что НЕ выкладывается в вебрут. Используется deploy.sh и .github/workflows/deploy.yml.
+
+# Служебное
+.git/
+.github/
+.gitignore
+.claude/
+.playwright-mcp/
+.rsync-exclude
+
+# Исходники и документация — не для публичного доступа
+CLAUDE.md
+DOCS.md
+README.md
+Dockerfile
+deploy.sh
+nginx.conf
+vercel.json
+data/
+scripts/
+screenshots/
+
+# Создаётся certbot на сервере — не трогать при синхронизации
+.well-known/
