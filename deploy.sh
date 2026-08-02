@@ -31,6 +31,18 @@ cp "$SRC/nginx.conf" /etc/nginx/sites-available/bordur
 ln -sf /etc/nginx/sites-available/bordur /etc/nginx/sites-enabled/bordur
 rm -f /etc/nginx/sites-enabled/default
 
+# Дополнительные домены — отдельными файлами, у каждого свой сертификат.
+# Не перезаписываем уже установленные: там могут быть секции 443 от certbot.
+for extra in www agstroytrest; do
+    target="/etc/nginx/sites-available/bordur-$extra"
+    if [ -f "$target" ]; then
+        echo "    $target уже есть, не трогаю (в нём может быть настройка certbot)"
+    else
+        cp "$SRC/infra/nginx-$extra.conf" "$target"
+    fi
+    ln -sf "$target" "/etc/nginx/sites-enabled/bordur-$extra"
+done
+
 # Сжатие и кеширование — отдельным файлом, чтобы правки пережили certbot
 cp "$SRC/infra/nginx-perf.conf" /etc/nginx/conf.d/bordur-perf.conf
 
